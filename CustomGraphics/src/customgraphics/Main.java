@@ -22,3 +22,21 @@ public class Main {
                   
     }
 }
+
+/*
+
+
+
+create a recursive function that goes in circles to make a holiday
+christmas wreath. 
+Use once usiing :
+    Eectangles,
+    Arcs,
+    Ovals,
+    Custom Polygon
+
+Draw String = "Happy holidays"
+
+
+
+*/

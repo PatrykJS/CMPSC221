@@ -23,12 +23,24 @@ public class CustomGraphics extends JPanel{
         int height = getHeight();
         int size = 50;
         
-        
         g.setColor(Color.YELLOW);        
-        g.fillOval((height-size)/2, (width-size)/2, size, size);
+        //g.fillOval((height-size)/2, (width-size)/2, size, size);
+        
+        int numPoints = 3;
+        int triangleSize = 50;
+        
+        int posX = width/2;
+        int posY = height/2;
+        
+        int[] xPoints = {(posX+(0*triangleSize)), (posX+(triangleSize*2)), (posX+(0*triangleSize))};
+        int[] yPoints = {(posY+(1*triangleSize)), (posY+(0*triangleSize)), (posY+(0*triangleSize))};
         
         
-        //g.fillPolygon(xPoints, yPoints, width);
+        //int[] pointA = [((int)(posX-triangleSize)/2)];
+        g.fillPolygon(xPoints , yPoints, numPoints);   
+        
+        g.setColor(Color.BLACK);
+        g.fillOval(((posX-triangleSize)/2),((posY-triangleSize)/2), 10, 10 );
         
     }
 }
