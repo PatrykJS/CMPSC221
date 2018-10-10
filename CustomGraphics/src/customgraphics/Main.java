@@ -7,8 +7,8 @@ import javax.swing.JFrame;
  */
 public class Main {
     
-    final static int WIDTH = 200;
-    final static int HEIGHT = 200;
+    final static int WIDTH = 400;
+    final static int HEIGHT = 400;
     
     public static void main(String[] args){
         JFrame application = new JFrame();
@@ -21,6 +21,9 @@ public class Main {
         application.setVisible(true);
                   
     }
+    
+    
+    
 }
 
 /*
