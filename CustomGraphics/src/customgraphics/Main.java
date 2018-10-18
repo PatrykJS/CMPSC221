@@ -7,13 +7,14 @@ import javax.swing.JFrame;
  */
 public class Main {
     
-    final static int WIDTH = 400;
-    final static int HEIGHT = 400;
+    final static int WIDTH = 420;
+    final static int HEIGHT = 450;
     
     public static void main(String[] args){
         JFrame application = new JFrame();
-        CustomGraphics window = new CustomGraphics();
         
+        CustomGraphics window = new CustomGraphics();
+        window.setSize(WIDTH, HEIGHT);
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         application.add(window);          
         application.setSize(WIDTH, HEIGHT); 
@@ -21,25 +22,4 @@ public class Main {
         application.setVisible(true);
                   
     }
-    
-    
-    
 }
-
-/*
-
-
-
-create a recursive function that goes in circles to make a holiday
-christmas wreath. 
-Use once usiing :
-    Eectangles,
-    Arcs,
-    Ovals,
-    Custom Polygon
-
-Draw String = "Happy holidays"
-
-
-
-*/
