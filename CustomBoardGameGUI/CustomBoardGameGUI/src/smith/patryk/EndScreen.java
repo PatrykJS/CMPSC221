@@ -8,13 +8,21 @@ package smith.patryk;
  */
 public class EndScreen extends javax.swing.JPanel {
 
+    private int score;
     /**
      * Creates new form EndScreen
+     * @param _score
      */
-    public EndScreen() {
+    public EndScreen(int _score) {
         initComponents();
+        score = _score;
+        jLabel2.setText("" + score);
     }
 
+    public void setScore(int _score){
+        score = _score;
+        jLabel2.setText(""+score);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

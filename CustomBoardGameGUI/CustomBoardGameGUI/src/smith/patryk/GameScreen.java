@@ -7,12 +7,19 @@ package smith.patryk;
  * @author Patryk Smith
  */
 public class GameScreen extends javax.swing.JPanel {
-
+    private final Treasure treasure;
+    private final EndScreen endscreen;
+    
     /**
      * Creates new form GameScreen
+     * @param _treasure
+     * @param _endscreen
      */
-    public GameScreen() {
+    public GameScreen(Treasure _treasure, EndScreen _endscreen) {
         initComponents();
+        treasure = _treasure;
+        endscreen = _endscreen;
+        this.jTextArea1.setText(treasure.display());   
     }
 
     /**
@@ -24,7 +31,7 @@ public class GameScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -35,35 +42,80 @@ public class GameScreen extends javax.swing.JPanel {
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        jTextArea1.setRows(10);
+        jTextArea1.setTabSize(1);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyPressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleName("GameScreenPanel");
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_formKeyPressed
+
+    private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
+        // TODO add your handling code here:
+        char userInput = evt.getKeyChar();
+        switch(userInput){
+            case 'w':
+                System.out.println("UP!");
+                treasure.movePlayer("w");
+                break;
+            case 'a':
+                System.out.println("LEFT!");
+                treasure.movePlayer("a");
+                break;
+            case 's':
+                System.out.println("DOWN!");
+                treasure.movePlayer("s");
+                break;
+            case 'd':
+                System.out.println("RIGHT!");
+                treasure.movePlayer("d");
+                break;
+            case 'q':
+                this.setVisible(false);
+                endscreen.setScore(treasure.getScore());
+                endscreen.setVisible(true);
+                treasure.quit(0);
+            default:
+                break;
+                    
+        }
+        this.jTextArea1.setText(treasure.display());
+        if(treasure.win()){
+            this.setVisible(false);
+            endscreen.setScore(treasure.getScore());
+            endscreen.setVisible(true);
+        }
+    }//GEN-LAST:event_jTextArea1KeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
