@@ -69,7 +69,7 @@ public class TimerDemo1 extends JFrame implements KeyListener {
         });
 
         // bullet moving up the screen
-        timerBullet = new Timer(100, (ActionEvent evt) -> {
+        timerBullet = new Timer(20, (ActionEvent evt) -> {
             bulletY -= bulletMoveAmount;        // moving bullet vertically up the screen
             
             // detecting collision with enemy
@@ -97,7 +97,7 @@ public class TimerDemo1 extends JFrame implements KeyListener {
         g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);         // repaint background
 
         g.setColor(Color.black);                              // repaint enemy at top of screen
-        g.fillRect(enemyX, 20, 20, 20);
+        g.fillRect(enemyX, 30, 20, 20);
 
         g.setColor(Color.blue);                               // repaint player at bottom of screen  
         g.fillRect(playerX, 200, 20, 20);
@@ -122,12 +122,12 @@ public class TimerDemo1 extends JFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
