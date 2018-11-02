@@ -81,8 +81,8 @@ public class DownloadThread extends Observable implements Runnable {
 	
 	static int THREAD_COUNT = 0;
 			
-	private Properties properties;
-	private PageCrawler crawler;
+	private final Properties properties;
+	private final PageCrawler crawler;
 	private YoutubeUrl youtubeUrl = null;	// main URL (youtube start web page) as object
 	private Vector<YoutubeUrl> nextVideoUrls = new Vector<YoutubeUrl>();	// list of URLs from webpage source
 	
@@ -127,7 +127,7 @@ public class DownloadThread extends Observable implements Runnable {
 						log.info("Thread woke up ");
 						this.isInterrupted = JFCMainClient.getQuitRequested(); // if quit was pressed while this threads works it would not get the InterruptedException and therefore prevent application shutdown
 						
-						log.info("URLs remain in list: " +Integer.toString(JFCMainClient.DLM.size()));
+						log.log(Level.INFO, "URLs remain in list: {0}", Integer.toString(JFCMainClient.DLM.size()));
 						// running in CLI mode?
 						if (JFCMainClient.FRAME == null) {
 							if (JFCMainClient.DLM.size() == 0) {
@@ -180,9 +180,7 @@ public class DownloadThread extends Observable implements Runnable {
 			} catch (InterruptedException e) {
 				this.isInterrupted = true;
 			} catch (NullPointerException npe) {
-				npe.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (IOException e) {
 			} 
 		} 
 		log.info("Thread ended");
@@ -233,7 +231,7 @@ public class DownloadThread extends Observable implements Runnable {
 			this.contentType = response.getFirstHeader("Content-Type").getValue();
 			this.contentLength = response.getFirstHeader("Content-Length").getValue();
 			
-			log.info("HTTP response status line: " +statusLine);
+			log.log(Level.INFO, "HTTP response status line: {0}", statusLine);
 
 			isHttpReturnCode_200 = isHttpReturnCode200(statusLine);
 			isHttpReturnCode_204 = isHttpReturnCode204(statusLine);
@@ -243,7 +241,7 @@ public class DownloadThread extends Observable implements Runnable {
 			// abort if HTTP response code is != 200, != 302 and !=204 - wrong URL?
 			boolean shouldAbortDownload = (!isHttpReturnCode_200 & !isHttpReturnCode_204 & !isHttpReturnCode_302);
 			if (shouldAbortDownload) {
-				log.severe("StatusCode: " +statusLine +" aborting download for Url: "+url);
+				log.log(Level.SEVERE, "StatusCode: {0} aborting download for Url: {1}", new Object[]{statusLine, url});
 				sendMessage("Url is not working, StatusCode: " +statusLine +", abort download of title: \""+this.title +"\"");
 				return false;
 			}
@@ -252,7 +250,7 @@ public class DownloadThread extends Observable implements Runnable {
 				return isDownloadOK;
 			}
 			if (isHttpReturnCode_302) { 
-				log.info("location from HTTP Header: " +response.getFirstHeader("Location").getValue());
+				log.log(Level.INFO, "location from HTTP Header: {0}", response.getFirstHeader("Location").getValue());
 			}
 		} catch (NullPointerException npe) {
 			// if an IllegalStateException was catched while calling httpclient.execute(httpget) a NPE is caught here because
@@ -264,7 +262,6 @@ public class DownloadThread extends Observable implements Runnable {
         try {
             entity = response.getEntity();
         } catch (NullPointerException npe) {
-        	npe.printStackTrace();
         }
         
         // try to read HTTP response body
@@ -276,9 +273,7 @@ public class DownloadThread extends Observable implements Runnable {
 					this.binaryReader = new BufferedInputStream( entity.getContent());
 				}
 			} catch (IllegalStateException e1) {
-				e1.printStackTrace();
 			} catch (IOException e1) {
-				e1.printStackTrace();
 			}
             try {
             	// test if we got a webpage
@@ -302,34 +297,32 @@ public class DownloadThread extends Observable implements Runnable {
                 try {
 					throw ex;
 				} catch (IOException e) {
-					e.printStackTrace();
 				}
             } catch (RuntimeException ex) {
                 try {
 					throw ex;
-				} catch (Exception e) {
-					e.printStackTrace();
+				} catch (RuntimeException e) {
 				}
             }
         } 
         
        	this.httpClient.close();
 
-        log.info("done: " +url);
+        log.log(Level.INFO, "done: {0}", url);
         if (this.videoUrl==null) {
         	this.videoUrl=""; // to prevent NPE
         }
         
     	// enter recursion - download video resource
         if (this.videoUrl.matches(String_Constants.URL_REGEX)) { 	
-        	log.info("try to download video from URL: " +this.videoUrl);
+        	log.log(Level.INFO, "try to download video from URL: {0}", this.videoUrl);
         	videoUrl= crawler.removeXTags(videoUrl);
         	isDownloadOK = downloadOne(this.videoUrl);
         } else {
         	// no more recursion - html source has been read
         	// rc==false if video could not downloaded because of some error (like wrong protocol or country restriction)
         	if (!isDownloadOK) {
-        		log.info(Messages.getString("DEBUG_MESSAGE_CANT_DOWNLOAD_URL_SEEM_WRONG") +this.url);
+        		log.log(Level.INFO, "{0}{1}", new Object[]{Messages.getString("DEBUG_MESSAGE_CANT_DOWNLOAD_URL_SEEM_WRONG"), this.url});
         		sendMessage(Messages.getString("ERROR_MESSAGE_TO_FIND_VIDEO_URL"));
         		sendMessage((Messages.getString("INFO_MESSAGE_CONSIDER_TO_REPORT_URL_TO_AUTHOR")) +this.url);
         		this.videoUrl = null;
@@ -348,8 +341,8 @@ public class DownloadThread extends Observable implements Runnable {
 			tryToAddSecifiedProxy(properties.getProxy());			
 			this.httpClient = HttpClients.createDefault();	
 			
-	        log.info("executing request: " +this.request.getRequestLine().toString());
-	        log.info("uri: " +this.request.getURI().toString());
+	        log.log(Level.INFO, "executing request: {0}", this.request.getRequestLine().toString());
+	        log.log(Level.INFO, "uri: {0}", this.request.getURI().toString());
 	        response = this.httpClient.execute(this.request);
 			
 		} catch (ClientProtocolException clientProtocolException) {
