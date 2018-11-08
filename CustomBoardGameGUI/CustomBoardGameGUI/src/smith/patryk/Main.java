@@ -2,6 +2,8 @@
  */
 package smith.patryk;
 
+import smith.patryk.TreasureGUI;
+
 
 /**
  *

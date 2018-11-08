@@ -1,5 +1,7 @@
 package smith.patryk;
 
+import smith.patryk.Position;
+
 /**
  * @author Patryk Smith
  * 
