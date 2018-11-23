@@ -1,6 +1,5 @@
 package smith.patryk;
 
-import java.util.ArrayList;
 
 /**
  * @author Patryk Smith
@@ -20,25 +19,18 @@ import java.util.ArrayList;
  */
 public class BoardGame extends Game{
     
-    public String[][] base;
-    public String[][] background;
-    public ArrayList<Player> players;
     
-    BoardGame(int _x, int _y){
-        init( _x, _y);
+    private final int numRows;
+    private final int numCols;
+    
+    BoardGame(int _x, int _y, int numberOfPlayers){
+        init( _x, _y, numberOfPlayers);
+        numRows = _x/ 16;
+        numCols = _y/ 16;
     }
+    
+    private void init(int _x, int _y, int numberOfPlayers){
+        this.setNumPlayers(numberOfPlayers);
         
-    private void init(int _x, int _y){
-        this.setNumPlayers(1);
-        base = new String[_x][_y];
-        background = new String[_x][_y];
-        
-        for( int i = 0; i < _x; i++){
-            for( int j = 0; j < _y; j++){
-                base[i][j] = "#";
-                background[i][j] = "#";
-                
-            }
-        }
-    }    
+    }
 }

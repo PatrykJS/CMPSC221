@@ -1,6 +1,8 @@
 package smith.patryk;
 
-import smith.patryk.Position;
+import javax.swing.Timer;
+
+
 
 /**
  * @author Patryk Smith
@@ -19,60 +21,56 @@ import smith.patryk.Position;
  * user input sent to it. 
  */
 public class Entity {
-    private Position position;
-    private String name;
-    private String token;
+    enum Type {Player, Chest, Ground};
     
-    public Entity(String _token){
-        token = _token;
-        name = "Player 1";
-        position = new Position(0, 0);
+    protected Timer animation;
+    private Vector2D position;
+    private Vector2D velocity;
+    
+    private String name;
+    
+    public Entity(){
+        name = "Entity";
+        position = new Vector2D(0, 0);
     }
-    public Entity(String _token, String _name){
-        token = _token;
+    public Entity(String _name){
         name = _name;
-        position = new Position(0,0);
+        position = new Vector2D(0,0);
     }
-    public Entity(String _token, String _name, Position _position){
-        token = _token;
+    public Entity(String _name, Vector2D _position){
         name = _name;
-        position = new Position(_position);
+        position = new Vector2D(_position);
     } 
     public String getName(){
         return name;
     }
-    public String getToken(){
-        return token;
-    }
-    public Position getPosition(){
+    public Vector2D getPosition(){
         return position;
     }
     public int getPositionY(){
-        return position.y;
+        return position.getIntY();
     }
     public int getPositionX(){
-        return position.x;
+        return position.getIntX();
+    }
+    public Timer getAnimation(){
+        return animation;
+    }
+    public void setAnimation(Timer t){
+        animation = t;
     }
     public void setName(String _name){
         name = _name;
     }
-    public void setToken(String _token){
-        token = _token;
-    }
-    public void setPosition(Position _position){
+    public void setPosition(Vector2D _position){
         position = _position;
     }
     public void setPosition(int _x, int _y){
-        position = new Position(_x, _y);
+        position = new Vector2D(_x, _y);
     }
-    public void setPositionX(int _x){
-        position.x =_x;
-    }
-    public void setPositionY(int _y){
-        position.x =_y;
-    }
-    public void increasePosition(int delta_x, int delta_y){
-        position.x += delta_x;
-        position.y += delta_y;
+    public void move(Vector2D _velocity){
+        position.add(_velocity);
+        
+        
     }
 }

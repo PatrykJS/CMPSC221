@@ -43,96 +43,87 @@ public class Treasure extends BoardGame {
     private BoardGame board;
     private Player p;
     private TreasureChest t;
-    private WinScreen w;
+    
     private double begin;
     private double end;
     
     public Treasure(int _width, int _height){
         
-        super(_width, _height);
+        super(_width, _height, 1);
         begin = System.currentTimeMillis();
         this.setWidth(_width);
         this.setHeight(_height);
         init();
     }
-    
+    public BoardGame getBoard(){
+        return board;
+    }
           
     private void init(){
         
-        w = new WinScreen();
-        board = new BoardGame(this.getWidth(), this.getHeight());
+        board = new BoardGame(this.getWidth(), this.getHeight(), 1);
         Random rand = new Random();
-        Position player_starting_position = new Position( (int)(this.getWidth() / 2.0), (int)(this.getHeight() / 2.0));
-        Position treasure_starting_position = new Position(rand.nextInt(this.getWidth()), rand.nextInt(this.getHeight()));
         
-        p = new Player("P", player_starting_position);
-        t = new TreasureChest("%", treasure_starting_position);
+        
+        
+        Vector2D player_starting_position = new Vector2D( (int)(this.getWidth() / 2.0), (int)(this.getHeight() / 2.0));
+        Vector2D treasure_starting_position = new Vector2D(rand.nextInt(this.getWidth()), rand.nextInt(this.getHeight()));
+        
+        p = new Player("Pplayer", player_starting_position);
+        t = new TreasureChest("Treasure", treasure_starting_position);
+        
         board.players = new ArrayList<>(1);
         board.players.add(p);
-        board.base[this.getWidth()/2][this.getHeight()/2] = p.getToken();                  
-    }
-    
-    public void movePlayer(String s){
         
-        for( int i = 0; i < this.getWidth(); i++){
-            for( int j = 0; j < this.getHeight(); j++){
-                board.base[i][j] = board.background[i][j];
-            }
-        }
-        base[p.getPositionY()][p.getPositionY()] = "#";
+    }
+    public Player getPlayer(){
+        return p;
+    }
+    public TreasureChest getTreasureChest(){
+        return t;
+    }
+    public void movePlayer(String s){
         switch (s){
-            
             case "w":
                 if((p.getPositionY() > 0)){
-                    p.increasePosition(0, -1);
+                    p.move(new Vector2D(0, 1));
                 }
                 break;
             case "a":
                 if((p.getPositionX() > 0)){
-                    p.increasePosition(-1, 0);
+                    p.move(new Vector2D(-1, 0));
                 }
                 break;
             case "s":
                 if((p.getPositionY()+1 < this.getHeight())){
-                    p.increasePosition(0, 1);
+                    p.move(new Vector2D(0, -1));
                 }
                 break;
             case "d":
                 if((p.getPositionX()+1 < this.getWidth())){
-                    p.increasePosition(1, 0);
+                    p.move(new Vector2D(1, 0));
                 }
                 break;
             default:
-                p.increasePosition(0, 0);
+                p.move(new Vector2D(0, 0));
                 break;
         }
     }
-    
-    public String display(){
-        board.base[p.getPositionX()][p.getPositionY()] = p.getToken();
-        board.base[t.getPositionX()][t.getPositionY()] = t.getToken();
-        
-        String s ="";
-        for( int i = 0; i < this.getHeight(); i++){
-            for( int j = 0; j < this.getWidth(); j++){
-                s += board.base[j][i];
-            }
-            s+= "\n";
-        }      
-        return s;
+    public void move(Vector2D v){
+        p.move(v);
+    }
+    public Vector2D getPlayerPosition(){
+        return p.getPosition();
+    }
+    public Vector2D getTreasurePosition(){
+        return t.getPosition();
     }
     
-    public String[] winscreen (){        
-        return w.screen();        
-    }
     public boolean win(){
-        
         if((p.getPositionX() == t.getPositionX()) && (p.getPositionY() == t.getPositionY())){            
             end = System.currentTimeMillis();
-            if(end-begin != 0){
-            	this.setScore(Math.abs((int)(1/( (end - begin)/begin)) / 365 * 4000));
-            }else{
-		this.setScore(10000);
+            if(Math.abs(end-begin)/(end) > 0.01){
+            	this.setScore(1000);
             }
             return true;            
         }else{            

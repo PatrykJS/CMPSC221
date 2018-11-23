@@ -1,7 +1,5 @@
 package smith.patryk;
 
-import smith.patryk.Position;
-
 /**
  * @author Patryk Smith
  * 
@@ -10,17 +8,19 @@ import smith.patryk.Position;
  */
 public class TreasureChest extends Entity {
     
-    public TreasureChest(String _token) {
-        super(_token);
+    
+    public TreasureChest() {
+       
     }    
-    public TreasureChest(String _token, String _name){
-       super(_token, _name);
+    public TreasureChest(String _name){
+       super(_name);
     }
-    public TreasureChest(String _token, String _name, Position _position){
-       super(_token, _name, _position);
+    public TreasureChest( String _name, Vector2D _position){
+       super( _name, _position);
     }    
-    public TreasureChest(String _token, Position _position){
-       super(_token,"", _position);
+    public TreasureChest(Vector2D _position){
+       super("Chest", _position);
     }
+    
     
 }

@@ -1,7 +1,5 @@
 package smith.patryk;
 
-import smith.patryk.Position;
-
 /**
  * @author Patryk Smith
  * 
@@ -15,17 +13,17 @@ import smith.patryk.Position;
 public class Player extends Entity {
     public enum Move {UP, LEFT, DOWN, RIGHT};
     
-    public Player(String _token){
-        super(_token);
+    public Player(){
+        
     }
-    public Player(String _token, String _name){
-       super(_token, _name);
+    public Player(String _name){
+       super(_name);
     }
-    public Player(String _token, String _name, Position _position){
-       super(_token, _name, _position);
+    public Player( String _name, Vector2D _position){
+       super( _name, _position);
     }
-    public Player(String _token, Position _position){
-       super(_token,"", _position);
+    public Player(Vector2D _position){
+       super("Player", _position);
     }
     
 }

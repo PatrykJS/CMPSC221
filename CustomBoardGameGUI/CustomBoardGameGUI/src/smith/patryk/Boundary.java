@@ -11,19 +11,18 @@ package smith.patryk;
  */
 
 public class Boundary extends Entity{
-    private Position p;
     
     public Boundary(String _token){
         super(_token);
     }
     public Boundary(String _token, String _name){
-       super(_token, _name);
+       super( _name);
     }
-    public Boundary(String _token, String _name, Position _position){
-       super(_token, _name, _position);
+    public Boundary(String _token, String _name, Vector2D _position){
+       super( _name, _position);
     }
-    public Boundary(String _token, Position _position){
-       super(_token,"", _position);
+    public Boundary(String _token, Vector2D _position){
+       super("Boundary", _position);
     }
         
 }
