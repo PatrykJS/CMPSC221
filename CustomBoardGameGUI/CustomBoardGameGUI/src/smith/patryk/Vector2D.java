@@ -16,6 +16,10 @@ public class Vector2D {
         x = _v.getX();
         y = _v.getY();
     }
+
+    Vector2D() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     // Getters
     public double getX(){
         return x;
@@ -50,7 +54,24 @@ public class Vector2D {
     public double dot(Vector2D v){
         return (x*v.x) + (y*v.y);
     }
+    public Vector2D direction (Vector2D from, Vector2D to){
+        return new Vector2D(to.x - from.x,  to.y - from.y);
+    }
     
-    
-    
+    public void normalize(){
+        if(x > 0){
+            x = 1;
+        }else if(x < 0){
+            x = -1;
+        } else {
+            x = 0;
+        }
+        if( y > 0){
+            y = 1;
+        }else if (y < 0){
+            y = -1;
+        } else {
+            y = 0;
+        }
+    }
 }

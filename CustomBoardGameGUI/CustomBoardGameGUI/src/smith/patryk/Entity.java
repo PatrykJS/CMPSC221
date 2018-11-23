@@ -69,8 +69,7 @@ public class Entity {
         position = new Vector2D(_x, _y);
     }
     public void move(Vector2D _velocity){
-        position.add(_velocity);
-        
-        
+        position = position.add(_velocity);
+               
     }
 }

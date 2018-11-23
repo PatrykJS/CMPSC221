@@ -83,31 +83,41 @@ public class Treasure extends BoardGame {
         return t;
     }
     public void movePlayer(String s){
+        
         switch (s){
             case "w":
                 if((p.getPositionY() > 0)){
-                    p.move(new Vector2D(0, 1));
+                    p.move(new Vector2D(0, -1));
+                }else{
+                    p.setPosition(p.getPositionX(), this.getHeight()-3);
                 }
                 break;
             case "a":
                 if((p.getPositionX() > 0)){
                     p.move(new Vector2D(-1, 0));
+                }else{
+                    p.setPosition(this.getWidth()-1, p.getPositionY());
                 }
                 break;
             case "s":
-                if((p.getPositionY()+1 < this.getHeight())){
-                    p.move(new Vector2D(0, -1));
+                if((p.getPositionY()+3 < this.getHeight())){
+                    p.move(new Vector2D(0,  1));
+                }else{
+                    p.setPosition(p.getPositionX(), 0);
                 }
                 break;
             case "d":
                 if((p.getPositionX()+1 < this.getWidth())){
                     p.move(new Vector2D(1, 0));
+                }else {
+                    p.setPosition(0, p.getPositionY());
                 }
                 break;
             default:
                 p.move(new Vector2D(0, 0));
                 break;
         }
+        System.out.println(p.getPositionX() +" " + p.getPositionY());
     }
     public void move(Vector2D v){
         p.move(v);
