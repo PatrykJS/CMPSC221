@@ -2,7 +2,6 @@ package smith.patryk;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -15,6 +14,8 @@ import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -23,18 +24,25 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
 
     double SleepTime = 1000 / 30, lastRefresh = 0;
     private final Treasure treasure;
-    private final EndScreen endscreen;
+    private EndScreen endscreen;
     private BufferedImage background;
     private BufferedImage[] sprites;
     private Dimension screenSize;
-    private Vector2D treasureDirection;
+    
+    Vector2D compassPosition;
+    Vector2D direction;
+    Vector2D treasureDirection;
+    
     private Compass compass;
-
+    private Graphics graphics;
+    private Timer t;
+    
     final int width = 72;
     final int height = 72;
     final int rows = 15;
     final int cols = 15;
-
+    final int compassUseTime = 3000;
+    
     private final int x = 72;
     private final int y = 72;
     private final BufferedImage textures;
@@ -64,8 +72,11 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     }
 
     public void init() throws IOException {
+        
         int tileSize = (int) ((int) screenSize.height / 72.0);
-
+        compassPosition = new Vector2D(50, 50);
+        direction = new Vector2D (0,0);
+        treasureDirection = new Vector2D(0, 0);
         setBackground(Color.white);
         sprites = new BufferedImage[rows * cols];
 
@@ -80,7 +91,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             }
         }
         background = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-        //System.out.print(width +", "+ height+"\n");
+        
         background = new BufferedImage(screenSize.width, screenSize.height, BufferedImage.TYPE_INT_RGB);
         Graphics g_res = background.getGraphics();
 
@@ -100,35 +111,34 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
                 treasure.getTreasurePosition().getY() - treasure.getPlayerPosition().getY());
 
         compass = new Compass(treasure.getTreasureChest(), treasure.getPlayer());
+                
+        t = new Timer(compassUseTime,  (ActionEvent evt) -> { });
+        t.setRepeats(false);
     }
 
     @Override
     public void paintComponent(Graphics g) {
+        graphics = g;
         requestFocus();
         g.drawImage(background, 0, 0, endscreen);
-        g.drawImage(sprites[1], treasure.getTreasurePosition().getIntX()*72, treasure.getTreasurePosition().getIntY()*72, endscreen);
+        //g.drawImage(sprites[1], treasure.getTreasurePosition().getIntX()*72, treasure.getTreasurePosition().getIntY()*72, endscreen);
         drawPlayer(g, treasure.getPlayerPosition().getIntX() * 72, treasure.getPlayerPosition().getIntY() * 72);
 
-//        g.setColor(Color.red);
-//        g.setFont(new Font("Helvetica", Font.PLAIN, 18));
-//        g.drawString("X: "+treasure.getTreasurePosition().getIntX()+", Y:"+treasure.getTreasurePosition().getIntY(),0 , 20);
+        //g.setColor(Color.red);
+        // g.setFont(new Font("Helvetica", Font.PLAIN, 18));
+        // g.drawString("X: "+treasure.getTreasurePosition().getIntX()+", Y:"+treasure.getTreasurePosition().getIntY(),0 , 20);
         g.drawString("X: " + treasure.getPlayerPosition().getIntX() + ", Y:" + treasure.getPlayerPosition().getIntY(), 0, 40);
         
-        Vector2D compassPosition = new Vector2D( screenSize.width - 50, screenSize.height -50);
+        compass.draw(g, treasure, compassPosition, direction);
+        if(!t.isRunning()){
+          compass.setShow(false);
+        }
+       
+        //System.out.println("Chest X: "+ chestX +", Y:" + chestY+" - Player X: "+ playerX +", Y: " +playerY+" - Direction X: " + direction.getIntX() + " Y: " + direction.getIntY());
         
-        int chestX = treasure.getTreasurePosition().getIntX();
-        int chestY = treasure.getTreasurePosition().getIntY();
         
-        int playerX = treasure.getPlayerPosition().getIntX();
-        int playerY = treasure.getPlayerPosition().getIntY();
-        
-        Vector2D direction = new Vector2D (Math.abs(chestX - playerX)/chestX-playerX, Math.abs(chestY - playerY)/chestY-playerY);
-        System.out.println("X: " + direction.getIntX() + " Y: " + direction.getIntY());
-        compass.draw(g, compassPosition, direction);
-
         repaint();
     }
-
     private void drawPlayer(Graphics g, int _x, int _y) {
         g.drawImage(sprites[2], _x, _y, null);
         g.drawImage(sprites[3], _x, _y + sprites[2].getHeight(), null);
@@ -160,16 +170,18 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
                 // treasure.getPlayer().setPosition(treasure.getPlayerPosition().getIntX()+1,treasure.getPlayerPosition().getIntY());
                 break;
             case ' ':
-                if (compass.canUse()) {
+                System.out.println("SPACE!");
+                if(compass.canUse() && !t.isRunning()){
                     compass.use();
-                } else {
-                    Timer tempMessage = new Timer(200, (ActionEvent evt) -> {
-                        displayCompassUsed();
-                        repaint();
-                    });
-
+                    compass.setShow(true);
+                    t.start();
+                    
+                }else{
+                   System.out.println("Cant SHOW!");
+                   compass.setShow(false);
+                   repaint();
                 }
-
+                
                 break;
             default:
                 break;
@@ -179,16 +191,15 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
                 || treasure.getTreasurePosition().getY() == treasure.getPlayerPosition().getIntY() + 1)) {
 
             this.setVisible(false);
+            try {
+                endscreen.setScore(25000);
+            } catch (IOException ex) {
+                Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
+            }
             endscreen.setVisible(true);
         }
     }
 
-    public void displayCompassUsed() {
-        Graphics g = this.getGraphics();
-        g.setColor(Color.red);
-        g.setFont(new Font("Helvetica", Font.PLAIN, 18));
-        g.drawString("Compass used up!", 0, this.getHeight() - 20);
-    }
 
     @Override
     public void keyPressed(KeyEvent e) {

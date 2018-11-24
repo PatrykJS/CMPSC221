@@ -2,26 +2,34 @@
  */
 package smith.patryk;
 
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Patryk Smith
  */
 public class EndScreen extends javax.swing.JPanel {
-
     private int score;
     /**
      * Creates new form EndScreen
      * @param _score
      */
-    public EndScreen(int _score) {
+    public EndScreen(int _score){
         initComponents();
         score = _score;
         jLabel2.setText("" + score);
     }
-
-    public void setScore(int _score){
+   
+    public void setScore(int _score) throws IOException{
+        
+        InputStream url = getClass().getResourceAsStream("/resources/background.png");
+        jLabel3.setIcon(new ImageIcon (ImageIO.read(url)));
         score = _score;
         jLabel2.setText(""+score);
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,12 +41,15 @@ public class EndScreen extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
+        add(jLabel3, new java.awt.GridBagConstraints());
 
         jLabel1.setFont(new java.awt.Font("Forte", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Arrg! You Found the Treasure!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -50,6 +61,7 @@ public class EndScreen extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(68, 20, 0, 32);
         add(jLabel1, gridBagConstraints);
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Score: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -65,5 +77,6 @@ public class EndScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
