@@ -1,0 +1,34 @@
+Create 
+    = AudioEngine
+        - Music
+            ~ Title Screen score
+            ~ End Screen score
+            ~ Game play score
+        - SFX 
+            ~ Water sound
+            ~ Stepping sound
+            ~ Digging sound
+            ~ Chest opening sound
+            ~ Chest found sound
+            ~ Compass used sound
+            ~ GUI Button click sound 
+    = Database
+        - saves name and score
+        - saves level data
+        - loads top 5 scores and names at title screen
+        - loads level data from old file
+    = AnimationEngine
+        - REDO Sprite sheet
+        - Player moves back and forth
+        - Player digs
+        - Chest opens
+        - Title screen, island scene
+    = Menu Screen
+        - change keymap
+        - change sound level
+        - Save and Quit
+        - Load and Play
+Fix
+    - Title Screen
+    - Credits Screen
+    - Treasure detection

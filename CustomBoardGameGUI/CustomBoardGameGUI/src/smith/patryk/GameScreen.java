@@ -36,12 +36,14 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     private Compass compass;
     private Graphics graphics;
     private Timer t;
+    private Timer time;
     
-    final int width = 72;
-    final int height = 72;
-    final int rows = 15;
-    final int cols = 15;
-    final int compassUseTime = 3000;
+    private final int width = 72;
+    private final int height = 72;
+    private final int rows = 15;
+    private final int cols = 15;
+    private final int compassUseTime = 3000;
+    private int timeCount;
     
     private final int x = 72;
     private final int y = 72;
@@ -68,7 +70,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         endscreen = _endscreen;
         screenSize = d;
         init();
-
+        timeCount = 0;
     }
 
     public void init() throws IOException {
@@ -114,6 +116,13 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
                 
         t = new Timer(compassUseTime,  (ActionEvent evt) -> { });
         t.setRepeats(false);
+        
+         
+        time = new Timer(1000, (ActionEvent evt) -> {
+            timeCount++; 
+        });
+        time.setRepeats(true);
+        time.start();
     }
 
     @Override
@@ -133,15 +142,21 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         if(!t.isRunning()){
           compass.setShow(false);
         }
-       if(treasure.getTreasureChest().getShow()){
-           drawTreasureChest(g);
-       }
+        
+        if(treasure.getTreasureChest().getShow()){
+            drawTreasureChest(g);
+        }
         //System.out.println("Chest X: "+ chestX +", Y:" + chestY+" - Player X: "+ playerX +", Y: " +playerY+" - Direction X: " + direction.getIntX() + " Y: " + direction.getIntY());
         
         if(treasure.didWin()){
             this.setVisible(false);
             endscreen.setVisible(true);
         }
+        
+        
+        //g.setColor(Color.RED);
+        //g.drawString(timeCount +"", 20, 300);
+            
         repaint();
     }
     private void drawPlayer(Graphics g, int _x, int _y) {
