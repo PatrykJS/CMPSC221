@@ -44,12 +44,14 @@ public class Treasure extends BoardGame {
     private Player p;
     private TreasureChest t;
     
+    private boolean win; 
+    
     private double begin;
     private double end;
     
     public Treasure(int _width, int _height){
-        
         super(_width, _height, 1);
+        win = false;
         begin = System.currentTimeMillis();
         this.setWidth(_width);
         this.setHeight(_height);
@@ -58,7 +60,7 @@ public class Treasure extends BoardGame {
     public BoardGame getBoard(){
         return board;
     }
-          
+        
     private void init(){
         
         board = new BoardGame(this.getWidth(), this.getHeight(), 1);
@@ -128,16 +130,10 @@ public class Treasure extends BoardGame {
     public Vector2D getTreasurePosition(){
         return t.getPosition();
     }
-    
-    public boolean win(){
-        if((p.getPositionX() == t.getPositionX()) && (p.getPositionY() == t.getPositionY())){            
-            end = System.currentTimeMillis();
-            if(Math.abs(end-begin)/(end) > 0.01){
-            	this.setScore(1000);
-            }
-            return true;            
-        }else{            
-            return false;            
-        }        
+    public void setWin(boolean w){
+        win = w;
+    }
+    public boolean didWin(){
+        return win;
     }    
 }

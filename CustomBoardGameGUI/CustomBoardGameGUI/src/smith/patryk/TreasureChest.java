@@ -7,10 +7,10 @@ package smith.patryk;
  * use of position logic and token systematics.
  */
 public class TreasureChest extends Entity {
-    
+    private boolean isShowing;
     
     public TreasureChest() {
-       
+       isShowing = false;
     }    
     public TreasureChest(String _name){
        super(_name);
@@ -21,6 +21,11 @@ public class TreasureChest extends Entity {
     public TreasureChest(Vector2D _position){
        super("Chest", _position);
     }
-    
+    public void show(){
+        isShowing = true;
+    }
+    public boolean getShow(){
+        return isShowing;
+    }
     
 }

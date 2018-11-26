@@ -133,10 +133,15 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         if(!t.isRunning()){
           compass.setShow(false);
         }
-       
+       if(treasure.getTreasureChest().getShow()){
+           drawTreasureChest(g);
+       }
         //System.out.println("Chest X: "+ chestX +", Y:" + chestY+" - Player X: "+ playerX +", Y: " +playerY+" - Direction X: " + direction.getIntX() + " Y: " + direction.getIntY());
         
-        
+        if(treasure.didWin()){
+            this.setVisible(false);
+            endscreen.setVisible(true);
+        }
         repaint();
     }
     private void drawPlayer(Graphics g, int _x, int _y) {
@@ -170,14 +175,14 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
                 // treasure.getPlayer().setPosition(treasure.getPlayerPosition().getIntX()+1,treasure.getPlayerPosition().getIntY());
                 break;
             case ' ':
-                System.out.println("SPACE!");
+                 
                 if(compass.canUse() && !t.isRunning()){
                     compass.use();
                     compass.setShow(true);
                     t.start();
                     
                 }else{
-                   System.out.println("Cant SHOW!");
+                    
                    compass.setShow(false);
                    repaint();
                 }
@@ -186,18 +191,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             default:
                 break;
         }
-        if (treasure.getPlayerPosition().getIntX() == treasure.getTreasurePosition().getIntX()
-                && (treasure.getTreasurePosition().getIntY() == treasure.getPlayerPosition().getIntY()
-                || treasure.getTreasurePosition().getY() == treasure.getPlayerPosition().getIntY() + 1)) {
-
-            this.setVisible(false);
-            try {
-                endscreen.setScore(25000);
-            } catch (IOException ex) {
-                Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            endscreen.setVisible(true);
-        }
+        
     }
 
 
@@ -217,8 +211,14 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //System.out.println("Clicked!");
+        if( e.getButton() ==1){
+            System.out.println("Clicked!");
+            try {
+                treasure.getPlayer().dig(treasure, endscreen);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     @Override

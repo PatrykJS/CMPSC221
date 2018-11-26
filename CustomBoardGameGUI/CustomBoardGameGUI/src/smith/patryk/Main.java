@@ -17,14 +17,14 @@ public class Main {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 
         JFrame application;
-        StartingScreen openingWindow;
+        Starting openingWindow;
         GameScreen gameWindow;
         EndScreen endScreen;
         
         application = new JFrame();
         endScreen = new EndScreen(0);
         gameWindow = new GameScreen(endScreen, screenSize);
-        openingWindow = new StartingScreen(gameWindow);
+        openingWindow = new Starting(gameWindow);
         
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
