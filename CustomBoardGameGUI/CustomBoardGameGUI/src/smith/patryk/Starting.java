@@ -2,6 +2,14 @@
  */
 package smith.patryk;
  
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 
 /**
@@ -10,14 +18,28 @@ import javax.swing.JPanel;
  */
 public class Starting extends javax.swing.JPanel {
     private final JPanel panel;
+    private AudioInputStream audioIn;
+    private  Clip clip;
     
     /**
      * Creates new form StartingScreen
      * @param _panel
      */
-    public Starting(JPanel _panel) {
+    public Starting(JPanel _panel)  {
         initComponents();
         panel = _panel;
+        try {
+            System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
+            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav"));
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        clip.start();
+        clip.loop(10);
+        
     }
    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -61,6 +83,7 @@ public class Starting extends javax.swing.JPanel {
         // TODO add your handling code here:
         this.setVisible(false);
         panel.setVisible(true);
+        clip.stop();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

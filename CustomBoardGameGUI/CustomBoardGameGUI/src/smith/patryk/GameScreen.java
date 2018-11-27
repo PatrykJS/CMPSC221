@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -48,6 +53,9 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     private final int x = 72;
     private final int y = 72;
     private final BufferedImage textures;
+    
+    private AudioInputStream audioIn;
+    private Clip clip;
 
     /**
      * Creates new form GameScreen
@@ -63,7 +71,19 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         addMouseListener(this);
 
         InputStream url = getClass().getResourceAsStream("/resources/Textures.png");
-
+        try {
+            System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
+            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav"));
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        clip.start();
+        clip.loop(10);
+        
+        
         textures = ImageIO.read(url);
 
         treasure = new Treasure(d.width / 72, d.height / 72);
