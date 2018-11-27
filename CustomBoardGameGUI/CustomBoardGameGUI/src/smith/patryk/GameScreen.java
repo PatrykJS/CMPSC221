@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,7 +55,8 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     private final int y = 72;
     private final BufferedImage textures;
     
-    private AudioInputStream audioIn;
+    private InputStream audioInDirect;
+    private AudioInputStream audioInBuffer;
     private Clip song;
     private final String audioClip = "/resources/GamePlay1.wav";
     
@@ -73,14 +75,16 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
 
         InputStream url = getClass().getResourceAsStream("/resources/Textures.png");
         try {
-            //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip)));
-            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip));
+            //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
+            audioInDirect = getClass().getResourceAsStream(audioClip);
+            InputStream bufferedIn = new BufferedInputStream(audioInDirect);
+            audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
             song = AudioSystem.getClip();
-            song.open(audioIn);
+            song.open(audioInBuffer);
             song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
         //song.loop(100);
         
         

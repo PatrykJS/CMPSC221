@@ -2,7 +2,9 @@
  */
 package smith.patryk;
  
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
@@ -17,8 +19,9 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class Starting extends javax.swing.JPanel {
     private final GameScreen panel;
-    private AudioInputStream audioIn;
-    private  Clip song;
+    private InputStream audioInDirect;
+    private AudioInputStream audioInBuffer;
+    private Clip song;
     private final String audioClip = "/resources/TitleScreen1.wav";
     /**
      * Creates new form StartingScreen
@@ -29,9 +32,11 @@ public class Starting extends javax.swing.JPanel {
         panel = _panel;
         try {
             //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
-            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip));
+            audioInDirect = getClass().getResourceAsStream(audioClip);
+            InputStream bufferedIn = new BufferedInputStream(audioInDirect);
+            audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
             song = AudioSystem.getClip();
-            song.open(audioIn);
+            song.open(audioInBuffer);
             song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
