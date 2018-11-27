@@ -2,11 +2,15 @@
  */
 package smith.patryk;
  
-import java.io.BufferedInputStream;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.BufferedInputStream; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -22,7 +26,9 @@ public class Starting extends javax.swing.JPanel {
     private InputStream audioInDirect;
     private AudioInputStream audioInBuffer;
     private Clip song;
+    private Image background;
     private final String audioClip = "/resources/TitleScreen1.wav";
+    private int x, y;
     /**
      * Creates new form StartingScreen
      * @param _panel
@@ -30,7 +36,11 @@ public class Starting extends javax.swing.JPanel {
     public Starting(GameScreen _panel)  {
         initComponents();
         panel = _panel;
+        InputStream url = getClass().getResourceAsStream("/resources/TitleScreen.png");
+        background = null;
+        x = y = 0;
         try {
+            background = ImageIO.read(url);
             //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
@@ -90,7 +100,12 @@ public class Starting extends javax.swing.JPanel {
         panel.startTimer();
         panel.startSong();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    @Override
+    public void paintComponent(Graphics g){
+        g.drawImage(background, 0, 0, this);
+         
+        repaint();
+    }
 
     public void startSong(){
         song.start();

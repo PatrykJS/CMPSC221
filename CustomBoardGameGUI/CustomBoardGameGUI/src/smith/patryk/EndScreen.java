@@ -84,12 +84,14 @@ public class EndScreen extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
+        jLabel2.setFont(new java.awt.Font("Forte", 3, 48)); // NOI18N
         jLabel2.setText("You Win!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         add(jLabel2, gridBagConstraints);
 
+        jLabel1.setFont(new java.awt.Font("Forte", 3, 18)); // NOI18N
         jLabel1.setText("Score:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;

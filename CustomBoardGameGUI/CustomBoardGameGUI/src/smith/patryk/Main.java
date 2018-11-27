@@ -3,8 +3,10 @@
 package smith.patryk;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger; 
 import javax.swing.JFrame;
@@ -14,8 +16,7 @@ import javax.swing.JFrame;
  * @author Patryk Smith
  */
 public class Main {
-    public static void main(String[] args)  {
-        
+    public static void main(String[] args)  { 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 
         JFrame application;
