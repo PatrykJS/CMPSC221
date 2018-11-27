@@ -56,7 +56,8 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     
     private AudioInputStream audioIn;
     private Clip clip;
-
+    private final String audioClip = "/resources/GameplayScore.wav";
+    
     /**
      * Creates new form GameScreen
      *
@@ -72,8 +73,8 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
 
         InputStream url = getClass().getResourceAsStream("/resources/Textures.png");
         try {
-            System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
-            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav"));
+            System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip)));
+            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip));
             clip = AudioSystem.getClip();
             clip.open(audioIn);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
