@@ -7,7 +7,14 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
@@ -16,6 +23,10 @@ import javax.imageio.ImageIO;
 public class EndScreen extends javax.swing.JPanel {
     private int score;
     private BufferedImage background;
+    private AudioInputStream audioIn;
+    private  Clip song;
+    private final String audioClip = "/resources/WinSong.wav";
+    
     /**
      * Creates new form EndScreen
      * @param _score
@@ -24,6 +35,17 @@ public class EndScreen extends javax.swing.JPanel {
         super();
         initComponents();
         score = _score;
+        try {
+            //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
+            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip));
+            song = AudioSystem.getClip();
+            song.open(audioIn);
+            song.stop();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //song.loop(1);
+        
     }
    
     public void setScore(int _score) throws IOException{
@@ -75,6 +97,12 @@ public class EndScreen extends javax.swing.JPanel {
         add(jLabel4, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void startSong(){
+        song.start();
+    }
+    public void stopSong(){
+        song.stop();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

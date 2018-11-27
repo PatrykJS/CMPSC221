@@ -9,36 +9,34 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JPanel;
+import javax.sound.sampled.UnsupportedAudioFileException; 
 
 /**
  *
  * @author Patryk Smith
  */
 public class Starting extends javax.swing.JPanel {
-    private final JPanel panel;
+    private final GameScreen panel;
     private AudioInputStream audioIn;
-    private  Clip clip;
-    
+    private  Clip song;
+    private final String audioClip = "/resources/TitleScreen1.wav";
     /**
      * Creates new form StartingScreen
      * @param _panel
      */
-    public Starting(JPanel _panel)  {
+    public Starting(GameScreen _panel)  {
         initComponents();
         panel = _panel;
         try {
-            System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
-            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav"));
-            clip = AudioSystem.getClip();
-            clip.open(audioIn);
+            //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
+            audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip));
+            song = AudioSystem.getClip();
+            song.open(audioIn);
+            song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-        clip.start();
-        clip.loop(10);
+        //song.loop(10);
         
     }
    
@@ -83,10 +81,18 @@ public class Starting extends javax.swing.JPanel {
         // TODO add your handling code here:
         this.setVisible(false);
         panel.setVisible(true);
-        clip.stop();
+        stopSong();
+        panel.startTimer();
+        panel.startSong();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
+    public void startSong(){
+        song.start();
+    }
+    public void stopSong(){
+        song.stop();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

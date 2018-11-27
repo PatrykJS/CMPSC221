@@ -6,9 +6,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import java.util.logging.Logger; 
 import javax.swing.JFrame;
 
 /**
@@ -32,11 +30,7 @@ public class Main {
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            openingWindow = new Starting(gameWindow);
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        openingWindow = new Starting(gameWindow);
         
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -47,6 +41,8 @@ public class Main {
         
         
         openingWindow.setVisible(true);
+        openingWindow.startSong();
+        gameWindow.stopSong();
         gameWindow.setVisible(false);
         endScreen.setVisible(false);
         

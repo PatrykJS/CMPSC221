@@ -55,8 +55,8 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     private final BufferedImage textures;
     
     private AudioInputStream audioIn;
-    private Clip clip;
-    private final String audioClip = "/resources/GameplayScore.wav";
+    private Clip song;
+    private final String audioClip = "/resources/GamePlay1.wav";
     
     /**
      * Creates new form GameScreen
@@ -73,16 +73,15 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
 
         InputStream url = getClass().getResourceAsStream("/resources/Textures.png");
         try {
-            System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip)));
+            //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip)));
             audioIn = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(audioClip));
-            clip = AudioSystem.getClip();
-            clip.open(audioIn);
+            song = AudioSystem.getClip();
+            song.open(audioIn);
+            song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-        clip.start();
-        clip.loop(10);
+        } 
+        //song.loop(100);
         
         
         textures = ImageIO.read(url);
@@ -143,7 +142,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             timeCount++; 
         });
         time.setRepeats(true);
-        time.start();
+         
     }
 
     @Override
@@ -171,6 +170,8 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         
         if(treasure.didWin()){
             this.setVisible(false);
+            song.stop();
+            endscreen.startSong();
             endscreen.setVisible(true);
         }
         
@@ -248,7 +249,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     @Override
     public void mouseClicked(MouseEvent e) {
         if( e.getButton() ==1){
-            System.out.println("Clicked!");
+            //System.out.println("Clicked!");
             try {
                 treasure.getPlayer().dig(treasure, endscreen);
             } catch (InterruptedException ex) {
@@ -276,5 +277,13 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     public void mouseExited(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    public void startSong(){
+        song.start();
+    }
+    public void stopSong(){
+        song.stop();
+    }
+    public void startTimer(){
+        time.start();
+    }
 }
