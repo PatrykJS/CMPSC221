@@ -2,7 +2,7 @@
  */
 package smith.patryk;
  
-import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.BufferedInputStream; 
