@@ -15,6 +15,7 @@ public class Main {
         //app.setSize(1080,300);
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         app.setVisible(true);
-        app.setTitle("RJ's Computational Electrical Device");
+        app.setTitle("Leber & Bonham Electrical Inc");
+        
     }
 }
