@@ -1,19 +1,12 @@
 /*
  */
 package nec.reference.application;
- 
-/**
- *
+
+/** 
  * @author Patryk Smith
  */
 public class ApplicationWindow extends javax.swing.JFrame {
  
-    //EMT,ENT,"IMC","FMC","LFMC","LFNC","RMC","PVC-SCH80","PVC-SCH40"
-    //"60 C", "75 C", "90 C"
-    //"15", "20", "60", "100", "200", "300", "400", "500", "600", "800", "1000", "1200", "1600", "2000", "2500", "3000", "4000", "5000", "6000"
-    //"115 Volts", "200 Volts", "208 Volts", "230 Volts"
-    //"115 Volts","200 Volts","208 Volts","230 Volts","460 Volts","575 Volts","2300 Volts"
-    
     /**
      * Creates new form ApplicationWindow
      */
@@ -21,13 +14,18 @@ public class ApplicationWindow extends javax.swing.JFrame {
         initComponents();
         jComboBox2.setVisible(false);
         jComboBox3.setVisible(false);
-        jComboBox4.setVisible(false); 
-        jComboBox5.setVisible(false); 
-         
+        jComboBox4.setVisible(false);
+        jComboBox5.setVisible(false);
+        jComboBox6.setVisible(false);
+        jComboBox7.setVisible(false);
+
         jComboBox2.setSelectedIndex(-1);
         jComboBox3.setSelectedIndex(-1);
         jComboBox4.setSelectedIndex(-1);
         jComboBox5.setSelectedIndex(-1);
+        jComboBox6.setSelectedIndex(-1);
+        jComboBox7.setSelectedIndex(-1);
+        
     }
 
     /**
@@ -45,6 +43,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
         jComboBox4 = new javax.swing.JComboBox<>();
         jComboBox5 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox7 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +96,24 @@ public class ApplicationWindow extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jComboBox6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setSelectedIndex(-1);
+        jComboBox6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox6ItemStateChanged(evt);
+            }
+        });
+
+        jComboBox7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox7.setSelectedIndex(-1);
+        jComboBox7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox7ItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,18 +121,21 @@ public class ApplicationWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, 0, 150, Short.MAX_VALUE))
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox2, 0, 150, Short.MAX_VALUE)
+                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(15, 15, 15))
         );
 
@@ -126,9 +147,13 @@ public class ApplicationWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -145,190 +170,377 @@ public class ApplicationWindow extends javax.swing.JFrame {
         int index = jComboBox1.getSelectedIndex();
         //TW, THHW, THW, THW-2
         switch (index) {
-            case 0: //  Conduit 
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EMT", "ENT","IMC","FMC","LFMC","LFNC","RMC","PVC-SCH80","PVC-SCH40" }));
-                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3⁄8","1⁄2","3⁄4","1","1 1⁄4","1 1⁄2","2","2 1⁄2","3","3 1⁄2","4"}));
-                jComboBox3.setSelectedIndex(-1);
-                jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TW,THW,THHW,THW-2,RHH*,RHW*,RHW-2*",
-                                                                                                          "THHN, THWN, THWN-2" ,
-                                                                                                          "XHHW, ZW,XHHW-2,XHH",
-                                                                                                          "TFN, TFFN" })); 
+            //+=================================================================================+//
+            case 0: // --------------------------- Conduit Size --------------------------- //
+                // INPUTS:
+                //      OPTION 1: PIPE TYPE
+                //      OPTION 2: PIPE SIZE
+                //      OPTION 3: INSULATION
+                //      OPTION 4: WIRE GAUGE
+                // OUTPUS:
+                //      NUMBER OF CONDUCTORS
+                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"EMT", 
+                                                                                        "ENT", 
+                                                                                        "IMC", 
+                                                                                        "FMC", 
+                                                                                        "LFMC", 
+                                                                                        "LFNC", 
+                                                                                        "RMC", 
+                                                                                        "PVC-SCH80", 
+                                                                                        "PVC-SCH40"}));
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"3⁄8", 
+                                                                                        "1⁄2", 
+                                                                                        "3⁄4", 
+                                                                                        "1", 
+                                                                                        "1 1⁄4", 
+                                                                                        "1 1⁄2", 
+                                                                                        "2", 
+                                                                                        "2 1⁄2", 
+                                                                                        "3", 
+                                                                                        "3 1⁄2", 
+                                                                                        "4"})); 
+                jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"TW,THW,THHW,THW-2,RHH*,RHW*,RHW-2*",
+                                                                                        "THHN, THWN, THWN-2",
+                                                                                        "XHHW, ZW,XHHW-2,XHH",
+                                                                                        "TFN, TFFN"}));
                 jComboBox2.setSelectedIndex(-1);
                 jComboBox3.setSelectedIndex(-1);
-                jComboBox4.setSelectedIndex(-1);
-                jComboBox5.setSelectedIndex(-1);
+                jComboBox4.setSelectedIndex(-1); 
                 jComboBox2.setVisible(true);
                 jComboBox3.setVisible(true);
                 jComboBox4.setVisible(true);
-                jComboBox5.setVisible(true);
+                jComboBox5.setVisible(false);
+                jComboBox6.setVisible(false);
+                jComboBox7.setVisible(false);
                 break;
-            case 1: // Ampacity
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Copper","Aluminum"}));
+                //+=================================================================================+//
+            case 1: // --------------------------- Ampacity --------------------------- //
+                // INPUTS:
+                //      OPTION 1: TEMPERATURE
+                //      OPTION 2: COPPER / ALUMINUM 
+                //      OPTION 3: WIRE GAUGE
+                // OUTPUS:
+                //      AMPS
+                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"65 C", "90 C" , "105 C"}));
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Copper", "Aluminum"}));
+                jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"8 AWG", "2000 kcmil"}));
                 jComboBox2.setSelectedIndex(-1);
                 jComboBox3.setSelectedIndex(-1);
-                jComboBox2.setVisible(true);
-                break;
-            case 2: //Equipment Grounding
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Copper","Aluminum" })); 
-                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Copper","Aluminum" }));
-                jComboBox2.setSelectedIndex(-1);
-                jComboBox3.setSelectedIndex(-1);
-                jComboBox4.setSelectedIndex(-1);
-                jComboBox5.setSelectedIndex(-1);
+                jComboBox7.setSelectedIndex(-1);
                 jComboBox2.setVisible(true);
                 jComboBox3.setVisible(true);
                 jComboBox4.setVisible(false);
                 jComboBox5.setVisible(false);
+                jComboBox6.setVisible(false);
+                jComboBox7.setVisible(true);
                 break;
-            case 3: //Service Grounding
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Copper","Aluminum" }));
+                //+=================================================================================+//
+            case 2: // --------------------------- Equipment Grounding --------------------------- //
+                // INPUTS:
+                //      OPTION 1: COPPER / ALUMINUM 
+                //      OPTION 2: WIRE GAUGE
+                // OUTPUS:
+                //      AWG
+                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Copper", "Aluminum"}));
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"15 kcmil", 
+                                                                                        "20 kcmil", 
+                                                                                        "60 kcmil", 
+                                                                                        "100 kcmil", 
+                                                                                        "200 kcmil", 
+                                                                                        "300 kcmil", 
+                                                                                        "400 kcmil", 
+                                                                                        "500 kcmil", 
+                                                                                        "600 kcmil", 
+                                                                                        "800 kcmil", 
+                                                                                        "1000 kcmil", 
+                                                                                        "1200 kcmil", 
+                                                                                        "1600 kcmil", 
+                                                                                        "2000 kcmil", 
+                                                                                        "2500 kcmil", 
+                                                                                        "3000 kcmil", 
+                                                                                        "4000 kcmil", 
+                                                                                        "5000 kcmil", 
+                                                                                        "6000 kcmil"}));
+                jComboBox2.setSelectedIndex(-1);
+                jComboBox3.setSelectedIndex(-1);
+                jComboBox4.setSelectedIndex(-1);
+                jComboBox5.setSelectedIndex(-1); 
+                jComboBox2.setVisible(true);
+                jComboBox3.setVisible(true);
+                jComboBox4.setVisible(false);
+                jComboBox5.setVisible(false);
+                jComboBox6.setVisible(false);
+                jComboBox7.setVisible(false);
+                break;
+                //+=================================================================================+//
+            case 3: // --------------------------- Service Grounding ---------------------------//
+                // INPUTS:
+                //      OPTION 1: COPPER / ALUMINUM 
+                //      OPTION 2: WIRE GAUGE
+                // OUTPUS:
+                //      AWG
+                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Copper", "Aluminum"}));  
+                jComboBox2.setSelectedIndex(-1); 
+                jComboBox2.setVisible(true);
+                jComboBox3.setVisible(false);
+                jComboBox4.setVisible(true);
+                jComboBox5.setVisible(false);
+                jComboBox6.setVisible(false);
+                jComboBox7.setVisible(false);
+                break;
+                //+=================================================================================+//
+            case 4: // --------------------------- Motors Single Phase ---------------------------//
+                // INPUTS:
+                //      OPTION 1: VOLTAGE
+                //      OPTION 2: HORSEPOWER
+                // OUTPUS:
+                //      AMPERES
+                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"115 Volts", 
+                                                                                        "200 Volts", 
+                                                                                        "208 Volts", 
+                                                                                        "230 Volts"}));
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1/6 hp", 
+                                                                                        "1/4 hp", 
+                                                                                        "1/3 hp", 
+                                                                                        "1/2 hp", 
+                                                                                        "3/4 hp", 
+                                                                                        "1 hp", 
+                                                                                        "1 1/2 hp", 
+                                                                                        "2 hp", 
+                                                                                        "3 hp", 
+                                                                                        "5 hp", 
+                                                                                        "7 1/2 hp", 
+                                                                                        "10 hp"}));
                 jComboBox2.setSelectedIndex(-1);
                 jComboBox3.setSelectedIndex(-1);
                 jComboBox2.setVisible(true);
+                jComboBox3.setVisible(true);
+                jComboBox4.setVisible(false);
+                jComboBox5.setVisible(false);
+                jComboBox6.setVisible(false);
+                jComboBox7.setVisible(false);
                 break;
-            case 4: //Motors Single Phase
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "115 Volts", "200 Volts", "208 Volts", "230 Volts" }));
+                //+=================================================================================+//
+            case 5: // --------------------------- Motors Three Phase ---------------------------//
+                // INPUTS:
+                //      OPTION 1: VOLTAGE
+                //      OPTION 2: HORSEPOWER
+                // OUTPUS:
+                //      AMPERES
+                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"115 Volts", 
+                                                                                        "200 Volts", 
+                                                                                        "208 Volts", 
+                                                                                        "230 Volts", 
+                                                                                        "460 Volts", 
+                                                                                        "575 Volts", 
+                                                                                        "2300 Volts"}));
+                jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1⁄2 hp",
+                                                                                        "3⁄4 hp",
+                                                                                        "1 hp",
+                                                                                        "1 1⁄2 hp",
+                                                                                        "2 hp",
+                                                                                        "3 hp",
+                                                                                        "5 hp",
+                                                                                        "7 1⁄2 hp",
+                                                                                        "10 hp",
+                                                                                        "15 hp",
+                                                                                        "20 hp",
+                                                                                        "25 hp",
+                                                                                        "30 hp",
+                                                                                        "40 hp",
+                                                                                        "50 hp",
+                                                                                        "60 hp",
+                                                                                        "75 hp",
+                                                                                        "100 hp",
+                                                                                        "125 hp",
+                                                                                        "150 hp",
+                                                                                        "200 hp",
+                                                                                        "250 hp",
+                                                                                        "300 hp",
+                                                                                        "350 hp",
+                                                                                        "400 hp",
+                                                                                        "450 hp",
+                                                                                        "500 hp"}));
                 jComboBox2.setSelectedIndex(-1);
                 jComboBox3.setSelectedIndex(-1);
                 jComboBox2.setVisible(true);
+                jComboBox3.setVisible(true);
+                jComboBox4.setVisible(false);
+                jComboBox5.setVisible(false);
+                jComboBox6.setVisible(false);
+                jComboBox7.setVisible(false);
                 break;
-            case 5: //Motors Three Phase
-                jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "115 Volts","200 Volts","208 Volts","230 Volts","460 Volts","575 Volts","2300 Volts" }));
-                jComboBox2.setSelectedIndex(-1);
-                jComboBox3.setSelectedIndex(-1);
-                jComboBox2.setVisible(true);
-                break;
-            default: 
+                //+=================================================================================+//
+            default:
                 break;
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
-
+    
+    
+    // --------------------------------- Update the result for each change in input ------------------------------------------ //
     private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
-        update();
+        int index1 = jComboBox1.getSelectedIndex();
+        int index2 = jComboBox2.getSelectedIndex();
+        if (index1 != 3) {
+            update();
+        } else {
+            switch(index2){
+                case 0:
+                    jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"2 AWG or smaller", 
+                                                                                            "1 AWG or 1/0", 
+                                                                                            "2/0 or 3/0", 
+                                                                                            "Over 3/0 through 350 cmil", 
+                                                                                            "Over 350 kcmil through 600 kcmil", 
+                                                                                            "Over 600 kcmil through 1100 kcmil", 
+                                                                                            "Over 1100 kcmil"})); 
+                    break;
+                case 1:
+                    jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1/0 or smaller", 
+                                                                                            "2/0 or 3/0",
+                                                                                            "4/0 or 250 kcmil",
+                                                                                            "Over 250 through 500 cmil", 
+                                                                                            "Over 500 kcmil through 900 kcmil", 
+                                                                                            "Over 900 kcmil through 1750 kcmil", 
+                                                                                            "Over 1750 kcmil"})); 
+                    break;
+                default:
+                    break;
+            } 
+            jComboBox4.setSelectedIndex(-1); 
+            jComboBox4.setVisible(true);
+            update();
+        }
+
     }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     private void jComboBox3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox3ItemStateChanged
-        // TODO add your handling code here: 
         update();
     }//GEN-LAST:event_jComboBox3ItemStateChanged
 
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
-        // TODO add your handling code here:
         update();
         int index4 = jComboBox4.getSelectedIndex();
-        
+        int index1 = jComboBox1.getSelectedIndex();
         //"TW/THW/THHW/THW-2/RHH*/RHW*/RHW-2*",
         //THHN, THWN, THWN-2
         //XHHW, ZW,XHHW-2,XHH
-        switch (index4) {
-           case 0: // "6","4","3","2","1","1/0" ,"2/0","3/0","4/0" ,"250","300" ,"350","400" ,"500","600","700","750","800","900","1000" ,"1250" ,"1500","1750","2000"
-               jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6",
-                                                                                         "4",
-                                                                                         "3",
-                                                                                         "2",
-                                                                                         "1",
-                                                                                         "1/0",
-                                                                                         "2/0",
-                                                                                         "3/0",
-                                                                                         "4/0",
-                                                                                         "250",
-                                                                                         "300",
-                                                                                         "350",
-                                                                                         "400",
-                                                                                         "500",
-                                                                                         "600",
-                                                                                         "700",
-                                                                                         "750",
-                                                                                         "800",
-                                                                                         "900",
-                                                                                         "1000",
-                                                                                         "1250",
-                                                                                         "1500",
-                                                                                         "1750",
-                                                                                         "2000" }));
-                                jComboBox5.setSelectedIndex(-1);
-                                jComboBox5.setVisible(true);
-               break;
-           case 1: //"14 ","12","10 ","8","6 ","4","3 ","2","1 ","1/0","2/0","3/0","4/0 ","250 ","300 ","350 ","400 ","500","600 ","700","750 ","800","900 ","1000"  
-               jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "14",
-                                                                                        "12",
-                                                                                        "10",
-                                                                                        "8",
-                                                                                        "6",
-                                                                                        "4",
-                                                                                        "3",
-                                                                                        "2",
-                                                                                        "1",
-                                                                                        "1/0",
-                                                                                        "2/0",
-                                                                                        "3/0",
-                                                                                        "4/0",
-                                                                                        "250",
-                                                                                        "300",
-                                                                                        "350",
-                                                                                        "400",
-                                                                                        "500",
-                                                                                        "600",
-                                                                                        "700",
-                                                                                        "750",
-                                                                                        "800",
-                                                                                        "900",
-                                                                                        "1000" }));
-                        jComboBox5.setSelectedIndex(-1);
-                        jComboBox5.setVisible(true);
-               break;
-           case 2:  
-                jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "14",
-                                                                                        "12",
-                                                                                        "10",
-                                                                                        "8",
-                                                                                        "6",
-                                                                                        "4",
-                                                                                        "3",
-                                                                                        "2",
-                                                                                        "1",
-                                                                                        "1/0",
-                                                                                        "2/0",
-                                                                                        "3/0",
-                                                                                        "4/0",
-                                                                                        "250",
-                                                                                        "300",
-                                                                                        "350",
-                                                                                        "400",
-                                                                                        "500",
-                                                                                        "600",
-                                                                                        "700",
-                                                                                        "750",
-                                                                                        "800",
-                                                                                        "900",
-                                                                                        "1000",
-                                                                                        "1250",
-                                                                                        "1500",
-                                                                                        "1750",
-                                                                                        "2000" }));
-                jComboBox5.setSelectedIndex(-1);
-                jComboBox5.setVisible(true);
-               break;
-           case 3:  
-               
-                jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "18",
-                                                                                        "16"                                                                                          }));
-                jComboBox5.setSelectedIndex(-1);
-                jComboBox5.setVisible(true);
-               break; 
-            default: 
-               break;
-       } 
-         
-        
+        if (index1 == 0) {
+            switch (index4) {
+                case 0: // "6","4","3","2","1","1/0" ,"2/0","3/0","4/0" ,"250","300" ,"350","400" ,"500","600","700","750","800","900","1000" ,"1250" ,"1500","1750","2000"
+                    jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"6",
+                        "4 AWG",
+                        "3 AWG",
+                        "2 AWG",
+                        "1 AWG",
+                        "1/0",
+                        "2/0",
+                        "3/0",
+                        "4/0",
+                        "250 kcmil",
+                        "300 kcmil",
+                        "350 kcmil",
+                        "400 kcmil",
+                        "500 kcmil",
+                        "600 kcmil",
+                        "700 kcmil",
+                        "750 kcmil",
+                        "800 kcmil",
+                        "900 kcmil",
+                        "1000 kcmil",
+                        "1250 kcmil",
+                        "1500 kcmil",
+                        "1750 kcmil",
+                        "2000 kcmil"}));
+                    jComboBox5.setSelectedIndex(-1);
+                    jComboBox5.setVisible(true);
+                    break;
+                case 1: //"14 ","12","10 ","8","6 ","4","3 ","2","1 ","1/0","2/0","3/0","4/0 ","250 ","300 ","350 ","400 ","500","600 ","700","750 ","800","900 ","1000"  
+                    jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"14",
+                        "12 AWG",
+                        "10 AWG",
+                        "8 AWG",
+                        "6 AWG",
+                        "4 AWG",
+                        "3 AWG",
+                        "2 AWG",
+                        "1 AWG",
+                        "1/0",
+                        "2/0",
+                        "3/0",
+                        "4/0",
+                        "250 kcmil",
+                        "300 kcmil",
+                        "350 kcmil",
+                        "400 kcmil",
+                        "500 kcmil",
+                        "600 kcmil",
+                        "700 kcmil",
+                        "750 kcmil",
+                        "800 kcmil",
+                        "900 kcmil",
+                        "1000 kcmil"}));
+                    jComboBox5.setSelectedIndex(-1);
+                    jComboBox5.setVisible(true);
+                    break;
+                case 2:
+                    jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"14",
+                        "12 AWG",
+                        "10 AWG",
+                        "8 AWG",
+                        "6 AWG",
+                        "4 AWG",
+                        "3 AWG",
+                        "2 AWG",
+                        "1 AWG",
+                        "1/0",
+                        "2/0",
+                        "3/0",
+                        "4/0",
+                        "250 kcmil",
+                        "300 kcmil",
+                        "350 kcmil",
+                        "400 kcmil",
+                        "500 kcmil",
+                        "600 kcmil",
+                        "700 kcmil",
+                        "750 kcmil",
+                        "800 kcmil",
+                        "900 kcmil",
+                        "1000 kcmil",
+                        "1250 kcmil",
+                        "1500 kcmil",
+                        "1750 kcmil",
+                        "2000 kcmil"}));
+                    jComboBox5.setSelectedIndex(-1);
+                    jComboBox5.setVisible(true);
+                    break;
+                case 3:
+
+                    jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"18",
+                        "16"}));
+                    jComboBox5.setSelectedIndex(-1);
+                    jComboBox5.setVisible(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
     private void jComboBox5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox5ItemStateChanged
-        // TODO add your handling code here:
-         update();
+        update();
     }//GEN-LAST:event_jComboBox5ItemStateChanged
- 
-    public void update(){                                     
+
+    private void jComboBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox6ItemStateChanged
+        update();
+    }//GEN-LAST:event_jComboBox6ItemStateChanged
+
+    private void jComboBox7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox7ItemStateChanged
+        update();
+    }//GEN-LAST:event_jComboBox7ItemStateChanged
+
+    public void update() {
         // TODO add your handling code here:
         int index1 = jComboBox1.getSelectedIndex();
         int index2 = jComboBox2.getSelectedIndex();
@@ -341,7 +553,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                     case 0: //  EMT 
                         switch (index3) {
                             case 0: // 3/8 
-                                jLabel1.setText("-"); 
+                                jLabel1.setText("-");
                                 break;
                             case 1: // 1/2
                                 switch (index4) {
@@ -361,16 +573,16 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 4: // 1
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
-                                                jLabel1.setText("12"); 
+                                                jLabel1.setText("12");
                                                 break;
                                             case 1: // 12
                                                 jLabel1.setText("9");
@@ -398,8 +610,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -432,11 +644,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("1");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -449,11 +661,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("17");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -484,12 +696,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 7: // 3/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -527,8 +739,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 11: // 4/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -561,7 +773,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("1");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
                                                 break;
@@ -573,8 +785,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 12: // 4/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -587,11 +799,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("29");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -632,11 +844,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 10: // 300
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -679,9 +891,9 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("1");
                                                 break;
                                             case 13: // 350
-                                                jLabel1.setText("1"); 
+                                                jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -714,7 +926,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("1");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
                                                 break;
@@ -735,8 +947,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 15: // 350
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -749,11 +961,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("48");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -805,12 +1017,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 14: // 600
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -850,7 +1062,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("1");
                                                 break;
                                             case 12: // 250
-                                                jLabel1.setText("1"); 
+                                                jLabel1.setText("1");
                                                 break;
                                             case 13: // 350
                                                 jLabel1.setText("1");
@@ -866,9 +1078,9 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 17: // 700
                                                 jLabel1.setText("1");
-                                                break; 
+                                                break;
                                             default:
-                                                jLabel1.setText("0"); 
+                                                jLabel1.setText("0");
                                                 break;
                                         }
                                         break;
@@ -900,7 +1112,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("4");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("3");
                                                 break;
@@ -930,8 +1142,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 18: // 600
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -944,11 +1156,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("83");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -1009,12 +1221,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 17: // 800
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -1055,8 +1267,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 12: // 4/0
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default:  
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -1089,7 +1301,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("5");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("4");
                                                 break;
@@ -1131,8 +1343,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 22: // 900
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -1145,11 +1357,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("113");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -1213,12 +1425,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 18: // 900
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -1265,8 +1477,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 14: // 400
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -1299,7 +1511,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("8");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("7");
                                                 break;
@@ -1350,8 +1562,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 25: // 1500
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -1364,11 +1576,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("186");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -1420,12 +1632,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 14: // 600
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -1484,8 +1696,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 18: // 700
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -1496,34 +1708,34 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("168");
                                                 break;
                                             case 1: // 12
-                                                jLabel1.setText("129"); 
+                                                jLabel1.setText("129");
                                                 break;
                                             case 2: // 10
-                                                jLabel1.setText("96"); 
+                                                jLabel1.setText("96");
                                                 break;
                                             case 3: // 8
-                                                jLabel1.setText("53"); 
+                                                jLabel1.setText("53");
                                                 break;
                                             case 4: // 6 
-                                                jLabel1.setText("39"); 
+                                                jLabel1.setText("39");
                                                 break;
                                             case 5: // 4 
-                                                jLabel1.setText("28"); 
+                                                jLabel1.setText("28");
                                                 break;
                                             case 6: // 3 
-                                                jLabel1.setText("24"); 
+                                                jLabel1.setText("24");
                                                 break;
                                             case 7: // 2 
-                                                jLabel1.setText("20"); 
+                                                jLabel1.setText("20");
                                                 break;
                                             case 8: // 1 
-                                                jLabel1.setText("15"); 
-                                                break;     
+                                                jLabel1.setText("15");
+                                                break;
                                             case 9: // 1/0
-                                                jLabel1.setText("13"); 
+                                                jLabel1.setText("13");
                                                 break;
                                             case 10: // 2/0
-                                                jLabel1.setText("10"); 
+                                                jLabel1.setText("10");
                                                 break;
                                             case 11: // 3/0
                                                 jLabel1.setText("9");
@@ -1551,8 +1763,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 19: // 700
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -1565,11 +1777,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("325");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -1587,7 +1799,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("31");
                                                 break;
                                             case 3: // 2
-                                                
+
                                                 jLabel1.setText("26");
                                                 break;
                                             case 4: // 1 
@@ -1650,10 +1862,10 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 23: // 2000
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -1724,11 +1936,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 22: // 900
                                                 jLabel1.setText("3");
-                                                break; 
+                                                break;
                                             case 23:
                                                 jLabel1.setText("2");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -1760,7 +1972,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("23");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("19");
                                                 break;
@@ -1805,8 +2017,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 23: // 1000
                                                 jLabel1.setText("2");
-                                                break;  
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -1819,11 +2031,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("491");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -1893,12 +2105,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 20: // 1250
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -1973,7 +2185,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 23: // 1000
                                                 jLabel1.setText("3");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -2005,7 +2217,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("30");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("25");
                                                 break;
@@ -2053,8 +2265,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 24: // 1250
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -2067,11 +2279,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("641");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -2151,10 +2363,10 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 23: // 2000
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -2226,7 +2438,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 22:
                                                 jLabel1.setText("4");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -2258,7 +2470,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("38");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("32");
                                                 break;
@@ -2316,7 +2528,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 27: // 2000
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -2328,22 +2540,22 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("819");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
-                                break; 
-                            default:  
+                                break;
+                            default:
                                 break;
                         }
                         break;
                     case 1:  // ENT  
-                    switch (index3) {
+                        switch (index3) {
                             case 0: // 3/8 
-                                jLabel1.setText("-"); 
+                                jLabel1.setText("-");
                                 break;
                             case 1: // 1/2
                                 switch (index4) {
@@ -2366,16 +2578,16 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 5: // 1/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
-                                                jLabel1.setText("12"); 
+                                                jLabel1.setText("12");
                                                 break;
                                             case 1: // 12
                                                 jLabel1.setText("9");
@@ -2403,8 +2615,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -2437,11 +2649,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("1");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -2454,11 +2666,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("17");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -2489,12 +2701,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 7: // 3/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -2532,8 +2744,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 11: // 4/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -2566,7 +2778,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("1");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
                                                 break;
@@ -2578,8 +2790,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 12: // 4/0
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -2592,11 +2804,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("29");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -2637,11 +2849,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 10: // 300
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -2684,9 +2896,9 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("1");
                                                 break;
                                             case 13: // 350
-                                                jLabel1.setText("1"); 
+                                                jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -2719,7 +2931,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("1");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("1");
                                                 break;
@@ -2740,8 +2952,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 15: // 350
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -2754,11 +2966,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("48");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -2810,12 +3022,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 14: // 600
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -2855,7 +3067,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("1");
                                                 break;
                                             case 12: // 250
-                                                jLabel1.setText("1"); 
+                                                jLabel1.setText("1");
                                                 break;
                                             case 13: // 350
                                                 jLabel1.setText("1");
@@ -2871,9 +3083,9 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 17: // 700
                                                 jLabel1.setText("1");
-                                                break; 
+                                                break;
                                             default:
-                                                jLabel1.setText("0"); 
+                                                jLabel1.setText("0");
                                                 break;
                                         }
                                         break;
@@ -2905,7 +3117,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("4");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("3");
                                                 break;
@@ -2935,8 +3147,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 18: // 600
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -2949,11 +3161,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("83");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -3014,12 +3226,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 17: // 800
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -3060,8 +3272,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 12: // 4/0
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default:  
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -3094,7 +3306,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("5");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("4");
                                                 break;
@@ -3136,8 +3348,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 22: // 900
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -3150,11 +3362,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("113");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -3218,12 +3430,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 18: // 900
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -3270,8 +3482,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 14: // 400
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -3304,7 +3516,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("8");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("7");
                                                 break;
@@ -3355,8 +3567,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 25: // 1500
                                                 jLabel1.setText("1");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("0");
                                                 break;
                                         }
@@ -3369,11 +3581,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("186");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -3425,12 +3637,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 14: // 600
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -3489,8 +3701,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 18: // 700
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -3501,34 +3713,34 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("168");
                                                 break;
                                             case 1: // 12
-                                                jLabel1.setText("129"); 
+                                                jLabel1.setText("129");
                                                 break;
                                             case 2: // 10
-                                                jLabel1.setText("96"); 
+                                                jLabel1.setText("96");
                                                 break;
                                             case 3: // 8
-                                                jLabel1.setText("53"); 
+                                                jLabel1.setText("53");
                                                 break;
                                             case 4: // 6 
-                                                jLabel1.setText("39"); 
+                                                jLabel1.setText("39");
                                                 break;
                                             case 5: // 4 
-                                                jLabel1.setText("28"); 
+                                                jLabel1.setText("28");
                                                 break;
                                             case 6: // 3 
-                                                jLabel1.setText("24"); 
+                                                jLabel1.setText("24");
                                                 break;
                                             case 7: // 2 
-                                                jLabel1.setText("20"); 
+                                                jLabel1.setText("20");
                                                 break;
                                             case 8: // 1 
-                                                jLabel1.setText("15"); 
-                                                break;     
+                                                jLabel1.setText("15");
+                                                break;
                                             case 9: // 1/0
-                                                jLabel1.setText("13"); 
+                                                jLabel1.setText("13");
                                                 break;
                                             case 10: // 2/0
-                                                jLabel1.setText("10"); 
+                                                jLabel1.setText("10");
                                                 break;
                                             case 11: // 3/0
                                                 jLabel1.setText("9");
@@ -3556,8 +3768,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 19: // 700
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -3570,11 +3782,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("325");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -3592,7 +3804,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 jLabel1.setText("31");
                                                 break;
                                             case 3: // 2
-                                                
+
                                                 jLabel1.setText("26");
                                                 break;
                                             case 4: // 1 
@@ -3655,10 +3867,10 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 23: // 2000
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -3729,11 +3941,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 22: // 900
                                                 jLabel1.setText("3");
-                                                break; 
+                                                break;
                                             case 23:
                                                 jLabel1.setText("2");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -3765,7 +3977,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("23");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("19");
                                                 break;
@@ -3810,8 +4022,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 23: // 1000
                                                 jLabel1.setText("2");
-                                                break;  
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -3824,11 +4036,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("491");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -3898,12 +4110,12 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 20: // 1250
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -3978,7 +4190,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 23: // 1000
                                                 jLabel1.setText("3");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -4010,7 +4222,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("30");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("25");
                                                 break;
@@ -4058,8 +4270,8 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 24: // 1250
                                                 jLabel1.setText("2");
-                                                break; 
-                                            default: 
+                                                break;
+                                            default:
                                                 jLabel1.setText("1");
                                                 break;
                                         }
@@ -4072,11 +4284,11 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("641");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
                                 break;
@@ -4156,10 +4368,10 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 23: // 2000
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
-                                        break; 
+                                        break;
                                     case 1: // THHN
                                         switch (index5) {
                                             case 0: // 14
@@ -4231,7 +4443,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 22:
                                                 jLabel1.setText("4");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -4263,7 +4475,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                                 break;
                                             case 8: // 1 
                                                 jLabel1.setText("38");
-                                                break;     
+                                                break;
                                             case 9: // 1/0
                                                 jLabel1.setText("32");
                                                 break;
@@ -4321,7 +4533,7 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 27: // 2000
                                                 jLabel1.setText("1");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
@@ -4333,51 +4545,867 @@ public class ApplicationWindow extends javax.swing.JFrame {
                                             case 1: // 16
                                                 jLabel1.setText("819");
                                                 break;
-                                            default: 
+                                            default:
                                                 break;
                                         }
                                         break;
-                                    default: 
+                                    default:
                                         break;
                                 }
-                                break; 
-                            default:  
                                 break;
-                        } 
-                        break; 
-                    default: 
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
                         break;
                 }
                 break;
             case 1: // Ampacity
-                
-                 
+
                 break;
-            case 2: //Equipment Grounding
-                 
+            case 2: //Equipment Grounding "15","20","60","100","200","300","400","500","600","800","1000","1200","1600","2000","2500 ","3000 ","4000","5000 ","6000"
+                switch (index2) {
+                    case 0: // Copper
+                        switch (index3) {
+                            case 0: // 15
+                                jLabel1.setText("14 AWG");
+                                break;
+                            case 1: // 20
+                                jLabel1.setText("12 AWG");
+                                break;
+                            case 2: // 60
+                                jLabel1.setText("10 AWG");
+                                break;
+                            case 3: // 100
+                                jLabel1.setText("8 AWG");
+                                break;
+                            case 4: // 200
+                                jLabel1.setText("6 AWG");
+                                break;
+                            case 5: // 300
+                                jLabel1.setText("4 AWG");
+                                break;
+                            case 6: // 400
+                                jLabel1.setText("3 AWG");
+                                break;
+                            case 7: // 500
+                                jLabel1.setText("2 AWG");
+                                break;
+                            case 8: // 600
+                                jLabel1.setText("1 AWG");
+                                break;
+                            case 9: // 800
+                                jLabel1.setText("1/0");
+                                break;
+                            case 10: // 1000
+                                jLabel1.setText("2/0");
+                                break;
+                            case 11: // 1200
+                                jLabel1.setText("3/0");
+                                break;
+                            case 12: // 1600
+                                jLabel1.setText("4/0");
+                                break;
+                            case 13: // 2000
+                                jLabel1.setText("250 kcmil");
+                                break;
+                            case 14: // 2500
+                                jLabel1.setText("350 kcmil");
+                                break;
+                            case 15: // 3000
+                                jLabel1.setText("400 kcmil");
+                                break;
+                            case 16: // 4000
+                                jLabel1.setText("500 kcmil");
+                                break;
+                            case 17: // 5000
+                                jLabel1.setText("700 kcmil");
+                                break;
+                            case 18: // 6000
+                                jLabel1.setText("800 kcmil");
+                                break;
+                        }
+                        break;
+                    case 1: // Aluminum
+                        switch (index3) {
+                            case 0: // 15
+                                jLabel1.setText("12 AWG");
+                                break;
+                            case 1: // 20
+                                jLabel1.setText("10 AWG");
+                                break;
+                            case 2: // 60
+                                jLabel1.setText("8 AWG");
+                                break;
+                            case 3: // 100
+                                jLabel1.setText("6 AWG");
+                                break;
+                            case 4: // 200
+                                jLabel1.setText("4 AWG");
+                                break;
+                            case 5: // 300
+                                jLabel1.setText("2 AWG");
+                                break;
+                            case 6: // 400
+                                jLabel1.setText("1 AWG");
+                                break;
+                            case 7: // 500
+                                jLabel1.setText("1/0");
+                                break;
+                            case 8: // 600
+                                jLabel1.setText("2/0");
+                                break;
+                            case 9: // 800
+                                jLabel1.setText("3/0");
+                                break;
+                            case 10: // 1000
+                                jLabel1.setText("4/0");
+                                break;
+                            case 11: // 1200
+                                jLabel1.setText("250 kcmil");
+                                break;
+                            case 12: // 1600
+                                jLabel1.setText("350 kcmil");
+                                break;
+                            case 13: // 2000
+                                jLabel1.setText("400 kcmil");
+                                break;
+                            case 14: // 2500
+                                jLabel1.setText("600 kcmil");
+                                break;
+                            case 15: // 3000
+                                jLabel1.setText("600 kcmil");
+                                break;
+                            case 16: // 4000
+                                jLabel1.setText("750 kcmil");
+                                break;
+                            case 17: // 5000
+                                jLabel1.setText("1200 kcmil");
+                                break;
+                            case 18: // 6000
+                                jLabel1.setText("1200 kcmil");
+                                break;
+                        }
+                        break;
+                }
                 break;
             case 3: //Service Grounding
-                
+                    // Copper Options  : "2 AWG or smaller",   "1 AWG or 1/0",  "2/0 or 3/0",  "Over 3/0 through 350 cmil", 
+                    //                   "Over 350 cmil through 600 cmil",  "Over 600 cmil through 1100 cmil",  "Over 1100 cmil"   
+                    // Aluminum Options: "1/0 or smaller", "2/0 or 3/0", "4/0 or 250 cmil", "Over 250 through 500 cmil", 
+                    //                   "Over 500 cmil through 900 cmil",  "Over 900 cmil through 1750 cmil",  "Over 1750 cmil" 
+                      
+                switch (index2) {
+                    case 0: // Copper
+                        switch(index4){
+                            case 0: // "2 AWG or smaller"
+                                jLabel1.setText("8 AWG");
+                                break;
+                            case 1:// "1 AWG or 1/0"
+                                jLabel1.setText("6 AWG");
+                                break;
+                            case 2:// "2/0 or 3/0"
+                                jLabel1.setText("4 AWG");
+                                break;
+                            case 3:// "Over 3/0 through 350 cmil"
+                                jLabel1.setText("2 AWG");
+                                break;
+                            case 4:// "Over 350 cmil through 600 cmil",
+                                jLabel1.setText("1/0");
+                                break;
+                            case 5:// "Over 600 cmil through 1100 cmil"
+                                jLabel1.setText("2/0");
+                                break;
+                            case 6:// "Over 1100 cmil"   
+                                jLabel1.setText("2/0");
+                                break;
+                            default:
+                                break;
+                        } 
+                        break;
+                    case 1: // Aluminum
+                        switch(index4){
+                            case 0:// "1/0 or smaller"
+                                jLabel1.setText("6 AWG");
+                                break;
+                            case 1://"2/0 or 3/0"
+                                jLabel1.setText("4 AWG");
+                                break;
+                            case 2://"4/0 or 250 cmil"
+                                jLabel1.setText("2 AWG");
+                                break;
+                            case 3://"Over 250 through 500 cmil"
+                                jLabel1.setText("1/0");
+                                break;
+                            case 4://"Over 500 cmil through 900 cmil"
+                                jLabel1.setText("3/0");
+                                break;
+                            case 5://"Over 900 cmil through 1750 cmil"
+                                jLabel1.setText("4/0");
+                                break;
+                            case 6://"Over 1750 cmil"
+                                jLabel1.setText("250 kcmil");
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+
                 break;
-            case 4: //Motors Single Phase
-                 
+            case 4: //Motors Single Phase 
+                    // Voltages : "115 Volts", "200 Volts", "208 Volts", "230 Volts" 
+                    // HP       : "1/6", "1/4", "1/3", "1/2", "3/4", "1", "1 1/2", "2", "3", "5", "7 1/2", "10" 
+                switch (index2){
+                    case 0: // 115 V
+                        switch(index3){
+                            case 0: // 1/6
+                                jLabel1.setText("4.4 A");
+                                break;
+                            case 1: // 1/4
+                                jLabel1.setText("5.8 A");
+                                break;
+                            case 2: // 1/3
+                                jLabel1.setText("7.2 A");
+                                break;
+                            case 3: // 1/2
+                                jLabel1.setText("9.8 A");
+                                break;
+                            case 4: // 3/4
+                                jLabel1.setText("13.8 A");
+                                break;
+                            case 5: // 1 
+                                jLabel1.setText("16 A");
+                                break;
+                            case 6: // 1 1/2
+                                jLabel1.setText("20 A");
+                                break;
+                            case 7: // 2
+                                jLabel1.setText("24 A");
+                                break;
+                            case 8: // 3
+                                jLabel1.setText("34 A");
+                                break;
+                            case 9: // 5
+                                jLabel1.setText("56 A");
+                                break;
+                            case 10: // 7 1/2
+                                jLabel1.setText("80 A");
+                                break;
+                            case 11: // 10
+                                jLabel1.setText("100 A");
+                                break;
+                            default:
+                                break;  
+                        }
+                        break;
+                    case 1: // 200 V
+                        switch(index3){
+                            case 0: // 1/6
+                                jLabel1.setText("2.5 A");
+                                break;
+                            case 1: // 1/4
+                                jLabel1.setText("3.3 A");
+                                break;
+                            case 2: // 1/3
+                                jLabel1.setText("4.1 A");
+                                break;
+                            case 3: // 1/2
+                                jLabel1.setText("5.6 A");
+                                break;
+                            case 4: // 3/4
+                                jLabel1.setText("7.9 A");
+                                break;
+                            case 5: // 1 
+                                jLabel1.setText("9.2 A");
+                                break;
+                            case 6: // 1 1/2
+                                jLabel1.setText("11.5 A");
+                                break;
+                            case 7: // 2
+                                jLabel1.setText("13.8 A");
+                                break;
+                            case 8: // 3
+                                jLabel1.setText("19.6 A");
+                                break;
+                            case 9: // 5
+                                jLabel1.setText("32.2 A");
+                                break;
+                            case 10: // 7 1/2
+                                jLabel1.setText("46.0 A");
+                                break;
+                            case 11: // 10
+                                jLabel1.setText("57.5 A");
+                                break;
+                            default:
+                                break;  
+                        }
+                        break;
+                    case 2: // 208 V
+                        switch(index3){
+                            case 0: // 1/6
+                                jLabel1.setText("2.4 A");
+                                break;
+                            case 1: // 1/4
+                                jLabel1.setText("3.2 A");
+                                break;
+                            case 2: // 1/3
+                                jLabel1.setText("3.0 A");
+                                break;
+                            case 3: // 1/2
+                                jLabel1.setText("5.4 A");
+                                break;
+                            case 4: // 3/4
+                                jLabel1.setText("7.6 A");
+                                break;
+                            case 5: // 1 
+                                jLabel1.setText("8.8 A");
+                                break;
+                            case 6: // 1 1/2
+                                jLabel1.setText("11.0 A");
+                                break;
+                            case 7: // 2
+                                jLabel1.setText("13.2 A");
+                                break;
+                            case 8: // 3
+                                jLabel1.setText("18.7 A");
+                                break;
+                            case 9: // 5
+                                jLabel1.setText("30.8 A");
+                                break;
+                            case 10: // 7 1/2
+                                jLabel1.setText("44.0 A");
+                                break;
+                            case 11: // 10
+                                jLabel1.setText("55.0 A");
+                                break;
+                            default:
+                                break;  
+                        }
+                        break;
+                    case 3: // 230 V
+                        switch(index3){
+                            case 0: // 1/6
+                                jLabel1.setText("2.2 A");
+                                break;
+                            case 1: // 1/4
+                                jLabel1.setText("2.9 A");
+                                break;
+                            case 2: // 1/3
+                                jLabel1.setText("3.6 A");
+                                break;
+                            case 3: // 1/2
+                                jLabel1.setText("4.9 A");
+                                break;
+                            case 4: // 3/4
+                                jLabel1.setText("6.9 A");
+                                break;
+                            case 5: // 1 
+                                jLabel1.setText("8.0 A");
+                                break;
+                            case 6: // 1 1/2
+                                jLabel1.setText("10 A");
+                                break;
+                            case 7: // 2
+                                jLabel1.setText("12 A");
+                                break;
+                            case 8: // 3
+                                jLabel1.setText("17 A");
+                                break;
+                            case 9: // 5
+                                jLabel1.setText("28 A");
+                                break;
+                            case 10: // 7 1/2
+                                jLabel1.setText("40 A");
+                                break;
+                            case 11: // 10
+                                jLabel1.setText("50 A");
+                                break;
+                            default:
+                                break;  
+                        }
+                        
+                        break; 
+                    default:
+                        break;
+                }
                 break;
             case 5: //Motors Three Phase
-                 
+                // Voltages : "115 Volts", "200 Volts",  "208 Volts",  "230 Volts",  "460 Volts", "575 Volts", "2300 Volts"
+                // HP       :"1⁄2 hp","3⁄4 hp","1 hp","1 1⁄2 hp","2 hp","3 hp", "5 hp","7 1⁄2 hp","10 hp","15 hp", "20 hp","25 hp",
+                //           "30 hp","40 hp", "50 hp","60 hp", "75 hp","100 hp","125 hp","150 hp","200 hp","250 hp","300 hp",
+                //           "400 hp","450 hp","500 hp"}));
+                switch(index2){
+                    case 0: // 115 Volts
+                        switch(index3){
+                            case 0: // 1⁄2 hp
+                                jLabel1.setText("4.4 A");
+                                break;
+                            case 1: // 3⁄4 hp
+                                jLabel1.setText("6.4 A");
+                                break;
+                            case 2: // 1 hp
+                                jLabel1.setText("8.4 A");
+                                break;
+                            case 3: // 1 1⁄2 hp
+                                jLabel1.setText("12.0 A");
+                                break;
+                            case 4: // 2 hp
+                                jLabel1.setText("13.6 A");
+                                break; 
+                            default:
+                                jLabel1.setText("-");
+                                break;
+                        }
+                        break;
+                    case 1: // 200 Volts
+                        switch(index3){
+                            case 0: // 1⁄2 hp
+                                jLabel1.setText("2.5 A");
+                                break;
+                            case 1: // 3⁄4 hp
+                                jLabel1.setText("3.7 A");
+                                break;
+                            case 2: // 1 hp
+                                jLabel1.setText("4.8 A");
+                                break;
+                            case 3: // 1 1⁄2 hp
+                                jLabel1.setText("6.9 A");
+                                break;
+                            case 4: // 2 hp
+                                jLabel1.setText("7.8 A");
+                                break;
+                            case 5: // 3 hp
+                                jLabel1.setText("11.0 A");
+                                break;
+                            case 6: // 5 hp
+                                jLabel1.setText("17.5 A");
+                                break;
+                            case 7: // 7 1⁄2 hp
+                                jLabel1.setText("23.3 A");
+                                break;
+                            case 8: // 10 hp
+                                jLabel1.setText("32.2 A");
+                                break;
+                            case 9: // 15 hp
+                                jLabel1.setText("48.3 A");
+                                break;
+                            case 10: // 20 hp
+                                jLabel1.setText("62.1 A");
+                                break;
+                            case 11: // 25 hp
+                                jLabel1.setText("78.2 A");
+                                break;
+                            case 12: // 30 hp
+                                jLabel1.setText("92 A");
+                                break;
+                            case 13: // 40 hp
+                                jLabel1.setText("120 A");
+                                break;
+                            case 14: // 50 hp
+                                jLabel1.setText("150 A");
+                                break;
+                            case 15: // 60 hp
+                                jLabel1.setText("177 A");
+                                break;
+                            case 17: // 75 hp
+                                jLabel1.setText("221 A");
+                                break;
+                            case 18: // 100 hp
+                                jLabel1.setText("285 A");
+                                break;
+                            case 19: // 125 hp
+                                jLabel1.setText("359 A");
+                                break;
+                            case 20: // 150 hp
+                                jLabel1.setText("414 A");
+                                break;
+                            case 21: // 200 hp
+                                jLabel1.setText("552 A");
+                                break; 
+                            default:
+                                jLabel1.setText("-");                                
+                                break;
+                        }
+                        break;
+                    case 2: // 208 Volts
+                        switch(index3){
+                            case 0: // 1⁄2 hp
+                                jLabel1.setText("2.4 A");
+                                break;
+                            case 1: // 3⁄4 hp
+                                jLabel1.setText("3.5 A");
+                                break;
+                            case 2: // 1 hp
+                                jLabel1.setText("4.6 A");
+                                break;
+                            case 3: // 1 1⁄2 hp
+                                jLabel1.setText("6.6 A");
+                                break;
+                            case 4: // 2 hp
+                                jLabel1.setText("7.5 A");
+                                break;
+                            case 5: // 3 hp
+                                jLabel1.setText("10.6 A");
+                                break;
+                            case 6: // 5 hp
+                                jLabel1.setText("16.7 A");
+                                break;
+                            case 7: // 7 1⁄2 hp
+                                jLabel1.setText("24.2 A");
+                                break;
+                            case 8: // 10 hp
+                                jLabel1.setText("30.8 A");
+                                break;
+                            case 9: // 15 hp
+                                jLabel1.setText("46.2 A");
+                                break;
+                            case 10: // 20 hp
+                                jLabel1.setText("59.4 A");
+                                break;
+                            case 11: // 25 hp
+                                jLabel1.setText("74.8 A");
+                                break;
+                            case 12: // 30 hp
+                                jLabel1.setText("88 A");
+                                break;
+                            case 13: // 40 hp
+                                jLabel1.setText("114 A");
+                                break;
+                            case 14: // 50 hp
+                                jLabel1.setText("143 A");
+                                break;
+                            case 15: // 60 hp
+                                jLabel1.setText("169 A");
+                                break;
+                            case 17: // 75 hp
+                                jLabel1.setText("211 A");
+                                break;
+                            case 18: // 100 hp
+                                jLabel1.setText("273 A");
+                                break;
+                            case 19: // 125 hp
+                                jLabel1.setText("343 A");
+                                break;
+                            case 20: // 150 hp
+                                jLabel1.setText("396 A");
+                                break;
+                            case 21: // 200 hp
+                                jLabel1.setText("528 A");
+                                break; 
+                            default:
+                                jLabel1.setText("-");
+                                break;
+                        }
+                        break;
+                    case 3: // 230 Volts
+                        switch(index3){
+                            case 0: // 1⁄2 hp
+                                jLabel1.setText("2.2 A");
+                                break;
+                            case 1: // 3⁄4 hp
+                                jLabel1.setText("3.2 A");
+                                break;
+                            case 2: // 1 hp
+                                jLabel1.setText("4.2 A");
+                                break;
+                            case 3: // 1 1⁄2 hp
+                                jLabel1.setText("6.0 A");
+                                break;
+                            case 4: // 2 hp
+                                jLabel1.setText("6.8 A");
+                                break;
+                            case 5: // 3 hp
+                                jLabel1.setText("9.6 A");
+                                break;
+                            case 6: // 5 hp
+                                jLabel1.setText("15.2 A");
+                                break;
+                            case 7: // 7 1⁄2 hp
+                                jLabel1.setText("22 A");
+                                break;
+                            case 8: // 10 hp
+                                jLabel1.setText("28 A");
+                                break;
+                            case 9: // 15 hp
+                                jLabel1.setText("42 A");
+                                break;
+                            case 10: // 20 hp
+                                jLabel1.setText("54 A");
+                                break;
+                            case 11: // 25 hp
+                                jLabel1.setText("68 A");
+                                break;
+                            case 12: // 30 hp
+                                jLabel1.setText("80 A");
+                                break;
+                            case 13: // 40 hp
+                                jLabel1.setText("104 A");
+                                break;
+                            case 14: // 50 hp
+                                jLabel1.setText("130 A");
+                                break;
+                            case 15: // 60 hp
+                                jLabel1.setText("154 A");
+                                break;
+                            case 17: // 75 hp
+                                jLabel1.setText("192 A");
+                                break;
+                            case 18: // 100 hp
+                                jLabel1.setText("248 A");
+                                break;
+                            case 19: // 125 hp
+                                jLabel1.setText("312 A");
+                                break;
+                            case 20: // 150 hp
+                                jLabel1.setText("360 A");
+                                break;
+                            case 21: // 200 hp
+                                jLabel1.setText("480 A");
+                                break; 
+                            default:
+                                jLabel1.setText("-");
+                                break;
+                        }
+                        break;
+                    case 4: // 460 Volts
+                        switch(index3){
+                            case 0: // 1⁄2 hp
+                                jLabel1.setText("1.1 A");
+                                break;
+                            case 1: // 3⁄4 hp
+                                jLabel1.setText("1.6 A");
+                                break;
+                            case 2: // 1 hp
+                                jLabel1.setText("2.1 A");
+                                break;
+                            case 3: // 1 1⁄2 hp
+                                jLabel1.setText("3.0v");
+                                break;
+                            case 4: // 2 hp
+                                jLabel1.setText("3.4 A");
+                                break;
+                            case 5: // 3 hp
+                                jLabel1.setText("4.8 A");
+                                break;
+                            case 6: // 5 hp
+                                jLabel1.setText("7.6 A");
+                                break;
+                            case 7: // 7 1⁄2 hp
+                                jLabel1.setText("11 A");
+                                break;
+                            case 8: // 10 hp
+                                jLabel1.setText("14 A");
+                                break;
+                            case 9: // 15 hp
+                                jLabel1.setText("21 A");
+                                break;
+                            case 10: // 20 hp
+                                jLabel1.setText("27 A");
+                                break;
+                            case 11: // 25 hp
+                                jLabel1.setText("34 A");
+                                break;
+                            case 12: // 30 hp
+                                jLabel1.setText("40 A");
+                                break;
+                            case 13: // 40 hp
+                                jLabel1.setText("52 A");
+                                break;
+                            case 14: // 50 hp
+                                jLabel1.setText("65 A");
+                                break;
+                            case 15: // 60 hp
+                                jLabel1.setText("77 A");
+                                break;
+                            case 17: // 75 hp
+                                jLabel1.setText("96 A");
+                                break;
+                            case 18: // 100 hp
+                                jLabel1.setText("104 A");
+                                break;
+                            case 19: // 125 hp
+                                jLabel1.setText("156 A");
+                                break;
+                            case 20: // 150 hp
+                                jLabel1.setText("180 A");
+                                break;
+                            case 21: // 200 hp
+                                jLabel1.setText("240 A");
+                                break;
+                            case 22: // 250 hp
+                                jLabel1.setText("302 A");
+                                break;
+                            case 23: // 300 hp
+                                jLabel1.setText("361 A");
+                                break;
+                            case 24: // 400 hp
+                                jLabel1.setText("414 A");
+                                break; 
+                            case 25: // 450 hp
+                                jLabel1.setText("477 A");
+                                break;
+                            case 26: // 500 hp
+                                jLabel1.setText("515 A");
+                                break;
+                            case 27: // 500 hp
+                                jLabel1.setText("590 A");
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case 5: // 575 Volts
+                        switch(index3){
+                            case 0: // 1⁄2 hp
+                                jLabel1.setText("0.9 A");
+                                break;
+                            case 1: // 3⁄4 hp
+                                jLabel1.setText("1.3 A");
+                                break;
+                            case 2: // 1 hp
+                                jLabel1.setText("1.7 A");
+                                break;
+                            case 3: // 1 1⁄2 hp
+                                jLabel1.setText("2.4 A");
+                                break;
+                            case 4: // 2 hp
+                                jLabel1.setText("2.7 A");
+                                break;
+                            case 5: // 3 hp
+                                jLabel1.setText("3.9 A");
+                                break;
+                            case 6: // 5 hp
+                                jLabel1.setText("6.1 A");
+                                break;
+                            case 7: // 7 1⁄2 hp
+                                jLabel1.setText("9 A");
+                                break;
+                            case 8: // 10 hp
+                                jLabel1.setText("11 A");
+                                break;
+                            case 9: // 15 hp
+                                jLabel1.setText("17 A");
+                                break;
+                            case 10: // 20 hp
+                                jLabel1.setText("22 A");
+                                break;
+                            case 11: // 25 hp
+                                jLabel1.setText("27 A");
+                                break;
+                            case 12: // 30 hp
+                                jLabel1.setText("32 A");
+                                break;
+                            case 13: // 40 hp
+                                jLabel1.setText("41 A");
+                                break;
+                            case 14: // 50 hp
+                                jLabel1.setText("52 A");
+                                break;
+                            case 15: // 60 hp
+                                jLabel1.setText("62 A");
+                                break;
+                            case 17: // 75 hp
+                                jLabel1.setText("77 A");
+                                break;
+                            case 18: // 100 hp
+                                jLabel1.setText("99 A");
+                                break;
+                            case 19: // 125 hp
+                                jLabel1.setText("125 A");
+                                break;
+                            case 20: // 150 hp
+                                jLabel1.setText("144 A");
+                                break;
+                            case 21: // 200 hp
+                                jLabel1.setText("192 A");
+                                break;
+                            case 22: // 250 hp
+                                jLabel1.setText("242 A");
+                                break;
+                            case 23: // 300 hp
+                                jLabel1.setText("289 A");
+                                break;
+                            case 24: // 350 hp
+                                jLabel1.setText("336 A");
+                                break; 
+                            case 25: // 400 hp
+                                jLabel1.setText("382 A");
+                                break;
+                            case 26: // 450 hp
+                                jLabel1.setText("412 A");
+                                break;
+                            case 27: // 500 hp
+                                jLabel1.setText("472 A");
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case 6: // 2300 Volts
+                        switch(index3){ 
+                            case 15: // 60 hp
+                                jLabel1.setText("16 A");
+                                break;
+                            case 17: // 75 hp
+                                jLabel1.setText("20 A");
+                                break;
+                            case 18: // 100 hp
+                                jLabel1.setText("26 A");
+                                break;
+                            case 19: // 125 hp
+                                jLabel1.setText("31 A");
+                                break;
+                            case 20: // 150 hp
+                                jLabel1.setText("37 A");
+                                break;
+                            case 21: // 200 hp
+                                jLabel1.setText("49 A");
+                                break;
+                            case 22: // 250 hp
+                                jLabel1.setText("60 A");
+                                break;
+                            case 23: // 300 hp
+                                jLabel1.setText("72 A");
+                                break;
+                            case 24: // 350 hp
+                                jLabel1.setText("83 A");
+                                break; 
+                            case 25: // 400 hp
+                                jLabel1.setText("95 A");
+                                break;
+                            case 26: // 450 hp
+                                jLabel1.setText("103 A");
+                                break;
+                            case 27: // 500 hp
+                                jLabel1.setText("118 A");
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
                 break;
-            default: 
+            default:
                 break;
         }
     }
-    
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
