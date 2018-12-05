@@ -3,10 +3,8 @@
 package smith.patryk;
 
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger; 
 import javax.swing.JFrame;
@@ -31,6 +29,7 @@ public class Main {
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         openingWindow = new Starting(gameWindow);
         
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,9 +51,6 @@ public class Main {
         application.add(gameWindow);
         application.add(endScreen);
         
-        application.setVisible(true);
-        
-        
-    }
-
+        application.setVisible(true); 
+    } 
 }

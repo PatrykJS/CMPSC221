@@ -57,12 +57,12 @@ public class Treasure extends BoardGame {
         this.setHeight(_height);
         init();
     }
+    
     public BoardGame getBoard(){
         return board;
     }
         
     private void init(){
-        
         board = new BoardGame(this.getWidth(), this.getHeight(), 1);
         Random rand = new Random();
         
@@ -71,21 +71,22 @@ public class Treasure extends BoardGame {
         Vector2D player_starting_position = new Vector2D( (int)(this.getWidth() / 2.0), (int)(this.getHeight() / 2.0));
         Vector2D treasure_starting_position = new Vector2D(rand.nextInt(this.getWidth()-3)+3, rand.nextInt(this.getHeight()-3)+3);
         
-        p = new Player("Pplayer", player_starting_position);
+        p = new Player("Player", player_starting_position);
         t = new TreasureChest("Treasure", treasure_starting_position);
         
         board.players = new ArrayList<>(1);
         board.players.add(p);
-        
     }
+    
     public Player getPlayer(){
         return p;
     }
+    
     public TreasureChest getTreasureChest(){
         return t;
     }
+    
     public void movePlayer(String s){
-        
         switch (s){
             case "w":
                 if((p.getPositionY() > 0)){
@@ -119,20 +120,24 @@ public class Treasure extends BoardGame {
                 p.move(new Vector2D(0, 0));
                 break;
         }
-        //System.out.println(p.getPositionX() +" " + p.getPositionY());
     }
+    
     public void move(Vector2D v){
         p.move(v);
     }
+    
     public Vector2D getPlayerPosition(){
         return p.getPosition();
     }
+    
     public Vector2D getTreasurePosition(){
         return t.getPosition();
     }
+    
     public void setWin(boolean w){
         win = w;
     }
+    
     public boolean didWin(){
         return win;
     }    

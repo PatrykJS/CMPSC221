@@ -1,10 +1,8 @@
 package smith.patryk;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Timer;
 
 /**
  * @author Patryk Smith
@@ -20,17 +18,20 @@ public class Player extends Entity {
     public enum Move {UP, LEFT, DOWN, RIGHT};
     
     public Player(){
+        this(new Vector2D(0,0));
     }
     public Player(String _name){
-       super(_name);
-       
+       super(_name); 
     }
+    
     public Player( String _name, Vector2D _position){
        super( _name, _position);
     }
+    
     public Player(Vector2D _position){
        super("Player", _position);
     }
+    
     public void dig(Treasure t, EndScreen e) throws InterruptedException{
          
         if (t.getPlayerPosition().getIntX() == t.getTreasurePosition().getIntX()
@@ -48,7 +49,7 @@ public class Player extends Entity {
             
             e.setVisible(true);
         }else{
-            System.out.println("Didn't find it.");
+            //System.out.println("Didn't find it.");
         }
     }
 }

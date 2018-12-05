@@ -26,9 +26,9 @@ public class Compass {
     }
     
     public void use(){
-        uses--;
-        
+        uses--; 
     }
+    
     public boolean canUse(){
         if(uses > 0){
             return true;
@@ -36,17 +36,21 @@ public class Compass {
             return false;
         }
     }
+    
     public Vector2D direction(TreasureChest t, Player p){
         directionOfChest = new Vector2D( t.getPosition().getX()- p.getPosition().getX(), t.getPosition().getY()- p.getPosition().getY());
         directionOfChest.normalize();
         return directionOfChest;
     }
+    
     public int getSize(){
         return size;
     }
+    
     public void toggle(){
         show = !show;
     }
+    
     public void setShow(boolean _show){
         show = _show;
     }
@@ -56,8 +60,7 @@ public class Compass {
             g.setColor(Color.red);
             g.setFont(new Font("Helvetica", Font.PLAIN, 18));
             g.drawString("Compass used up!", position.getIntX(), position.getIntY());
-        }else
-        if(show){
+        }else if(show){
             int chestX = treasure.getTreasurePosition().getIntX();
             int chestY = treasure.getTreasurePosition().getIntY();
 
@@ -95,7 +98,6 @@ public class Compass {
             g.fillOval(position.getIntX(), position.getIntY(), size, size);
             g.setColor(Color.red);
             g.drawLine(x, y, x + direction.getIntX(), y + direction.getIntY());
-        }
-        
+        } 
     }
 }

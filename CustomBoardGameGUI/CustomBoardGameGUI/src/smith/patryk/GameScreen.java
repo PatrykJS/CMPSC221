@@ -75,7 +75,6 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
 
         InputStream url = getClass().getResourceAsStream("/resources/Textures.png");
         try {
-            //System.out.println(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/resources/TitleScreen1.wav")));
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
             audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
@@ -84,10 +83,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //song.loop(100);
-        
-        
+        } 
         textures = ImageIO.read(url);
 
         treasure = new Treasure(d.width / 72, d.height / 72);
@@ -97,8 +93,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         timeCount = 0;
     }
 
-    public void init() throws IOException {
-        
+    public void init() throws IOException { 
         int tileSize = (int) ((int) screenSize.height / 72.0);
         compassPosition = new Vector2D(50, 50);
         direction = new Vector2D (0,0);
@@ -145,8 +140,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         time = new Timer(1000, (ActionEvent evt) -> {
             timeCount++; 
         });
-        time.setRepeats(true);
-         
+        time.setRepeats(true); 
     }
 
     @Override
@@ -154,12 +148,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         graphics = g;
         requestFocus();
         g.drawImage(background, 0, 0, endscreen);
-        //g.drawImage(sprites[1], treasure.getTreasurePosition().getIntX()*72, treasure.getTreasurePosition().getIntY()*72, endscreen);
         drawPlayer(g, treasure.getPlayerPosition().getIntX() * 72, treasure.getPlayerPosition().getIntY() * 72);
-
-        //g.setColor(Color.red);
-        // g.setFont(new Font("Helvetica", Font.PLAIN, 18));
-        // g.drawString("X: "+treasure.getTreasurePosition().getIntX()+", Y:"+treasure.getTreasurePosition().getIntY(),0 , 20);
         g.drawString("X: " + treasure.getPlayerPosition().getIntX() + ", Y:" + treasure.getPlayerPosition().getIntY(), 0, 40);
         
         compass.draw(g, treasure, compassPosition, direction);
@@ -169,25 +158,19 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         
         if(treasure.getTreasureChest().getShow()){
             drawTreasureChest(g);
-        }
-        //System.out.println("Chest X: "+ chestX +", Y:" + chestY+" - Player X: "+ playerX +", Y: " +playerY+" - Direction X: " + direction.getIntX() + " Y: " + direction.getIntY());
-        
+        } 
         if(treasure.didWin()){
             this.setVisible(false);
             song.stop();
             endscreen.startSong();
             endscreen.setVisible(true);
-        }
-        
-        
-        //g.setColor(Color.RED);
-        //g.drawString(timeCount +"", 20, 300);
-            
+        }  
         repaint();
     }
+    
     private void drawPlayer(Graphics g, int _x, int _y) {
-        g.drawImage(sprites[2], _x, _y, null);
-        g.drawImage(sprites[3], _x, _y + sprites[2].getHeight(), null);
+        g.drawImage(sprites[29], _x, _y, null);
+        g.drawImage(sprites[30], _x, _y + sprites[2].getHeight(), null);
     }
 
     private void drawTreasureChest(Graphics g) {
@@ -200,28 +183,21 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         switch (e.getKeyChar()) {
             case 'w':
                 treasure.movePlayer("w");
-                //treasure.getPlayer().setPosition(treasure.getPlayerPosition().getIntX(),treasure.getPlayerPosition().getIntY()-1);
-                //treasure.move(new Vector2D(0,-1));
                 break;
             case 'a':
                 treasure.movePlayer("a");
-                //treasure.getPlayer().setPosition(treasure.getPlayerPosition().getIntX()-1,treasure.getPlayerPosition().getIntY());
                 break;
             case 's':
                 treasure.movePlayer("s");
-                //treasure.getPlayer().setPosition(treasure.getPlayerPosition().getIntX(),treasure.getPlayerPosition().getIntY()+1);
                 break;
             case 'd':
                 treasure.movePlayer("d");
-                // treasure.getPlayer().setPosition(treasure.getPlayerPosition().getIntX()+1,treasure.getPlayerPosition().getIntY());
                 break;
-            case ' ':
-                 
+            case ' ': 
                 if(compass.canUse() && !t.isRunning()){
                     compass.use();
                     compass.setShow(true);
-                    t.start();
-                    
+                    t.start();  
                 }else{
                     
                    compass.setShow(false);
@@ -231,24 +207,14 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
                 break;
             default:
                 break;
-        }
-        
+        } 
     }
-
+ 
+    @Override
+    public void keyPressed(KeyEvent e) { }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //System.out.println("Typed!");
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //System.out.println("Typed!");
-
-    }
+    public void keyReleased(KeyEvent e) { }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -263,24 +229,17 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mousePressed(MouseEvent e) { }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mouseReleased(MouseEvent e) { }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mouseEntered(MouseEvent e) { }
 
     @Override
-    public void mouseExited(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mouseExited(MouseEvent e) { }
+    
     public void startSong(){
         song.start();
     }

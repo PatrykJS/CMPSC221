@@ -33,43 +33,54 @@ public class Entity {
         name = "Entity";
         position = new Vector2D(0, 0);
     }
+    
     public Entity(String _name){
         name = _name;
         position = new Vector2D(0,0);
     }
+    
     public Entity(String _name, Vector2D _position){
         name = _name;
         position = new Vector2D(_position);
     } 
+    
     public String getName(){
         return name;
     }
+    
     public Vector2D getPosition(){
         return position;
     }
+    
     public int getPositionY(){
         return position.getIntY();
     }
+    
     public int getPositionX(){
         return position.getIntX();
     }
+    
     public Timer getAnimation(){
         return animation;
     }
+    
     public void setAnimation(Timer t){
         animation = t;
     }
+    
     public void setName(String _name){
         name = _name;
     }
+    
     public void setPosition(Vector2D _position){
         position = _position;
     }
+    
     public void setPosition(int _x, int _y){
         position = new Vector2D(_x, _y);
     }
+    
     public void move(Vector2D _velocity){
-        position = position.add(_velocity);
-               
+        position = position.add(_velocity);  
     }
 }
