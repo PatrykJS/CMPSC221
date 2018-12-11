@@ -68,8 +68,8 @@ public class Starting extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Forte", 3, 48)); // NOI18N
         jLabel3.setText("Treasure");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
         add(jLabel3, gridBagConstraints);
 
         jButton1.setText("Start");
@@ -79,16 +79,15 @@ public class Starting extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         add(jButton1, gridBagConstraints);
 
         jLabel1.setText("Used WASD, SPACE, and RMB");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.ipady = 80;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,7 +100,7 @@ public class Starting extends javax.swing.JPanel {
         panel.startSong();
     }//GEN-LAST:event_jButton1ActionPerformed
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponents(Graphics g){
         g.drawImage(background, 0, 0, this);
          
         repaint();

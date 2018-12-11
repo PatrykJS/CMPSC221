@@ -64,7 +64,7 @@ public class EndScreen extends javax.swing.JPanel {
         g.drawImage(background, 0, 0, null);
         g.setFont(new Font("Forte", Font.ITALIC, 18));
         g.drawString(score+"", background.getHeight(), background.getWidth());
-        System.out.println("DRAWING!");
+        //System.out.println("DRAWING!");
     }
     
     
