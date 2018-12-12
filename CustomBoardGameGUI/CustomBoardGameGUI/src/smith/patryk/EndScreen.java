@@ -32,7 +32,7 @@ public class EndScreen extends javax.swing.JPanel {
     private Clip song;
     private final String audioClip = "/resources/WinSong.wav";
     private Starting mainMenu;
-    private FloatControl gainControl;
+    private static FloatControl gainControl;
     
     /**
      * Creates new form EndScreen
@@ -172,8 +172,7 @@ public class EndScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void updateVolume(){
-        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
-        Starting.gainControl.setValue(Starting.soundVolume);
+        gainControl.setValue(Starting.soundVolume);
     } 
     
     @Override

@@ -36,7 +36,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     private BufferedImage[] sprites;
     private Dimension screenSize;
     private double begin, end;
-    private FloatControl gainControl;
+    private static FloatControl gainControl;
     
     Vector2D compassPosition;
     Vector2D direction;
@@ -200,8 +200,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     }
     
     public void updateVolume(){
-        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
-        Starting.gainControl.setValue(Starting.soundVolume);
+        gainControl.setValue(Starting.soundVolume);
     } 
     
     @Override

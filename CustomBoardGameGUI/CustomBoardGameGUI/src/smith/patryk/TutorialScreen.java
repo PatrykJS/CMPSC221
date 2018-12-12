@@ -36,7 +36,7 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
     private BufferedImage[] sprites;
     private BufferedImage background;
     private Dimension screenSize;
-    private FloatControl gainControl;
+    private static FloatControl gainControl;
     Vector2D compassPosition;
     Vector2D direction;
     Vector2D treasureDirection;
@@ -241,9 +241,8 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
         
     }
     public void updateVolume(){
-        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
-        Starting.gainControl.setValue(Starting.soundVolume);
-    }
+        gainControl.setValue(Starting.soundVolume);
+    } 
     
     @Override
     public void keyPressed(KeyEvent e) { 

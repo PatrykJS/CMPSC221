@@ -25,7 +25,7 @@ public class Starting extends javax.swing.JPanel{
     private InputStream audioInDirect;
     private AudioInputStream audioInBuffer;
     private Clip song;
-    private FloatControl gainControl;
+    private static FloatControl gainControl;
     public static float soundVolume = -10.0f;
     
     private Image background;
@@ -313,16 +313,9 @@ public class Starting extends javax.swing.JPanel{
     }//GEN-LAST:event_jButton4MouseEntered
     
     public static void setSoundVolume(float f){
-        gainControl.setValue(f);
-        tutScreen.updateVolume();
-        gameWindow.updateVolume();
-        endScreen.updateVolume();
-        mainScreen.updateVolume();
+           soundVolume = f;
+           gainControl.setValue(f);
     }
-    public void updateVolume(){
-        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
-        Starting.gainControl.setValue(Starting.soundVolume);
-    }  
     
     @Override
     public void paintComponent(Graphics g){ 

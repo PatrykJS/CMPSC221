@@ -15,6 +15,7 @@ public class Settings extends javax.swing.JPanel {
     public Settings() {
         initComponents();
         reference = 0;
+        
         jTextField1.setText(Starting.keyMap[0] + "");
         jTextField2.setText(Starting.keyMap[1] + "");
         jTextField3.setText(Starting.keyMap[2] + "");
@@ -75,7 +76,7 @@ public class Settings extends javax.swing.JPanel {
         add(jButton1, gridBagConstraints);
 
         jSlider1.setMaximum(1);
-        jSlider1.setMinimum(-60);
+        jSlider1.setMinimum(-30);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
         jSlider1.setSnapToTicks(true);
@@ -225,6 +226,9 @@ public class Settings extends javax.swing.JPanel {
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
         // TODO add your handling code here:
         Starting.setSoundVolume(jSlider1.getValue());
+        Starting.tutScreen.updateVolume();
+        Starting.gameWindow.updateVolume();
+        Starting.endScreen.updateVolume();
         jLabel8.setText(jSlider1.getValue() + "");
     }//GEN-LAST:event_jSlider1StateChanged
 
