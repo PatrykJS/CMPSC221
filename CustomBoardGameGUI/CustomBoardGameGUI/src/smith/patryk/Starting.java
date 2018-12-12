@@ -8,17 +8,14 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image; 
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream; 
 import java.io.IOException;
 import java.io.InputStream;
 import static java.lang.System.exit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException; 
+import javax.sound.sampled.*; 
 
 /**
  *
@@ -28,30 +25,34 @@ public class Starting extends javax.swing.JPanel{
     private InputStream audioInDirect;
     private AudioInputStream audioInBuffer;
     private Clip song;
+    private FloatControl gainControl;
+    public static float soundVolume = -10.0f;
+    
     private Image background;
     private final String audioClip = "/resources/TitleScreen1.wav";
-    private int x, y;
     private Dimension screenSize;
-    public static Settings settings;
+    private int x, y;
     
-    private boolean mouse1Entered, mouse2Entered, mouse3Entered, mouse4Entered;
-    int buttonL = 220, buttonH = 100;
-    int centerX;
-    int centerY;
-    private int[] buttonY;
-    private int buttonX;
-    private String[] buttonText; 
     public static GameScreen gameWindow = null;
     public static EndScreen endScreen = null;
     public static TutorialScreen tutScreen = null;
     public static Starting mainScreen = null;
-     
+    public static Settings settings = null;
+    
+    public static int[] keyMap = new int[]{
+        KeyEvent.VK_UP,         // Move UP
+        KeyEvent.VK_LEFT,       // Move LEFT
+        KeyEvent.VK_RIGHT,      // Move DOWN
+        KeyEvent.VK_DOWN,       // Move RIGHT
+        KeyEvent.VK_C,          // Compass
+        KeyEvent.VK_SPACE       // Dig
+    }; 
     /**
      * Creates new form StartingScreen
      * @param _screenSize
      */
     public Starting(Dimension _screenSize)  { 
-        mouse1Entered = mouse2Entered = mouse3Entered = mouse4Entered = false;
+        
         screenSize = _screenSize;
         mainScreen = this;
         System.out.println("Initializing Components...");
@@ -65,8 +66,11 @@ public class Starting extends javax.swing.JPanel{
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
             audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
-            song = AudioSystem.getClip();
+            song = AudioSystem.getClip(); 
             song.open(audioInBuffer);
+            gainControl = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(soundVolume);
+            
             song.loop(100);
             song.stop();
             
@@ -81,8 +85,6 @@ public class Starting extends javax.swing.JPanel{
         settings.setSize(screenSize);
         settings.setVisible(false);
         
-        buttonL = 220;
-        buttonH = 100;
         
         System.out.println("Creating Game Window...");
         
@@ -269,15 +271,13 @@ public class Starting extends javax.swing.JPanel{
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.out.println("User is changing settings...");
-        settings.setVisible(true); 
+        settings.setVisible(true);
+        settings.setReference(0);
         this.setVisible(false); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        // TODO add your handling code here:
-        if(mouse1Entered){
-            System.out.println("Button 1 Clicked!");
-        }
+       
     }//GEN-LAST:event_formMouseClicked
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
@@ -312,7 +312,18 @@ public class Starting extends javax.swing.JPanel{
         jButton4.setForeground(Color.WHITE);
     }//GEN-LAST:event_jButton4MouseEntered
     
-      
+    public static void setSoundVolume(float f){
+        gainControl.setValue(f);
+        tutScreen.updateVolume();
+        gameWindow.updateVolume();
+        endScreen.updateVolume();
+        mainScreen.updateVolume();
+    }
+    public void updateVolume(){
+        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+        Starting.gainControl.setValue(Starting.soundVolume);
+    }  
+    
     @Override
     public void paintComponent(Graphics g){ 
         g.drawImage(background, 0, 0, screenSize.width, screenSize.height, this);

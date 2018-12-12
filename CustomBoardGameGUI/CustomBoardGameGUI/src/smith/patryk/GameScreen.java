@@ -21,10 +21,11 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.Timer; 
 
 public final class GameScreen extends JPanel implements KeyListener, MouseListener {
 
@@ -35,7 +36,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     private BufferedImage[] sprites;
     private Dimension screenSize;
     private double begin, end;
-    
+    private FloatControl gainControl;
     
     Vector2D compassPosition;
     Vector2D direction;
@@ -82,8 +83,11 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
             audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
-            song = AudioSystem.getClip();
+            song = AudioSystem.getClip(); 
             song.open(audioInBuffer);
+            gainControl = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(Starting.soundVolume);
+            
             song.stop(); 
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
@@ -194,48 +198,45 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         g.drawImage(sprites[1], treasure.getTreasurePosition().getIntX() * 72, treasure.getTreasurePosition().getIntY() * 72, endScreen);
         repaint();
     }
-
+    
+    public void updateVolume(){
+        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+        Starting.gainControl.setValue(Starting.soundVolume);
+    } 
+    
     @Override
-    public void keyTyped(KeyEvent e) {
-        switch (e.getKeyChar()) {
-            case 'w':
-            case 'W':
-                treasure.movePlayer("w");
-                break;
-            case 'a':
-            case 'A':
-                treasure.movePlayer("a");
-                break;
-            case 's':
-            case 'S':
-                treasure.movePlayer("s");
-                break;
-            case 'd':
-            case 'D':
-                treasure.movePlayer("d");
-                break;
-            case ' ': 
-                if(compass.canUse() && !t.isRunning()){
-                    compass.use();
-                    compass.setShow(true);
-                    t.start();  
-                }else{ 
-                   compass.setShow(false);
-                   repaint();
-                } 
-                break;
-            default:
-                break;
-        } 
-        
-    }
+    public void keyTyped(KeyEvent e) { }
  
     @Override
     public void keyPressed(KeyEvent e) { 
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-            System.out.println("ESCAPE!");
             Starting.settings.setVisible(true);
             Starting.gameWindow.setVisible(false);
+            Starting.settings.setReference(2);
+        }else if(e.getKeyCode() == Starting.keyMap[0]){
+            treasure.movePlayer("w");
+        }else if(e.getKeyCode() == Starting.keyMap[1]){
+            treasure.movePlayer("a");
+        }else if(e.getKeyCode() == Starting.keyMap[2]){
+            treasure.movePlayer("s");
+        }else if(e.getKeyCode() == Starting.keyMap[3]){
+            treasure.movePlayer("d");
+        }else if(e.getKeyCode() == Starting.keyMap[4]){
+             if(treasure.getPlayer().dig(treasure)){
+                Starting.endScreen.setVisible(true);
+                this.setVisible(false);
+                stopSong(); 
+                Starting.endScreen.startSong();
+            } 
+        }else if(e.getKeyCode() == Starting.keyMap[5]){
+            if(compass.canUse() && !t.isRunning()){
+                compass.use();
+                compass.setShow(true);
+                t.start();  
+            }else{ 
+                compass.setShow(false);
+                repaint();
+            } 
         }
     }
 

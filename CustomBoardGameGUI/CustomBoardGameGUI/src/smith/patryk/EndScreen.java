@@ -16,8 +16,9 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.UnsupportedAudioFileException; 
 
 /**
  *
@@ -31,7 +32,7 @@ public class EndScreen extends javax.swing.JPanel {
     private Clip song;
     private final String audioClip = "/resources/WinSong.wav";
     private Starting mainMenu;
-    
+    private FloatControl gainControl;
     
     /**
      * Creates new form EndScreen
@@ -50,8 +51,11 @@ public class EndScreen extends javax.swing.JPanel {
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
             audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
-            song = AudioSystem.getClip();
+            song = AudioSystem.getClip(); 
             song.open(audioInBuffer);
+            gainControl = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(Starting.soundVolume);
+            
             song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
@@ -167,6 +171,10 @@ public class EndScreen extends javax.swing.JPanel {
         exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public void updateVolume(){
+        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+        Starting.gainControl.setValue(Starting.soundVolume);
+    } 
     
     @Override
     public void paintComponent(Graphics g){ 

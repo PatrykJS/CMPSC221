@@ -22,10 +22,11 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.Timer; 
 
 public final class TutorialScreen extends JPanel implements KeyListener, MouseListener {
 
@@ -35,7 +36,7 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
     private BufferedImage[] sprites;
     private BufferedImage background;
     private Dimension screenSize;
-    
+    private FloatControl gainControl;
     Vector2D compassPosition;
     Vector2D direction;
     Vector2D treasureDirection;
@@ -78,8 +79,10 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
             audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
-            song = AudioSystem.getClip();
+            song = AudioSystem.getClip(); 
             song.open(audioInBuffer);
+            gainControl = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(Starting.soundVolume);
             song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
@@ -237,12 +240,17 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
         } 
         
     }
- 
+    public void updateVolume(){
+        Starting.gainControl  = (FloatControl) song.getControl(FloatControl.Type.MASTER_GAIN);
+        Starting.gainControl.setValue(Starting.soundVolume);
+    }
+    
     @Override
     public void keyPressed(KeyEvent e) { 
     if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
             Starting.settings.setVisible(true);
             Starting.tutScreen.setVisible(false);
+            Starting.settings.setReference(1);
         }
     }
 
