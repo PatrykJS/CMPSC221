@@ -20,13 +20,10 @@ package smith.patryk;
 public class BoardGame extends Game{
     
     
-    private final int numRows;
-    private final int numCols;
-    
     BoardGame(int _x, int _y, int numberOfPlayers){
-        init( _x, _y, numberOfPlayers);
-        numRows = _x/ 16;
-        numCols = _y/ 16;
+        init( _x, _y, numberOfPlayers); 
+        setWidth(_x);
+        setHeight(_y);
     }
     
     private void init(int _x, int _y, int numberOfPlayers){

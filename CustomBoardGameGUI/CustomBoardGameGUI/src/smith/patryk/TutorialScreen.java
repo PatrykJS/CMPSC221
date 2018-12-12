@@ -26,12 +26,11 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public final class GameScreen extends JPanel implements KeyListener, MouseListener {
+public final class TutorialScreen extends JPanel implements KeyListener, MouseListener {
 
     double SleepTime = 1000 / 30, lastRefresh = 0;
     private final Treasure treasure;
-    private EndScreen endScreen;
-    private BufferedImage background;
+    private Starting mainScreen; 
     private BufferedImage[] sprites;
     private Dimension screenSize;
     
@@ -39,8 +38,7 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     Vector2D direction;
     Vector2D treasureDirection;
     
-    private Compass compass;
-    private Graphics graphics;
+    private Compass compass; 
     private Timer t;
     private Timer time;
     
@@ -68,35 +66,31 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
      * @throws java.io.IOException
      */
 
-    public GameScreen(EndScreen _endscreen, Dimension d) throws IOException {
+    public TutorialScreen(Starting _mainScreen, Dimension d) throws IOException {
         super();
-        System.out.println("Initializing Game Screen...");
         addKeyListener(this);
         addMouseListener(this);
         
         InputStream url = getClass().getResourceAsStream("/resources/Textures.png");
         try {
-            System.out.println("Adding Music To Main Game Screen...");
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
             audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);
             song = AudioSystem.getClip();
             song.open(audioInBuffer);
-            song.stop(); 
+            song.stop();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        textures = ImageIO.read(url);  
+        } 
+        textures = ImageIO.read(url); 
         treasure = new Treasure(d.width / 72, d.height / 72);
-        System.out.println("Done Adding Music to Main Game Screen.");
-        endScreen = _endscreen;
+        mainScreen = _mainScreen;
         screenSize = d;
         init();
         timeCount = 0;
     }
 
     public void init() throws IOException { 
-        System.out.println("Creating Textures...");
         int tileSize = (int) ((int) screenSize.height / 72.0);
         compassPosition = new Vector2D(50, 50);
         direction = new Vector2D (0,0);
@@ -113,53 +107,27 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
                         height
                 );
             }
-        }
-        background = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-        
-        background = new BufferedImage(screenSize.width, screenSize.height, BufferedImage.TYPE_INT_RGB);
-        Graphics g_res = background.getGraphics();
-
-        for (int i = 0; i < screenSize.width; i++) {
-            for (int j = 0; j < screenSize.height; j++) {
-                g_res.drawImage(sprites[0], i * width, j * height, endScreen);
-            }
-        }
-
-        InputStream url = getClass().getResourceAsStream("/resources/background.png");
-
-        ImageIO.write((RenderedImage) background, "png", new File(url.toString()));
-        background = ImageIO.read(new File(url.toString()));
+        }  
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         treasureDirection = new Vector2D(treasure.getTreasurePosition().getIntX() - treasure.getPlayerPosition().getX(),
-                                        treasure.getTreasurePosition().getY() - treasure.getPlayerPosition().getY());
+        treasure.getTreasurePosition().getY() - treasure.getPlayerPosition().getY());
 
-        
         compass = new Compass(treasure.getTreasureChest(), treasure.getPlayer());
-        System.out.println("Done Creating Textures.");
-        System.out.println("Creating Timers...");
+                
         t = new Timer(compassUseTime,  (ActionEvent evt) -> { });
         t.setRepeats(false);
         
-        
+         
         time = new Timer(1000, (ActionEvent evt) -> {
             timeCount++; 
         });
-        time.setRepeats(true);
-        System.out.println("Done Creating Timers.");
-        System.out.println("Done Creating Game Screen.");
+        time.setRepeats(true); 
     }
 
-    public void restart(){
-        treasure.reset();
-        compass = new Compass(treasure.getTreasureChest(), treasure.getPlayer());
-         
-    }
     @Override
-    public void paintComponent(Graphics g) {
-        graphics = g;
-        requestFocus();
-        g.drawImage(background, 0, 0, endScreen);
+    public void paintComponent(Graphics g) { 
+        requestFocus(); 
         drawPlayer(g, treasure.getPlayerPosition().getIntX() * 72, treasure.getPlayerPosition().getIntY() * 72);
         g.drawString("X: " + treasure.getPlayerPosition().getIntX() + ", Y:" + treasure.getPlayerPosition().getIntY(), 0, 40);
         
@@ -172,22 +140,18 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             drawTreasureChest(g);
         } 
         if(treasure.didWin()){
-            this.setVisible(false);
-            song.stop();
-            System.out.println("Starting End Screen Song...");
-            Starting.endScreen.startSong();
-            Starting.endScreen.setVisible(true);
+            this.setVisible(false); 
         }  
         repaint();
     }
     
     private void drawPlayer(Graphics g, int _x, int _y) {
-        g.drawImage(sprites[30], _x, _y, null);
-        g.drawImage(sprites[31], _x, _y + sprites[2].getHeight(), null);
+        g.drawImage(sprites[29], _x, _y, null);
+        g.drawImage(sprites[30], _x, _y + sprites[2].getHeight(), null);
     }
 
     private void drawTreasureChest(Graphics g) {
-        g.drawImage(sprites[1], treasure.getTreasurePosition().getIntX() * 72, treasure.getTreasurePosition().getIntY() * 72, endScreen);
+        g.drawImage(sprites[1], treasure.getTreasurePosition().getIntX() * 72, treasure.getTreasurePosition().getIntY() * 72, mainScreen);
         repaint();
     }
 
@@ -234,9 +198,8 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         if( e.getButton() ==1){
             //System.out.println("Clicked!");
             if(treasure.getPlayer().dig(treasure)){
-                System.out.println("User Won the Game.\nSwitching to End Screen.");
-                treasure.setWin(true);
-                Starting.endScreen.setScore(25000); 
+                mainScreen.setVisible(true);
+                this.setVisible(false);
             } 
         }
     }
@@ -258,7 +221,6 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
     }
     public void stopSong(){
         song.stop();
-        song.setFramePosition(0);
     }
     public void startTimer(){
         time.start();

@@ -42,19 +42,18 @@ import java.util.Random;
 public class Treasure extends BoardGame {
     private BoardGame board;
     private Player p;
-    private TreasureChest t;
-    
+    private TreasureChest t; 
     private boolean win; 
     
     private double begin;
     private double end;
     
     public Treasure(int _width, int _height){
+        
         super(_width, _height, 1);
+        System.out.println("Creating New Treasure...");
         win = false;
         begin = System.currentTimeMillis();
-        this.setWidth(_width);
-        this.setHeight(_height);
         init();
     }
     
@@ -63,19 +62,21 @@ public class Treasure extends BoardGame {
     }
         
     private void init(){
+        System.out.println("Initializing Treasure...");
         board = new BoardGame(this.getWidth(), this.getHeight(), 1);
         Random rand = new Random();
+        System.out.println("Randomizing Treasure...");
+        Vector2D player_starting_position = new Vector2D( (int)(this.getWidth() / 2.0), (int)(this.getHeight() / 2.0)); 
+        Vector2D treasure_starting_position = new Vector2D(rand.nextInt(this.getWidth()-1)+2, rand.nextInt(this.getHeight()-3)+2);
         
-        
-        
-        Vector2D player_starting_position = new Vector2D( (int)(this.getWidth() / 2.0), (int)(this.getHeight() / 2.0));
-        Vector2D treasure_starting_position = new Vector2D(rand.nextInt(this.getWidth()-3)+3, rand.nextInt(this.getHeight()-3)+3);
-        
+        System.out.println("Creating Enities...");
         p = new Player("Player", player_starting_position);
         t = new TreasureChest("Treasure", treasure_starting_position);
         
+        System.out.println("Adding Entities To Game...");
         board.players = new ArrayList<>(1);
         board.players.add(p);
+        System.out.println("Done Initializing Treasure.");
     }
     
     public Player getPlayer(){
@@ -86,13 +87,19 @@ public class Treasure extends BoardGame {
         return t;
     }
     
+    public void reset(){
+        System.out.println("Resetting Treasure.");
+        init();
+        win = false; 
+        System.out.println("Done Resetting Treasure.");
+    }
     public void movePlayer(String s){
         switch (s){
             case "w":
                 if((p.getPositionY() > 0)){
                     p.move(new Vector2D(0, -1));
                 }else{
-                    p.setPosition(p.getPositionX(), this.getHeight()-3);
+                    p.setPosition(p.getPositionX(), this.getHeight()-2);
                 }
                 break;
             case "a":
@@ -103,7 +110,7 @@ public class Treasure extends BoardGame {
                 }
                 break;
             case "s":
-                if((p.getPositionY()+3 < this.getHeight())){
+                if((p.getPositionY()+2 < this.getHeight())){
                     p.move(new Vector2D(0,  1));
                 }else{
                     p.setPosition(p.getPositionX(), 0);

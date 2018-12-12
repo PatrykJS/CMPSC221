@@ -1,8 +1,5 @@
 package smith.patryk;
-
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+ 
 
 /**
  * @author Patryk Smith
@@ -32,23 +29,16 @@ public class Player extends Entity {
        super("Player", _position);
     }
     
-    public void dig(Treasure t, EndScreen e) throws InterruptedException{
+    public boolean dig(Treasure t){
          
         if (t.getPlayerPosition().getIntX() == t.getTreasurePosition().getIntX()
                 && (t.getTreasurePosition().getIntY() == t.getPlayerPosition().getIntY()
                 || t.getTreasurePosition().getY() == t.getPlayerPosition().getIntY() + 1)) {
 
-            t.getTreasureChest().show();
-            Thread.sleep(500);
-            try {
-                e.setScore(25000);
-            } catch (IOException ex) {
-                Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            t.setWin(true);
-            
-            e.setVisible(true);
+            t.getTreasureChest().show(); 
+            return true;
         }else{
+            return false;
             //System.out.println("Didn't find it.");
         }
     }

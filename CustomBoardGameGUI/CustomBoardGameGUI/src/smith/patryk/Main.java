@@ -3,10 +3,7 @@
 package smith.patryk;
 
 import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger; 
+import java.awt.Toolkit; 
 import javax.swing.JFrame;
 
 /**
@@ -17,40 +14,33 @@ public class Main {
     public static void main(String[] args)  { 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 
+         
         JFrame application;
-        Starting openingWindow = null;
-        GameScreen gameWindow = null;
-        EndScreen endScreen;
+        // Creating JFrame
+        System.out.println("Creating Main Menu..."); 
+        Starting openingWindow = new Starting(screenSize); 
+        System.out.println("Done.");
         
-        application = new JFrame();
-        endScreen = new EndScreen(0);
-        try {
-            gameWindow = new GameScreen(endScreen, screenSize);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("Creating JFrame..."); 
+        application = new JFrame();  
+        System.out.println("Done Creating JFrame.");
         
-        openingWindow = new Starting(gameWindow);
-        
-        application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        openingWindow.setSize(screenSize.width,screenSize.width);
-        gameWindow.setSize(screenSize.width,screenSize.width);
-        endScreen.setSize(screenSize.width,screenSize.width);
-        application.setSize(screenSize.width,screenSize.width);
-        
-        
+        System.out.println("Configuing Window...");
+        application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        application.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        application.setUndecorated(true);
+        application.setVisible(true); 
+        System.out.println("Done Configuring Window.");
+        System.out.print("Adding Music");
+        openingWindow.setSize(application.getSize());
         openingWindow.setVisible(true);
         openingWindow.startSong();
-        gameWindow.stopSong();
-        gameWindow.setVisible(false);
-        endScreen.setVisible(false);
-        
-        
+        System.out.println("Done adding Music.");
         application.add(openingWindow);
-        application.add(gameWindow);
-        application.add(endScreen);
-        
+        application.add(Starting.gameWindow);
+        application.add(Starting.endScreen);
+        System.out.println("Done Creating Windows.");
         application.setVisible(true); 
+        
     } 
 }
