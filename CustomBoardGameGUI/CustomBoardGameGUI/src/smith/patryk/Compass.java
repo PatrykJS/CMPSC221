@@ -30,13 +30,15 @@ public class Compass {
     }
     
     public boolean canUse(){
-        if(uses > 0){
+        if(uses >= 0){
             return true;
         }else{
             return false;
         }
     }
-    
+    public int getUses(){
+        return Math.abs(uses);
+    }
     public Vector2D direction(TreasureChest t, Player p){
         directionOfChest = new Vector2D( t.getPosition().getX()- p.getPosition().getX(), t.getPosition().getY()- p.getPosition().getY());
         directionOfChest.normalize();
@@ -56,15 +58,13 @@ public class Compass {
     }
     
     public void draw(Graphics g, Treasure treasure, Vector2D position, Vector2D direction){
-        if (uses < 1){
+        if (uses < 0){
             g.setColor(Color.red);
-            g.setFont(new Font("Helvetica", Font.PLAIN, 18));
+            g.setFont(new Font("Forte", 3, size));
             g.drawString("Compass used up!", position.getIntX(), position.getIntY());
         }else if(show){
             int chestX = treasure.getTreasurePosition().getIntX();
-            int chestY = treasure.getTreasurePosition().getIntY();
-
-
+            int chestY = treasure.getTreasurePosition().getIntY(); 
             int playerX = treasure.getPlayerPosition().getIntX();
             int playerY = treasure.getPlayerPosition().getIntY();
 

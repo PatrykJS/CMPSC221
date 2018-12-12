@@ -2,6 +2,7 @@
  */
 package smith.patryk;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -61,6 +62,7 @@ public class EndScreen extends javax.swing.JPanel {
    
     public void setScore(int _score){ 
         score = _score;
+        jLabel1.setText("Score :   "+score + "");
     }
     
     @Override
@@ -86,7 +88,15 @@ public class EndScreen extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton1.setBorder(null);         
+        jButton1.setBorderPainted(false);         
+        jButton1.setContentAreaFilled(false);        
+        jButton1.setOpaque(false);
         jButton2 = new javax.swing.JButton();
+        jButton2.setBorder(null);         
+        jButton2.setBorderPainted(false);         
+        jButton2.setContentAreaFilled(false);        
+        jButton2.setOpaque(false);
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -95,20 +105,31 @@ public class EndScreen extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 11;
         add(jLabel2, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Forte", 3, 18)); // NOI18N
         jLabel1.setText("Score:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 23;
         add(jLabel1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         add(jLabel4, gridBagConstraints);
 
+        jButton1.setFont(new java.awt.Font("Forte", 3, 18)); // NOI18N
         jButton1.setText("Main Menu");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -119,7 +140,16 @@ public class EndScreen extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         add(jButton1, gridBagConstraints);
 
+        jButton2.setFont(new java.awt.Font("Forte", 3, 18)); // NOI18N
         jButton2.setText("Quit");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -137,6 +167,12 @@ public class EndScreen extends javax.swing.JPanel {
         exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    @Override
+    public void paintComponent(Graphics g){ 
+        g.drawImage(background, 0, 0, mainMenu.getSize().width ,mainMenu.getSize().height, this); 
+        repaint(); 
+    } 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         mainMenu.setVisible(true);
@@ -147,6 +183,23 @@ public class EndScreen extends javax.swing.JPanel {
         mainMenu.restart();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        jButton1.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        jButton1.setForeground(new Color(60,63,65));
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        jButton2.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        jButton2.setForeground(new Color(60,63,65));
+    }//GEN-LAST:event_jButton2MouseExited
+
+    
     public void startSong(){
         song.start();
     }

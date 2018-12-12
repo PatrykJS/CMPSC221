@@ -2,6 +2,7 @@ package smith.patryk;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -32,6 +33,7 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
     private final Treasure treasure;
     private Starting mainScreen; 
     private BufferedImage[] sprites;
+    private BufferedImage background;
     private Dimension screenSize;
     
     Vector2D compassPosition;
@@ -61,7 +63,7 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
     /**
      * Creates new form GameScreen
      *
-     * @param _endscreen
+     * @param _mainScreen
      * @param d
      * @throws java.io.IOException
      */
@@ -83,14 +85,16 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
             Logger.getLogger(Starting.class.getName()).log(Level.SEVERE, null, ex);
         } 
         textures = ImageIO.read(url); 
+        
         treasure = new Treasure(d.width / 72, d.height / 72);
+        
         mainScreen = _mainScreen;
         screenSize = d;
         init();
         timeCount = 0;
     }
 
-    public void init() throws IOException { 
+    public void init() { 
         int tileSize = (int) ((int) screenSize.height / 72.0);
         compassPosition = new Vector2D(50, 50);
         direction = new Vector2D (0,0);
@@ -109,7 +113,30 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
             }
         }  
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        background = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+        
+        background = new BufferedImage(screenSize.width, screenSize.height, BufferedImage.TYPE_INT_RGB);
+        Graphics g_res = background.getGraphics();
 
+        for (int i = 0; i < screenSize.width; i++) {
+            for (int j = 0; j < screenSize.height; j++) {
+                g_res.drawImage(sprites[0], i * width, j * height, this);
+            }
+        }
+
+        InputStream url = getClass().getResourceAsStream("/resources/background.png");
+
+        try {
+            ImageIO.write((RenderedImage) background, "png", new File(url.toString()));
+        } catch (IOException ex) {
+            Logger.getLogger(TutorialScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            background = ImageIO.read(new File(url.toString()));
+        } catch (IOException ex) {
+            Logger.getLogger(TutorialScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         treasureDirection = new Vector2D(treasure.getTreasurePosition().getIntX() - treasure.getPlayerPosition().getX(),
         treasure.getTreasurePosition().getY() - treasure.getPlayerPosition().getY());
 
@@ -126,10 +153,11 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
     }
 
     @Override
-    public void paintComponent(Graphics g) { 
-        requestFocus(); 
+    public void paintComponent(Graphics g) {    
+        requestFocus();
+        g.drawImage(background, 0, 0, this);
         drawPlayer(g, treasure.getPlayerPosition().getIntX() * 72, treasure.getPlayerPosition().getIntY() * 72);
-        g.drawString("X: " + treasure.getPlayerPosition().getIntX() + ", Y:" + treasure.getPlayerPosition().getIntY(), 0, 40);
+        //g.drawString("X: " + treasure.getPlayerPosition().getIntX() + ", Y:" + treasure.getPlayerPosition().getIntY(), 0, 40);
         
         compass.draw(g, treasure, compassPosition, direction);
         if(!t.isRunning()){
@@ -141,33 +169,55 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
         } 
         if(treasure.didWin()){
             this.setVisible(false); 
-        }  
+        } 
+        
+        drawInstructions(g, 0, 100);
         repaint();
     }
     
     private void drawPlayer(Graphics g, int _x, int _y) {
-        g.drawImage(sprites[29], _x, _y, null);
-        g.drawImage(sprites[30], _x, _y + sprites[2].getHeight(), null);
+        g.drawImage(sprites[30], _x, _y, null);
+        g.drawImage(sprites[31], _x, _y + sprites[2].getHeight(), null);
     }
 
     private void drawTreasureChest(Graphics g) {
         g.drawImage(sprites[1], treasure.getTreasurePosition().getIntX() * 72, treasure.getTreasurePosition().getIntY() * 72, mainScreen);
         repaint();
     }
+    private void drawInstructions (Graphics g, int _x, int _y) {
+       g.setColor(Color.darkGray);
+       int size = 30;
+       g.setFont(new Font("Forte", 3, size));
+       g.drawString("To move around just use the WASD keys.", _x, _y+size);
+       g.drawString("To dig for the treasure use the Right Mouse Button.",_x , _y+size*2);
+       g.drawString("To use the compass use the SPACEBAR.", _x, _y+size*3);
+       g.drawString("You have only 3 uses of the compass.", _x, _y+size*4);
+       g.drawString("You will know when you find the treasure when the red line on the compass dissapears.", _x, _y+size*5);
+    }
 
+    public void restart(){
+        treasure.reset();
+        compass = new Compass(treasure.getTreasureChest(), treasure.getPlayer());
+         
+    }
+    
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(KeyEvent e) {  
         switch (e.getKeyChar()) {
             case 'w':
+            case 'W':
                 treasure.movePlayer("w");
                 break;
             case 'a':
+            case 'A':
                 treasure.movePlayer("a");
                 break;
             case 's':
+            case 'S':
                 treasure.movePlayer("s");
                 break;
             case 'd':
+            case 'D':
                 treasure.movePlayer("d");
                 break;
             case ' ': 
@@ -179,27 +229,33 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
                     
                    compass.setShow(false);
                    repaint();
-                }
-                
+                } 
                 break;
             default:
+               
                 break;
         } 
+        
     }
  
     @Override
-    public void keyPressed(KeyEvent e) { }
+    public void keyPressed(KeyEvent e) { 
+    if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+            Starting.settings.setVisible(true);
+            Starting.tutScreen.setVisible(false);
+        }
+    }
 
     @Override
     public void keyReleased(KeyEvent e) { }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if( e.getButton() ==1){
-            //System.out.println("Clicked!");
+        if( e.getButton() == 1){ 
             if(treasure.getPlayer().dig(treasure)){
                 mainScreen.setVisible(true);
                 this.setVisible(false);
+                stopSong(); 
             } 
         }
     }
