@@ -42,10 +42,11 @@ public class Starting extends javax.swing.JPanel{
     public static int[] keyMap = new int[]{
         KeyEvent.VK_UP,         // Move UP
         KeyEvent.VK_LEFT,       // Move LEFT
-        KeyEvent.VK_RIGHT,      // Move DOWN
-        KeyEvent.VK_DOWN,       // Move RIGHT
+        KeyEvent.VK_DOWN,      // Move DOWN
+        KeyEvent.VK_RIGHT,       // Move RIGHT
         KeyEvent.VK_C,          // Compass
         KeyEvent.VK_SPACE       // Dig
+        
     }; 
     /**
      * Creates new form StartingScreen
@@ -62,7 +63,7 @@ public class Starting extends javax.swing.JPanel{
         x = y = 0;
         try {
             System.out.println("Configuring Audio...");
-            background =   Toolkit.getDefaultToolkit().createImage(getClass().getResource ("/resources/animatedBackground.gif"));
+            background =   Toolkit.getDefaultToolkit().createImage(getClass().getResource("/resources/animatedBackground.gif"));
             audioInDirect = getClass().getResourceAsStream(audioClip);
             InputStream bufferedIn = new BufferedInputStream(audioInDirect);
             audioInBuffer = AudioSystem.getAudioInputStream(bufferedIn);

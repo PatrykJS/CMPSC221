@@ -221,13 +221,6 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
         }else if(e.getKeyCode() == Starting.keyMap[3]){
             treasure.movePlayer("d");
         }else if(e.getKeyCode() == Starting.keyMap[4]){
-             if(treasure.getPlayer().dig(treasure)){
-                Starting.endScreen.setVisible(true);
-                this.setVisible(false);
-                stopSong(); 
-                Starting.endScreen.startSong();
-            } 
-        }else if(e.getKeyCode() == Starting.keyMap[5]){
             if(compass.canUse() && !t.isRunning()){
                 compass.use();
                 compass.setShow(true);
@@ -235,6 +228,13 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             }else{ 
                 compass.setShow(false);
                 repaint();
+            }
+        }else if(e.getKeyCode() == Starting.keyMap[5]){
+            if(treasure.getPlayer().dig(treasure)){
+                Starting.endScreen.setVisible(true);
+                this.setVisible(false);
+                stopSong(); 
+                Starting.endScreen.startSong();
             } 
         }
     }

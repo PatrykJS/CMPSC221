@@ -191,7 +191,11 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
        g.setColor(Color.darkGray);
        int size = 30;
        g.setFont(new Font("Forte", 3, size));
-       g.drawString("To move around just use the WASD keys.", _x, _y+size);
+       g.drawString("To move around just use the "+KeyEvent.getKeyText(Starting.keyMap[0])
+                                                    +KeyEvent.getKeyText(Starting.keyMap[1])
+                                                    +KeyEvent.getKeyText(Starting.keyMap[2])
+                                                    +KeyEvent.getKeyText(Starting.keyMap[3])
+                                                    +" keys.", _x, _y+size);
        g.drawString("To dig for the treasure use the Right Mouse Button.",_x , _y+size*2);
        g.drawString("To use the compass use the SPACEBAR.", _x, _y+size*3);
        g.drawString("You have only 3 uses of the compass.", _x, _y+size*4);
@@ -205,51 +209,41 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
     }
     
     @Override
-    public void keyTyped(KeyEvent e) {  
-        switch (e.getKeyChar()) {
-            case 'w':
-            case 'W':
-                treasure.movePlayer("w");
-                break;
-            case 'a':
-            case 'A':
-                treasure.movePlayer("a");
-                break;
-            case 's':
-            case 'S':
-                treasure.movePlayer("s");
-                break;
-            case 'd':
-            case 'D':
-                treasure.movePlayer("d");
-                break;
-            case ' ': 
-                if(compass.canUse() && !t.isRunning()){
-                    compass.use();
-                    compass.setShow(true);
-                    t.start();  
-                }else{
-                    
-                   compass.setShow(false);
-                   repaint();
-                } 
-                break;
-            default:
-               
-                break;
-        } 
-        
-    }
+    public void keyTyped(KeyEvent e) {    }
     public void updateVolume(){
         gainControl.setValue(Starting.soundVolume);
     } 
     
     @Override
     public void keyPressed(KeyEvent e) { 
-    if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+        if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
             Starting.settings.setVisible(true);
-            Starting.tutScreen.setVisible(false);
-            Starting.settings.setReference(1);
+            Starting.gameWindow.setVisible(false);
+            Starting.settings.setReference(2);
+        }else if(e.getKeyCode() == Starting.keyMap[0]){
+            treasure.movePlayer("w");
+        }else if(e.getKeyCode() == Starting.keyMap[1]){
+            treasure.movePlayer("a");
+        }else if(e.getKeyCode() == Starting.keyMap[2]){
+            treasure.movePlayer("s");
+        }else if(e.getKeyCode() == Starting.keyMap[3]){
+            treasure.movePlayer("d");
+        }else if(e.getKeyCode() == Starting.keyMap[4]){
+            if(compass.canUse() && !t.isRunning()){
+                compass.use();
+                compass.setShow(true);
+                t.start();  
+            }else{ 
+                compass.setShow(false);
+                repaint();
+            }
+        }else if(e.getKeyCode() == Starting.keyMap[5]){
+            if(treasure.getPlayer().dig(treasure)){
+                Starting.endScreen.setVisible(true);
+                this.setVisible(false);
+                stopSong(); 
+                Starting.endScreen.startSong();
+            } 
         }
     }
 

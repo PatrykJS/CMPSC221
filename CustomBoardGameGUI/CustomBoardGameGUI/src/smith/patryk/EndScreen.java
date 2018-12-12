@@ -162,6 +162,7 @@ public class EndScreen extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         add(jButton2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

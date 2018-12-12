@@ -67,7 +67,7 @@ public class Treasure extends BoardGame {
         Random rand = new Random();
         System.out.println("Randomizing Treasure...");
         Vector2D player_starting_position = new Vector2D( (int)(this.getWidth() / 2.0), (int)(this.getHeight() / 2.0)); 
-        Vector2D treasure_starting_position = new Vector2D(rand.nextInt(this.getWidth()-1)+2, rand.nextInt(this.getHeight()-3)+2);
+        Vector2D treasure_starting_position = new Vector2D(rand.nextInt(this.getWidth()-1), rand.nextInt(this.getHeight()-3)+2);
         
         System.out.println("Creating Enities...");
         p = new Player("Player", player_starting_position);
