@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!-- saved from url=(0128)https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&pslnkid=PE_S201701201301011126102898 -->
+<html dir="ltr" lang="en" class="chrome win pc standard psc_dir-ltr psc_mode-access psc_form-xlarge"><!--
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+CHROME/70.0.3538.110 ToolsRel:8.56.11 Portal Target URL: https%3A%2F%2Fwww.lionpath.psu.edu%2Fpsc%2FCSPRD%2FEMPLOYEE%2FHRMS%2Fc%2FPE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL%3F1%26pslnkid%3DPE_S201701201301011126102898--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./SR015 GPA Calculator_files/icon" rel="stylesheet">
+<script async="" src="./SR015 GPA Calculator_files/analytics.js.download"></script><script type="text/javascript">
+
+var bPSHTMLtemplate = true;var nLastAccessTime = (new Date()).getTime();
+var disablePNSubscriptions = 1;
+var ptAppliedTemplateId = "DEFAULT_TEMPLATE";
+</script>
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PSSTYLEREQ_1.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PSSTYLEDEF_40.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PT_PRCS_USER_NOTIFY_CSS_1.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PE_GN001_IOS9_ZOOM_FIX_1.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PE_BOOTSTRAP_CSS_1.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PE_MATERIALIZE_CSS_1.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PE_MASTER_STYLE_CSS_39.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PE_HIDE_CSS_1.css" type="text/css">
+<link type="text/css" href="./SR015 GPA Calculator_files/css" rel="stylesheet">
+
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PSSTYLEREQ_1.css" type="text/css">
+<link rel="stylesheet" href="./SR015 GPA Calculator_files/PSSTYLEDEF_40.css" type="text/css"><script type="text/javascript" language="JavaScript">
+var totalTimeoutMilliseconds = 2700000; var warningTimeoutMilliseconds = 2400000; var timeOutURL = 'https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/?cmd=expire';var timeoutWarningPageURL = 'https://www.lionpath.psu.edu/psc/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_TIMEOUT.PT_TIMEOUTWARNING.FieldFormula.IScript_TIMEOUTWARNING';var sRCRequestURL = 'https://www.lionpath.psu.edu/psc/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PTRC.ISCRIPT1.FieldFormula.IScript_RC_REQUEST';
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_COMMON_MIN_132692.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_AJAX_NET_MIN_132692.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_ISCROSSDOMAINNS6_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_SAVEWARNINGSCRIPT_MIN_132692.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_IFRAME_HDR_JS_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_RC_SERVICE_JS_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_RC_JS_MIN_132692.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_RC_MENU_JS_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_COMMON_MIN_132692.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_AJAX_NET_MIN_132692.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_IFRAME_HDR_JS_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_ISCROSSDOMAINNS6_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_SAVEWARNINGSCRIPT_MIN_132692.js.download">
+</script>
+<script type="text/javascript">
+var isNewSaveWarn = true;
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PTMAF_PUSH_JS_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PE_JQUERY_3_1_1_JS_MIN_1.js.download">
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PE_TE055_GOOGLE_ANALYTICS_JS_MIN_161909.js.download">
+</script>
+<script language="javascript" type="text/javascript">
+
+document.cookie = "ps_theme=node:HRMS portal:EMPLOYEE theme_id:PE_THEME_STUDENT accessibility:A formfactor:3 piamode:2 ; path=/; domain=;" + ((window.location.protocol == "https:") ? " secure;" : "");
+</script>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_PORTAL_AS_JS_MIN_1.js.download">
+</script>
+<link rel="shortcut icon" href="https://www.lionpath.psu.edu/cs/CSPRD/cache/LOGO_FAVICON_84871.PNG"><script type="text/javascript">
+if (typeof window.ptNav2Info == "undefined") {
+var ptNav2Info = {
+
+branding: {
+fldrOpen: "ptnav2open",
+fldrClose: "ptnav2closed",
+fldr: "ptnav2fldr",
+cref: "ptnav2cref",
+toggle: "ptnav2toggle",
+tree: "ptnav2tree",
+frameBody: "ptnav2framebody",
+selected: "ptnav2selected",
+fldrSelBkgrnd: "ptnav2ulselected"
+},
+
+selectedId: "crefli_PE_S201701201301011126102898",
+userLang: "&c=AajnLx1fsMxoGGGIUbQf1A%3d%3d",
+sortOrder: "N",
+topParentId: "",
+accessSelectedTxt: "Selected link :",
+autoMenuCollapse:"",
+rsEnabled:"false",
+rsEnabledWS:"false",
+saveWarn:"Y",
+UniNavTemplate:"",
+hNavCrefWebLib:"",
+UniNavPortalNode : "HRMS",
+UniNavRequest : "false"
+};}
+
+
+try {
+ pingRemotenode();} catch (e) {}
+</script>
+<title>SR015 GPA Calculator</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"><meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=yes" name="viewport"></head>
+<body class="PSPAGE" id="ptifrmtemplate"><div id="ptpopupmask" style="display: none;">&nbsp;</div>
+<script type="text/javascript">
+</script>
+<div><!--Begin pagelet: UniversalNavigation URL: https%3A%2F%2Fwww.lionpath.psu.edu%2Fpsc%2FCSPRD%2FEMPLOYEE%2FHRMS%2Fs%2FWEBLIB_PT_NAV.ISCRIPT1.FieldFormula.IScript_UniHeader_Frame%3Fc%3DAajnLx1fsMxoGGGIUbQf1A%253d%253d-->
+<div class="ptprtlcontainer">
+<header id="ptbr_header_container" role="banner" aria-label="Universal Navigation Header">
+<div id="PE_HEADER" class="header-padding">
+<div id="pthdr2container" class="pthdr2container">
+<div id="classicbackbuttonlayout"><div class="ps_box-button ps_button_backnav psc_header-all" id="classicbackbuttoncontainer"><span class="ps-button-wrapper"><a id="PT_WORK_PT_BUTTON_BACK" class="ps-button" role="button" href="javascript:DoBackClassic()" aria-label="Back to Home"><img src="./SR015 GPA Calculator_files/PT_NUI_BACK_PRIM_IMG_1.svg" name="PT_WORK_PT_BUTTON_BACK$IMG" class="ps-img" alt=""><span class="ps-text">Home</span></a></span></div></div><div id="ptdropdownmenu" class="ptdropdownmenu">
+<nav id="pthnavcontainer" aria-label="Drop-Down Menu" style="display: block;">
+<div role="menubar">
+<ul class="pthnav">
+<li id="pthnavbc_MYFAVORITES" class="pthnavbarfldr"><a id="pthnavbca_MYFAVORITES" role="menuitem" aria-haspopup="true" class="pthnavbcanchor" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898">Favorites</a><div id="pthnavfly_MYFAVORITES" role="menu" aria-labelledby="pthnavbca_MYFAVORITES" class="pthnavflyout pthnavbarhide">
+ <div class="pthnavflyoutscroll"><ul class="pthnavscrollul"><li class="pthnavfakeli"><span style="visibility:hidden">:</span></li></ul></div>
+ <div class="pthnavshadow">
+
+ <div class="pthnavscrollup">&nbsp;</div>
+ <div class="pthnavscroll">
+ <ul>
+ <li id="pthnavmru">
+ <span class="pthnavtitle" aria-haspopup="true" role="menuitem" tabindex="0">Recently Used Items</span>
+ <ul id="pthnavmruroot">
+ <li class="pthnavcref pthnav-mouse" id="pthnavmru_HC_SSS_STUDENT_CENTER" data-fwid="HC_SSS_STUDENT_CENTER"><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HC_SSS_STUDENT_CENTER&amp;IsFolder=false&amp;IgnoreParamTempl=FolderPath%2cIsFolder" role="menuitem">Student Center</a><div class="pthnavcrefimg">&nbsp;</div></li>
+ </ul>
+</li>
+<li id="pthnavmrssep" style="display: none;">&nbsp;</li>
+ 
+ 
+ <li id="pthnavmrufavsep">&nbsp;</li>
+<li id="pthnavfavli">
+ <span class="pthnavtitle" aria-haspopup="true" role="menuitem" tabindex="0">My Favorite Items</span>
+ <ul id="pthnavfav">
+<li class="pthnavfav" id="crefli_PT_PORTAL_ADD_FAV_GBL" data-fwid="PT_PORTAL_ADD_FAV_GBL"><a role="menuitem" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PORTAL_ADMIN.PORTAL_ADD_FAV.GBL">Add to Favorites</a><div class="pthnavfavimg">&nbsp;</div></li><li class="pthnavfav" id="crefli_fav_PT_PORTAL_EDIT_FAV_GBL" data-fwid="PT_PORTAL_EDIT_FAV_GBL"><a role="menuitem" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PORTAL_ADMIN.PORTAL_EDIT_FAV.GBL?Folder=MYFAVORITES">Edit Favorites</a><div class="pthnavfavimg">&nbsp;</div></li>
+</ul>
+</li>
+ </ul>
+ </div>
+ <div class="pthnavscrolldown">&nbsp;</div> 
+ </div>
+
+</div></li>
+<li id="pthnavfavsep" role="presentation"><span style="visibility:hidden">:</span></li>
+<li id="pthnavbc_PORTAL_ROOT_OBJECT" class="pthnavbarfldr"><a id="pthnavbca_PORTAL_ROOT_OBJECT" role="menuitem" aria-haspopup="true" class="pthnavbcanchor" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898">Main Menu</a> 
+<div id="pthnavfly_PORTAL_ROOT_OBJECT" class="pthnavflyout pthnavbarhide" role="menu">
+<div class="pthnavflyoutscroll" role="presentation">
+<ul class="pthnavscrollul">
+<li class="pthnavfakeli"><span style="visibility:hidden">:</span></li>
+</ul>
+</div>
+<div class="pthnavshadow" role="presentation">
+<div id="pthnavsrch">
+<div id="pthnavsrchlbl"><label for="pthnavsrchinput">Search Menu:</label></div>
+<form name="pthnavsrchform" id="pthnavsrchform" method="post" target="_parent" action="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PORTAL_ADMIN.PTSF_GLOBAL_SEARCH.GBL" autocomplete="off" role="search" aria-label="Drop-Down Menu"><input id="pthnavsrchinput" name="SEARCH_TEXT" size="30" type="text" aria-labelledby="pthnavsrchlbl">
+ <input id="pthnav2ASLimit" name="AS_LIMIT" type="hidden" value="50">
+ <input name="SEARCH_TYPE" type="hidden" value="MENUSEARCH">
+ <input name="MENU_SEARCH_CAT" type="hidden" value="PTPORTALREGISTRY">
+ <a id="pthnavgo" name="Go" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PORTAL_ADMIN.PTSF_GLOBAL_SEARCH.GBL" role="button"><img src="./SR015 GPA Calculator_files/PT_NAV_GO_1.gif" id="pthnavgoImg" name="imageField" alt="Start your search"></a><input type="hidden" name="74EA8C3E" value="81AB0448304FB07F49BD81A6A737196D"></form>
+</div>
+<div id="pthnavsort_PORTAL_ROOT_OBJECT" class="pthnavsort pthnavsortnone" title="Sort Menu"><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898" role="button" class="pthnavHideSortTxt">Menu not sorted. Click to sort in ascending order.</a></div>
+<div class="pthnavscrollup" role="presentation">&nbsp;</div>
+<div class="pthnavscroll" role="menu">
+<ul id="pthnavroot">
+<li class="pthnavfldr pthnav-mouse" id="CO_EMPLOYEE_SELF_SERVICE" data-fwid="CO_EMPLOYEE_SELF_SERVICE"><a id="fldra_CO_EMPLOYEE_SELF_SERVICE" role="menuitem" aria-haspopup="true" class="ptntop" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=CO_EMPLOYEE_SELF_SERVICE&amp;FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE&amp;IsFolder=true">Self Service</a>
+<div class="pthnavfldrimg" title="FAN page (shift + enter)">&nbsp;</div>
+<div class="pthnavrightarrow">&nbsp;</div>
+</li>
+<li class="pthnavfldr pthnav-mouse" id="HCCC_BUILD_COMMUNITY" data-fwid="HCCC_BUILD_COMMUNITY"><a id="fldra_HCCC_BUILD_COMMUNITY" role="menuitem" aria-haspopup="true" class="ptntop" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=HCCC_BUILD_COMMUNITY&amp;FolderPath=PORTAL_ROOT_OBJECT.HCCC_BUILD_COMMUNITY&amp;IsFolder=true">Campus Community</a>
+<div class="pthnavfldrimg" title="FAN page (shift + enter)">&nbsp;</div>
+<div class="pthnavrightarrow">&nbsp;</div>
+</li>
+<li class="pthnavfldr pthnav-mouse" id="HCSR_RECORDS_AND_REGISTRATION" data-fwid="HCSR_RECORDS_AND_REGISTRATION"><a id="fldra_HCSR_RECORDS_AND_REGISTRATION" role="menuitem" aria-haspopup="true" class="ptntop" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=HCSR_RECORDS_AND_REGISTRATION&amp;FolderPath=PORTAL_ROOT_OBJECT.HCSR_RECORDS_AND_REGISTRATION&amp;IsFolder=true">Records and Enrollment</a>
+<div class="pthnavfldrimg" title="FAN page (shift + enter)">&nbsp;</div>
+<div class="pthnavrightarrow">&nbsp;</div>
+</li>
+<li class="pthnavfldr pthnav-mouse" id="HCSR_CURRICULUM_MANAGEMENT" data-fwid="HCSR_CURRICULUM_MANAGEMENT"><a id="fldra_HCSR_CURRICULUM_MANAGEMENT" role="menuitem" aria-haspopup="true" class="ptntop" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=HCSR_CURRICULUM_MANAGEMENT&amp;FolderPath=PORTAL_ROOT_OBJECT.HCSR_CURRICULUM_MANAGEMENT&amp;IsFolder=true">Curriculum Management</a>
+<div class="pthnavfldrimg" title="FAN page (shift + enter)">&nbsp;</div>
+<div class="pthnavrightarrow">&nbsp;</div>
+</li>
+<li class="pthnavfldr pthnav-mouse" id="GS_ERP_FIREWALL" data-fwid="GS_ERP_FIREWALL"><a id="fldra_GS_ERP_FIREWALL" role="menuitem" aria-haspopup="true" class="ptntop" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=GS_ERP_FIREWALL&amp;FolderPath=PORTAL_ROOT_OBJECT.GS_ERP_FIREWALL&amp;IsFolder=true">ERP Firewall</a>
+<div class="pthnavfldrimg" title="FAN page (shift + enter)">&nbsp;</div>
+<div class="pthnavrightarrow">&nbsp;</div>
+</li>
+<li class="pthnavfldr pthnav-mouse" id="GS_DELEGATION" data-fwid="GS_DELEGATION"><a id="fldra_GS_DELEGATION" role="menuitem" aria-haspopup="true" class="ptntop" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=GS_DELEGATION&amp;FolderPath=PORTAL_ROOT_OBJECT.GS_DELEGATION&amp;IsFolder=true">Grey Heller Delegation</a>
+<div class="pthnavfldrimg" title="FAN page (shift + enter)">&nbsp;</div>
+<div class="pthnavrightarrow">&nbsp;</div>
+</li>
+<li class="pthnavcref pthnav-mouse" id="crefli_PT_PTGP_USERPREF_FL_GBL" data-fwid="PT_PTGP_USERPREF_FL_GBL"><a class="ptntop" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PTGP_MENU.PTGP_USERPREF_FL.GBL?FolderPath=PORTAL_ROOT_OBJECT.NUI_STRUCTURE_CONTENT.PORTAL_GROUPLETS.PTFL_PEOPLETOOLS.PT_PTGP_USERPREF_FL_GBL&amp;IsFolder=false&amp;IgnoreParamTempl=FolderPath%2cIsFolder" role="menuitem">My Preferences</a>
+<div class="pthnavcrefimg">&nbsp;</div>
+</li>
+</ul>
+</div>
+<div class="pthnavscrolldown">&nbsp;</div>
+</div>
+</div>
+</li>
+<li id="pthnavbc" class="pthnavbcltr" style="left: -18px;">
+<div id="pthbcScrollPrev" class="pthbcprev"><img id="pthbcStartWall" src="./SR015 GPA Calculator_files/PT_HNAV_BC_START_1.png" alt="Prev">
+</div>
+<div id="pthbcScroll" class="pthbcscroll" style="width: 1498px;">
+<ul dir="ltr" id="pthbcUlScroll"></ul>
+</div>
+<div id="pthbcScrollNext" class="pthbcnext"><img id="pthbcEndWall" src="./SR015 GPA Calculator_files/PT_HNAV_BC_END_1.png" alt="Next">
+</div>
+</li>
+</ul>
+</div>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_HNAV_JS_MIN_132692.js.download">
+</script>
+ 
+<div id="pthnavblock">&nbsp;</div>
+<div id="ptabnclonebc">
+<ul>
+<li id="ptabnsepbc" class="pthnavhiearchysep pthbcdispiblock">&nbsp;</li>
+<li id="ptabnfldrbc" class="pthnavbarfldr pthbcdispiblock"><a class="pthnavbcanchor" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#">&nbsp;</a></li>
+<li id="ptabncrefbc" class="pthnavbarcref pthbcdispiblock"><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#">&nbsp;</a>
+<div class="pthnavcrefimg">&nbsp;</div>
+</li>
+<li id="ptabnportalfldrbc" class="pthnavbarcref pthbcdispiblock pthnavbarabnfldr ptabnportalfldr"><a class="pthnavbcanchor" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#">&nbsp;</a></li>
+</ul>
+</div>
+<div id="ptabnrscontainer" class="ptabnconthide ptabnlayoutmargin" style="display: none;">
+<form id="ptabn" name="ptabn" method="post" action="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898" target="TargetContent">
+<div class="ptabnheader">
+<div id="ptabntdiv"><span id="ptabnsrchtitle" class="PSSRCHSUBTITLE">Recent Search Results</span></div>
+<div id="ptabnsadiv"><a id="ptabnsrchagain" class="PSHYPERLINK" tabindex="1" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898">Refine Search</a></div>
+</div>
+<input type="hidden" name="74EA8C3E" value="9C1CD539D5CF7566DF43A309851AED05"></form>
+<div id="ptabnsp" class="ptabnsrchprompt" title="Recent Search Results"><a id="ptabn_SRCHPROMPT" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898"><span class="pthnavHideTxt pthnavHideTop">Search Prompt Popup</span></a></div>
+<div id="ptabnprevresults">&nbsp;</div>
+</div>
+<ul style="display:none;">
+<li id="pthnavmrs_" class="pthnavcref pthnav-mouse"><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898">mrs</a>
+<div class="pthnavmrsimg">&nbsp;</div>
+</li>
+</ul>
+<input type="hidden" name="pthnavsid" id="pthnavsid" value="7nvWcoXHvjO4cb6AI9XtJvjyNnM%3d"></nav>
+</div>
+<div class="ptbr-divider"><!--divider--></div>
+<div id="hide_main_menu" class=""></div>
+<div class="ptbr-divider"><!--divider--></div>
+<div id="top_header_bar" class="top-navbar top-navbar-bg">
+<div id="nav_wrapper" class="nav-wrapper container">
+<div id="top_navbar_left" class="top-navbar-content left"></div>
+<div id="top_navbar_right" class="top-navbar-content right"><span class="heading"><a class="white-text" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=DEFAULT&amp;lpoldui=true">Classic View</a></span> <span class="heading hide-on-small-only oj-sm-only-hide">Welcome, &nbsp;Patryk Smith!</span><!--
+Penn State 04/15/2017 TE055 
+PE_TE055_UI_FULL_RELEASE PE Self-service branding
+User Interface Spring 2017- Changes to move when UI goes live for all users
+
+Work on fixing performance issues by switching from pagelets to HTML objects
+-->
+<ul class="right" role="menu" aria-labelledby="dLabel">
+<li id="" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=https%3a%2f%2flionpathsupport.psu.edu%2fhelp%2f" title="Help" target="_blank" class="">Help</a></li>
+<li id="" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/?cmd=logout" title="Logout" target="" class="">Logout</a></li>
+<li><a id="search-button" class="search-button" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#!" data-activates="side-search" onclick="$(&#39;#side-search-input&#39;).attr(&#39;tabindex&#39;,&#39;0&#39;).focus()"><i id="search-icon" class="material-icons prefix" aria-hidden="false">search</i></a> <!-- Search 'Menu' -->
+ 
+<ul id="side-search" class="side-nav right-aligned" style="width: 300px; transform: translateX(100%);">
+<li><label for="side-search-input" class="visually-hidden active" id="search-input-label">Search</label><input id="side-search-input" tabindex="-1" title="search" aria-describedby="search-input-label" role="combobox" class="search filter-key-nav" type="text" oninput="searchTimer()" placeholder="Search for grades, schedule, etc" size="25">
+ <span id="fire-search-timer" tabindex="-1" onclick="searchTimer()" class="visually-hidden">&nbsp;</span></li>
+<li id="side-search-results">&nbsp;</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ptbr-divider"><!--divider--></div>
+<div id="pe_header_nav" class="header">
+<div id="pe_header_tabs" class="">
+<nav class="bright-blue" role="navigation" id="navbar">
+<div class="nav-wrapper container">
+<div id="logo-container" class="brand-logo"><span class="pe_logo">&nbsp;</span></div>
+<ul class="right hide-on-med-and-down">
+<li id="pe_home" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_NVT_PT_HOME&amp;pslnkid=PE_S201701161451151210273346" title="Home" target="" class="">Home</a></li>
+<li id="pe_academics" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_PT_NVT_ACADEMICS&amp;pslnkid=PE_S201701161451277335271866" title="Academics" target="" class="">Academics</a></li>
+<li id="pe_finances" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_PT_NVT_CMPS_FNCS&amp;pslnkid=PE_S201701161451354807861947" title="Finances" target="" class="">Finances</a></li>
+<li id="pe_information" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_PT_NVT_MYACCT&amp;pslnkid=PE_S201701161451443423494674" title="My Information" target="" class="">My Information</a></li>
+</ul>
+<div class="dropdown">
+<ul class="right hide-on-large-only">
+<li><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#!" class="dropdown-button dropdown-toggle" id="dbmenu1" data-toggle="dropdown"><i class="material-icons">dashboard</i></a> 
+<ul class="dropdown-menu">
+<li id="" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_NVT_PT_HOME&amp;pslnkid=PE_S201701161451151210273346" title="Home" target="" class="">Home</a></li>
+<li id="" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_PT_NVT_ACADEMICS&amp;pslnkid=PE_S201701161451277335271866" title="Academics" target="" class="">Academics</a></li>
+<li id="" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_PT_NVT_CMPS_FNCS&amp;pslnkid=PE_S201701161451354807861947" title="Finances" target="" class="">Finances</a></li>
+<li id="" class=""><a href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/h/?tab=PE_PT_NVT_MYACCT&amp;pslnkid=PE_S201701161451443423494674" title="My Information" target="" class="">My Information</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<a class="button-collapse top-nav waves-effect waves-light circle" data-activates="nav-mobile" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#"><i class="material-icons">menu</i></a></div>
+</nav>
+</div>
+</div>
+<div id="pe_sidebar" class="">
+<ul id="nav-mobile" class="side-nav" style="width: 300px; transform: translateX(-100%);">
+<li class="no-padding">
+<ul class="collapsible collapsible-accordion">
+<li class="logo"><span class="side-nav-logo">&nbsp;</span></li>
+<li class="bold"><a id="sb_PE_ACADEMICS" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons" aria-hidden="true">school</i>Academics&nbsp;<i class="material-icons right" aria-hidden="true">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li><a id="sb_View_Schedules" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Schedules<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Class_Schedule" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_LIST.GBL?pslnkid=PE_S201607050934171320107640" title="View your class schedule for a specified term." class="bright-blue-color" target="_parent">My Class Schedule</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Weekly_Schedule" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_SCHD_W.GBL?pslnkid=PE_S201607050934514688663568" title="View your weekly schedule in a calendar format." class="bright-blue-color" target="_parent">My Weekly Schedule</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Exam_Schedule" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_EXAM_L.GBL?pslnkid=PE_S201607050937286171691467" title="View your exam schedule for a specified term." class="bright-blue-color" target="_parent">My Exam Schedule</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Overload_Exams_UP_,ER,_HB_Only" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=https%3a%2f%2fwww.registrar.psu.edu%2fexams_student%2f%3fpslnkid%3dPE_S201703061745154016395329" title="" class="bright-blue-color" target="_blank">Overload Exams UP ,ER, HB Only&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Academic_Calendar" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=http%3a%2f%2fregistrar.psu.edu%2facademic_calendar%2fcalendar_index.cfm%3fpslnkid%3dPE_S201701161439088095433706" title="" class="bright-blue-color" target="_blank">Academic Calendar&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Canvas" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=https%3a%2f%2fpsu.instructure.com%3fpslnkid%3dPE_S201701161439262621399812" title="" class="bright-blue-color" target="_blank">Canvas&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Find_Classes" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Find Classes<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Schedule_Builder" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PRJCS_MENU.PRJCS_SCHD_STRT.GBL?page=PRJCS_SCHD_STRT&amp;pslnkid=PE_S201701201310572751605074" title="" class="bright-blue-color" target="_parent">Schedule Builder</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Class_Search" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?pslnkid=PE_S201607061454417104632592" title="Use search criteria to find a class catalog." class="bright-blue-color" target="_parent">Class Search</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Browse_Course_Catalog" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_BROWSE_CATLG_P.GBL?pslnkid=PE_S201607061455176493234283" title="Browse the course catalog by subject." class="bright-blue-color" target="_parent">Browse Course Catalog</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Linked_Course_Search" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_AA032A.PE_AA032_LNK_CRSEA.GBL?pslnkid=PE_S201804241234029546273262" title="" class="bright-blue-color" target="_parent">Linked Course Search</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Transfer_Credit_Tool" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_AD077.PE_AD077_TRN_CRD_T.GBL?pslnkid=PE_S201806141348206676946276" title="Transfer Credit Tool" class="bright-blue-color" target="_parent">Transfer Credit Tool</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Enrollment" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Enrollment<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Add_Class" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?pslnkid=PE_S201607050935398799949474" title="Enroll in classes from your Shopping Cart." class="bright-blue-color" target="_parent">Add Class</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Drop_Class" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_DROP.GBL?pslnkid=PE_S201607050936098113420763" title="Drop classes from your schedule." class="bright-blue-color" target="_parent">Drop Class</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Swap_Class" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_SWAP.GBL?pslnkid=PE_S201607050936502392516458" title="Replace a selected class with another." class="bright-blue-color" target="_parent">Swap Class</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Edit_Class" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_EDIT.GBL?pslnkid=PE_S201607050936282010093276" title="Change preferences and options for a selected class." class="bright-blue-color" target="_parent">Edit Class</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Enrollment_Shopping_Cart" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES_2.SSR_SSENRL_CART.GBL?pslnkid=PE_S201607051013029760119393" title="Maintain your shopping cart." class="bright-blue-color" target="_parent">Enrollment Shopping Cart</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Enrollment_Dates" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_APPT.GBL?pslnkid=PE_S201608051103074629817840" title="View your enrollment appointments." class="bright-blue-color" target="_parent">Enrollment Dates</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Academic_Records" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Academic Records<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Academics" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_MY_ACAD.GBL?pslnkid=ADMN_S201702221358553703402557" title="" class="bright-blue-color" target="_parent">My Academics</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Update_Campus" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_SS_CUSTOM.PE_SR_COC_REQUEST.GBL?pslnkid=PE_S201701130820169565624091" title="" class="bright-blue-color" target="_parent">Update Campus</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Update_Academics" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_SS_CUSTOM.PE_SR_COM_REQUEST.GBL?pslnkid=PE_S201701130820417281488402" title="" class="bright-blue-color" target="_parent">Update Academics</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Request_Official_Transcript" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PE_UI.ISCRIPT2.FieldFormula.IScript_Parchment?pslnkid=PE_S201701160730367681234477" title="" class="bright-blue-color" target="_blank">Request Official Transcript&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Grades" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_GRADE.GBL?pslnkid=PE_S201608051150193443500550" title="View or print a listing of your grades and check your current grade point average." class="bright-blue-color" target="_parent">My Grades</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Course_History" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES_2.SSS_MY_CRSEHIST.GBL?pslnkid=PE_S201607051013327247761128" title="View my acadmic history" class="bright-blue-color" target="_parent">My Course History</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_View_Unofficial_Transcript" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_TSRQST_UNOFF.GBL?pslnkid=PE_S201701161441159497371916" title="View an unofficial copy of your academic transcript." class="bright-blue-color" target="_parent">View Unofficial Transcript</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_View_Transfer_Credit_Report" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SS_TRCR_RPT.GBL?pslnkid=PE_S201607061457211160822217" title="View my official transfer credit report." class="bright-blue-color" target="_parent">View Transfer Credit Report</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Enrollment_Verification" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SS_ENRL_VER_REQ.GBL?pslnkid=PE_S201701161442051918654703" title="Have verification of your enrollment mailed to selected addresses." class="bright-blue-color" target="_parent">Enrollment Verification</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Planning__Degree_Progress" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planning &amp; Degree Progress<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Academic_Requirements" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SAA_SS_DPR_ADB.GBL?pslnkid=PE_S201701161443021816460239" title="View your academic requirements" class="bright-blue-color" target="_parent">Academic Requirements</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_What-if_Report" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SAA_SS_WHATIF_SEL.GBL?pslnkid=PE_S201701161444561556582810" title="Request a new what-if report or view output from a previous request." class="bright-blue-color" target="_parent">What-if Report</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Planner" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_MY_PLANNER.GBL?pslnkid=PE_S201701161442374172967641" title="My course planner" class="bright-blue-color" target="_parent">My Planner</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_GPA_Calculator" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898" title="" class="bright-blue-color" target="_parent">GPA Calculator</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Advisors" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSADVR.GBL?pslnkid=PE_S201701161443292391721775" title="View a listing of all your advisors. Communicate with an advisor using email notification." class="bright-blue-color" target="_parent">My Advisors</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_University_Bulletins" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=https%3a%2f%2fbulletins.psu.edu%3fpslnkid%3dPE_S201809101255164002046098" title="Link to University Bulletins" class="bright-blue-color" target="_blank">University Bulletins&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Advising_Portal" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=http%3a%2f%2fadvising.psu.edu%2f%3fpslnkid%3dPE_S201701161443587353444205" title="" class="bright-blue-color" target="_blank">Advising Portal&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_StarFish" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=https%3a%2f%2fpsu.starfishsolutions.com%2fstarfish-ops%3fpslnkid%3dPE_S201701161444185169209914" title="" class="bright-blue-color" target="_blank">StarFish&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Update_Academics" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_SS_CUSTOM.PE_SR_COM_REQUEST.GBL?pslnkid=PE_S201701161444335568122773" title="" class="bright-blue-color" target="_parent">Update Academics</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Academic_Background" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_PE_UI.ISCRIPT2.FieldFormula.IScript_AcademicBackground?pslnkid=PE_PT_NVC_ACAD_BACK_LINK" title="" class="bright-blue-color" target="_parent">Academic Background</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_View_Graduation_Status" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_GRAD_STATUS.GBL?pslnkid=PE_S201701161445307234597572" title="View your graduation status" class="bright-blue-color" target="_parent">View Graduation Status</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Milestones" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES_2.SS_SR_MILESTONES.GBL?pslnkid=PE_S201701161445468252461211" title="View a listing and the details of your Milestones." class="bright-blue-color" target="_parent">My Milestones</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Research_Activities" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research Activities<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Candidate_Center" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SSR_RS_SELFSERV_MGMT.SSS_RS_CAND_TASK.GBL?pslnkid=ADMN_S201701241123233202710725" title="Monitor the status of your research projects and initiate service actions" class="bright-blue-color" target="_parent">Candidate Center</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Research_Topic_Search" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SSR_RS_SELFSERV_MGMT.SSS_RS_TPCSRCH1.GBL?pslnkid=ADMN_S201701241124276870117977" title="Search and review the available research topics offered at your institution" class="bright-blue-color" target="_parent">Research Topic Search</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Service_Requests" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SSR_RS_SELFSERV_MGMT.SSS_RS_STDNT_REQ.GBL?pslnkid=ADMN_S201701241126458331411102" title="View, create, and update your graduate research service requests." class="bright-blue-color" target="_parent">Service Requests</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="bold"><a id="sb_PE_FINANCES" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons" aria-hidden="true">attach_money</i>Finances&nbsp;<i class="material-icons right" aria-hidden="true">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li><a id="sb_Financial_Account" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Financial Account<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Permission_to_Use_Federal_Aid" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSF_SS_PERM_VIEW.GBL?pslnkid=PE_S201701130821367217295387" title="Allow or view assigned permissions." class="bright-blue-color" target="_parent">Permission to Use Federal Aid</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Manage_Account_/_Pay_Bill" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SS_CUSTOM.PE_TE063_HIGHERONE.GBL?pslnkid=PE_S201701152146224085642539" title="Manage My Account / Make a Payment" class="bright-blue-color" target="_parent">Manage Account / Pay Bill</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Financial_Aid" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Financial Aid<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_View_Financial_Aid" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SS_FA_AWARDS.GBL?pslnkid=PE_S201612271025575649738496" title="View information about your financial aid awards, including scheduled disbursements." class="bright-blue-color" target="_parent">View Financial Aid</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Accept/Decline_Awards" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SS_FA_AWARD_ACK.GBL?pslnkid=PE_S201612271026157916714906" title="Accept or decline your financial aid awards." class="bright-blue-color" target="_parent">Accept/Decline Awards</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="bold"><a id="sb_PE_MY_INFORMATION" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons" aria-hidden="true">account_box</i>My Information&nbsp;<i class="material-icons right" aria-hidden="true">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li><a id="sb_Personal_Information" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personal Information<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Names" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_NAMES.GBL?pslnkid=PE_S201612271035061919197683" title="View and update your names." class="bright-blue-color" target="_parent">Names</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Addresses" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_ADDRESSES.GBL?pslnkid=PE_S201612271035431295001772" title="View and update your addresses." class="bright-blue-color" target="_parent">Addresses</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Phone_Numbers" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_PERS_PHONE.GBL?pslnkid=PE_S201612271036004533522424" title="View and update your phone numbers." class="bright-blue-color" target="_parent">Phone Numbers</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Email_Addresses" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_EMAIL_ADDR.GBL?pslnkid=PE_S201612271036152155157635" title="Email Addresses." class="bright-blue-color" target="_parent">Email Addresses</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Emergency_Contacts" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_EMERG_CNTCT.GBL?pslnkid=PE_S201612271036352438385324" title="View and update your emergency contacts." class="bright-blue-color" target="_parent">Emergency Contacts</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Missing_Person_Data" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SS_CUSTOM.PE_SS_MISS_PERS.GBL?Page=PE_MISS_PERS_CNT_L&amp;pslnkid=ADMN_S201702031437243576854012" title="" class="bright-blue-color" target="_parent">Missing Person Data</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Demographics" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_DEMOG_DATA.GBL?pslnkid=PE_S201612271036592272745735" title="View a summary of your demographic information." class="bright-blue-color" target="_parent">Demographics</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Ethnicity" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO_2.SS_CC_ETHNICITY_US.GBL?pslnkid=PE_S201612271037198341345157" title="Ethnicity" class="bright-blue-color" target="_parent">Ethnicity</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Holds" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_HOLDS.GBL?pslnkid=PE_S201612271038017979606687" title="View holds placed on your record for specific services. See how to resolve them." class="bright-blue-color" target="_parent">Holds</a></li>
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_To_Do_List" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/CC_PORTFOLIO.SS_CC_TODOS.GBL?pslnkid=PE_S201612271038192805537042" title="View pending to do items on you record. See how to complete them." class="bright-blue-color" target="_parent">To Do List</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Preferences" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preferences<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_My_Preferences" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PTGP_MENU.PTGP_USERPREF_FL.GBL" title="" class="bright-blue-color" target="_parent">My Preferences</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Health_Insurance" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Health Insurance<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Health_Insurance" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_CC088A.PE_SS_HEALTH_PERS.GBL?pslnkid=PE_S201805301035225299305489" title="Health Insurance Eligibility" class="bright-blue-color" target="_parent">Health Insurance</a></li>
+</ul>
+</div>
+</li>
+<li><a id="sb_Delegated_Access" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Delegated Access<i class="material-icons right" aria-hidden="true" role="presentation">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Grant_Delegated_Access" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/GS_DELEGATE_PGLT.GS_DELEGATE_MAINT.GBL?pslnkid=PE_S201612271040577445865449" title="Configure Guardian Delegations" class="bright-blue-color" target="_parent">Grant Delegated Access</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="bold"><a id="sb_PE_HELP" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898#" class="collapsible-header waves-effect waves-teal" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons" aria-hidden="true">help</i>Help&nbsp;<i class="material-icons right" aria-hidden="true">keyboard_arrow_down</i></a> 
+<div class="collapsible-body" role="navigation">
+<ul class="collapsible collapsible-accordion">
+<li id="" data-fwid="" class="sb-link ghfw-hidden" style="display:block !important; background-color:transparent !important; outline:none !important;"><a id="sb_Help" href="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/e/?url=https%3a%2f%2flionpathsupport.psu.edu%2fhelp%2f" title="" class="bright-blue-color" target="_blank">Help&nbsp;<i class="material-icons icon-new">open_in_new</i></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="ptbr-divider"><!--divider--></div>
+<div id="search" class=""></div>
+<div class="ptbr-divider"><!--divider--></div>
+<script type="text/javascript" src="https://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/PE_SR_CUSTOM.PE_SR379_GPA_CALC.GBL?1&amp;pslnkid=PE_S201701201301011126102898">
+</script>
+<div class="ptbr-divider"><!--divider--></div>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PE_BOOTSTRAP_JS_MIN_1.js.download">
+</script>
+<div class="ptbr-divider"><!--divider--></div>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PE_MATERIALIZE_MIN_JS_MIN_1.js.download">
+</script>
+<div class="ptbr-divider"><!--divider--></div>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PE_INIT_JS_MIN_72439.js.download">
+</script>
+<div class="ptbr-divider"><!--divider--></div>
+<div id="ajax_error_modal" class=""><!--Modal for errors -->
+<div tabindex="-1" role="dialog" class="modal fade" id="ajax-error-modal">
+<div role="document" class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header blue-grey-text" id="ajax-error-modal-header"><button type="button" data-dismiss="modal" class="close" aria-label="Close"><span aria-hidden="true">x</span></button> 
+<h4>Error</h4>
+</div>
+<div class="modal-body" id="ajax-error-modal-body">
+<p>&nbsp;</p>
+</div>
+<div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Close</button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ptbr-divider"><!--divider--></div>
+<div id="pe_fonts" class=""></div>
+<div class="ptbr-divider"><!--divider--></div>
+<div id="pe_favicon" class=""></div>
+</div>
+<div id="ptasjs" style="display:none;">
+<div id="ptasjs1">https://www.lionpath.psu.edu/cs/CSPRD/cache/PT_PORTAL_UTIL_JS_MIN_1.js</div>
+</div>
+<div id="ptifrmpopup" style="display:none;">
+<div id="ptpopup" role="alertdialog" aria-labelledby="ptpopoptitle" aria-describedby="ptpopupmsgtext">
+<div id="ptpopupcontainer">
+<div id="ptpopuptitlebar" class="ptpopuptitlebar">
+<p id="ptpopoptitle" class="PTPOPUP_TITLE">&nbsp;</p>
+<div id="ptpopupclose" title="Close">&nbsp;</div>
+</div>
+<div id="ptpopupcontentcontainer">
+<table id="ptpopuplayouttbl">
+<tbody>
+<tr>
+<td>
+<div id="ptpopupcontent">
+<div id="ptiframatfcontent">
+<div class="ptifrmatftitle"><span class="PAPAGETITLE">Add to Favorites</span></div>
+<div class="ptifrmatfinstruct"><span class="PAPAGEINSTRUCTIONS">Please Enter a Unique Description for this Favorite</span></div>
+<div id="ptifrmatfinput"><label id="ptifrmatflbl" class="PSEDITBOXLABEL" for="ptifrmatfdescr">*Description</label> <input id="ptifrmatfdescr" name="ptifrmatfdescr" class="PSEDITBOX" tabindex="0" type="text" value="GPA Calculator" size="30" maxlength="30" uninav="false" uninavtargetfav="" lnode="" rnode="" uninavcrefname="PE_S201701201301011126102898" uninavcreflbl="GPA Calculator"> 
+<div class="ptifrmatfbtns">
+<div><a class="PSPUSHBUTTON Left" style="border:0;"><span><input id="ptifrmatfok" class="PSPUSHBUTTONTBOK" type="button" tabindex="0" value="OK" title="OK"></span></a></div>
+<div><a class="PSPUSHBUTTON Left" style="border:0;"><span><input id="ptifrmatfcancel" class="PSPUSHBUTTONTBOK" type="button" tabindex="0" value="Cancel" title="Cancel"></span></a></div>
+</div>
+<input type="hidden" id="ptifrmatfname" value="PE_S201701201301011126102898"> <input type="hidden" name="ptatfsid" id="ptatfsid" value="7nvWcoXHvjO4cb6AI9XtJvjyNnM%3d"> <textarea type="hidden" id="ptifrmatflist" rows="80" cols="20"></textarea></div>
+</div>
+</div>
+<div id="ptpopupmsg">
+<div id="ptpopupmsgtext" class="popupText">&nbsp;</div>
+<div id="ptpopupmsgbuttons">
+<div><a class="PSPUSHBUTTON Left"><span><input id="ptpopupmsgbtn1" class="PSPUSHBUTTONTBOK" type="button" value="OK" tabindex="0" title="OK"></span></a> <a class="PSPUSHBUTTON Left"><span><input id="ptpopupmsgbtn2" class="PSPUSHBUTTONTBOK" type="button" value="Cancel" tabindex="0" title="Cancel"></span></a></div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="ptpopupshadow">&nbsp;</div>
+</div>
+</div>
+</header>
+<div id="WAIT_empty" class="ptWaitEmpty" style="display: none; position: absolute; visibility: hidden;"><img id="processing" align="left" alt="Processing... please wait" src="./SR015 GPA Calculator_files/PT_PROCESSING_1.gif">
+</div>
+<div id="Delayed_empty" style="visibility: hidden; position:absolute;left:-10000px;top:auto; width:1px; height:1px;overflow:hidden;" aria-relevant="text additions" aria-live="assertive" aria-atomic="true">&nbsp;</div>
+<script type="text/javascript">
+if (/\/c\/\PORTAL_ADMIN\.PTSF_GLOBAL_SEARCH\.GBL/.test(top.location))searchProcessing(1);
+</script>
+</div>
+<!--End pagelet: UniversalNavigation --></div>
+<div><!--Begin pagelet: Nav URL: https%3A%2F%2Fwww.lionpath.psu.edu%2Fpsc%2FCSPRD%2FEMPLOYEE%2FHRMS%2Fs%2FWEBLIB_PT_NAV.ISCRIPT1.FieldFormula.IScript_PT_NAV_INFRAME%3Fnavtype%3Ddropdown%26c%3DAajnLx1fsMxoGGGIUbQf1A%253d%253d-->
+<div class="ptprtlcontainer">
+
+</div>
+<!--End pagelet: Nav --></div>
+<div id="ptifrmcontent">
+<div id="ptifrmtarget"><iframe id="ptifrmtgtframe" name="TargetContent" title="Main Content" frameborder="0" scrolling="auto" onload="ptrc.onLoadTC()" src="./SR015 GPA Calculator_files/PE_SR_CUSTOM.PE_SR379_GPA_CALC.html" style="width: 1536px; height: 583px;"></iframe></div>
+<div id="ptifrmrc" class="ptifrmrcmax">
+<div id="ptrcTCSpacer">&nbsp;</div>
+<div id="ptifrmresizeupmask">&nbsp;</div>
+<div id="ptifrmsep">
+<div id="ptifrmrchandle" class="ptifrmhandle">&nbsp;</div>
+</div>
+<div id="ptifrmresizedownmask">&nbsp;</div>
+<table id="ptrctitlebar" class="ptrctitlebar" cols="6">
+<tbody><tr>
+<td width="16"><a id="ptrccollapse_expand" class="ptrcexpand" title="Collapse Related Content" tabindex="0" onclick="ptrc.rcBodyToggle();" onkeypress="if (event.keyCode != 13) return; ptrc.rcBodyToggle();">&nbsp;</a></td>
+<td align="left" width="180">
+<h2 class="ptrctitlebar">Related Content</h2>
+</td>
+<td align="right" valign="bottom">
+<div id="rcMenuOnRC">&nbsp;</div>
+</td>
+<td align="right" colspan="1" width="17">&nbsp;</td>
+<td align="right" colspan="1" width="70" class="PTCPRCBFRAMERIGHTSEC"><a class="PTCPRCBFRAMEREFRESH" onclick="ptrc.onRefresh();" onmouseover="ptrc.onHoverRefresh();" onmouseout="ptrc.onMouseoutRefresh();" onkeydown="if (event.keyCode != 13) return; ptrc.onRefresh();" tabindex="0"><img class="ptrcimg ptrcpgltrefresh" src="./SR015 GPA Calculator_files/PT_REFRESH_NEW_1.png" id="ptrcrefresh" alt="Refresh"> <img class="ptrcimg ptrcpgltrefresh" src="./SR015 GPA Calculator_files/PT_REFRESH_ONHOVER_1.png" id="ptrcrefreshonhover" alt="Refresh" style="display:none"></a> <a class="PTCPRCBFRAMESETTINGS" aria-haspopup="true" tabindex="0" id="ptrcdropdownicon_RelatedContent" onclick=" ptrc.mopen(event);" onkeydown="ptrc.mkeyevents(event);" onmouseout="ptrc.mclosetime();" title="Pagelet Settings"><img id="ptsrc_dropdownicon_RelatedContent" class="ptrcPgltcontrolsdropdown" src="./SR015 GPA Calculator_files/PTAL_PGLT_DROPDOWN_1.GIF" alt="Pagelet Settings" aria-hidden="true"></a> <!-- pagelet controls dropdown--> 
+<div id="ptrcDropDowndiv_RelatedContent" class="ptrcPgltControls">
+<ul id="ptrcControls_RelatedContent" class="ptrcPgltControls ptrcPgltcontrolshadowabove">
+<li>
+<div id="ptrcDropdown_RelatedContent" onmouseover="javascript:ptrc.mcancelclosetime()" onmouseout="javascript:ptrc.mclosetime()" style="z-index:200" aria-labelledby="ptrcdropdownicon_RelatedContent" role="menu"><a role="menuitem" onclick="ptrc.onNewWindow();" onkeydown="ptrc.marrowkeys(event,&#39;newwin&#39;);" class="ptrcimg" tabindex="0" id="ptrcnewwin">New Window</a> <a role="menuitem" onclick="ptrc.onHideRC(&#39;true&#39;);" onkeydown="ptrc.marrowkeys(event,&#39;hide&#39;);" class="ptrcimg" tabindex="0" id="ptrcclose">Close</a></div>
+</li>
+</ul>
+</div>
+<!-- pagelet controls finished-->
+</td>
+<td align="right" colspan="1" width="20">&nbsp;</td>
+</tr>
+</tbody></table>
+<div id="ptrctitleline">&nbsp;</div>
+<iframe name="RelatedContent" id="RelatedContent" title="Related Content" frameborder="0" scrolling="no" onload="ptrc.onLoadRC()" onmouseover="setupTimeout2()" src="./SR015 GPA Calculator_files/saved_resource.html"></iframe></div>
+<div class="vRCPgltAreaContainer vRCPgltArea_hidden" id="vRCPgltAreaContainer">
+<div class="vRCPgltArea vRCPgltArea_docked" id="vRCPgltArea" style="right: 13px;">
+<table height="10" cellspacing="0" cellpadding="0" border="0" width="10" class="ltr">
+<tbody><tr>
+<td height="100%" align="center" width="100%" valign="bottom" class="vRCNoPadding">
+<table cellspacing="0" cellpadding="0" border="0" class="vRCNoPadding">
+<tbody><tr>
+<td>
+<table cellspacing="0" cellpadding="0" border="0" class="vRCPgltAreaBody" id="vRCPgltAreaBody">
+<tbody><tr>
+<td valign="top" class="vRCPgltAreaResizeBar" id="vRCPgltAreaHideContainer"><a onclick="if ((typeof RCPage != &#39;undefined&#39;) &amp;&amp; (RCPage)) RCPage.onHidePageletArea();" href="javascript:void(0)" tabindex="0" class="PSHYPERLINK" name="ptalPgltAreaHide" id="vRCPgltAreaHide" title="Collapse Related Content"><img hspace="0" height="24" border="0" width="21" vspace="0" class="vRCActionIcon vRCCollapseicon vRCPgltAreaHideIcon" alt="Collapse Related Content" src="./SR015 GPA Calculator_files/PT_RC_COLLAPSE_NEW_1.gif"></a></td>
+<td valign="middle" class="vRCPgltAreaResizeBar vRCPgltAreaResize" id="vRCPgltAreaResizeBar">
+<div class="vRCPgltAreaResizeMiddlediv">&nbsp;</div>
+</td>
+<td align="center" valign="top" class="vRCPgltAreaBorderTopMiddle">
+<table cellspacing="0" cellpadding="0" border="0" width="100%" class="vRCPgltAreaHeader" id="vRCPgltAreaHeader">
+<tbody><tr>
+<td valign="bottom" class="vRCPgltAreaGroupsBar">
+<div class="vRCPageletGroupsDiv" id="vRCPageletGroupsDiv">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tbody><tr>
+<td nowrap="nowrap">
+<div id="SrcMenuOnRC" class="vRCHidden">&nbsp;</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+<div class="vRCPgltAreaFrameDiv" id="vRCPgltAreaFrameDiv"><iframe name="SRelatedContent" id="SRelatedContent" title="Related Content" frameborder="0" scrolling="no" onmouseover="setupTimeout2()" onload="ptrc.onLoadRC()" src="./SR015 GPA Calculator_files/saved_resource(1).html"></iframe></div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top" class="vRCPgltAreaBodyAnchor vRCPgltAreaBorderTopLeft vRCHidden" id="vRCPgltAreaBodyAnchor"><a onclick="if ((typeof RCPage != &#39;undefined&#39;) &amp;&amp; (RCPage)) RCPage.onShowPageletArea();" href="javascript:void(0)" tabindex="0" class="PSHYPERLINK" title="Expand Related Content" name="ptalPgltAreaShow" id="vRCPgltAreaShow" style="display: none;"><img hspace="0" height="22" border="0" width="14" vspace="0" class="vRCActionIcon vRCExpandicon vRCPgltAreaShowIcon" alt="Expand Related Content" src="./SR015 GPA Calculator_files/PT_RC_EXPAND_NEW_1.gif"></a></td>
+<td valign="middle" class="vRCPgltAreaBodyAnchor vRCPgltAreaBorderTopLeft vRCPgltAreaBar" id="vRCPgltAreaBodyShow">
+<div class="vRCPgltAreaResizeMiddlediv">&nbsp;</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<script type="text/javascript" src="./SR015 GPA Calculator_files/PT_HNAV_TEMPLATE_JS_MIN_1.js.download">
+</script>
+</div>
+<script src="./SR015 GPA Calculator_files/jquery.min.js.download"></script>
+<script>var ghfwjq = jQuery.noConflict();</script>
+
+<style>
+.ghfw-hidden { 
+    display: none !important; 
+    background-color: red !important;
+    outline: 3px solid red !important;
+}
+</style>
+
+<script src="./SR015 GPA Calculator_files/fw_navlinks.js.download"></script>
+
+<script>
+ghfwjq.ajax({
+    dataType: "jsonp",
+    url: '/psc/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_GS_ERPFW.ISCRIPT1.FieldFormula.iScript_HideNavLinks?ip=0.0.0.0&blk_components=GS_DELEGATE_PGOPTS%2CSS_TSCRPT_OFF&default_block=false',
+    success: function(data) {
+        var showMe = new portalReference(data.block, data.results, data.defaultBlock );
+            
+        window.showMe = showMe; // Provide this in global scope for wrappedAppendNode
+        jQueryFirewallHide(showMe);
+        
+        // this handles the local pagelets - remote pagelets handled separately
+        var pagelets = ghfwjq('.PTPAGELET').not('[rnode]');
+        pagelets.each( function() {
+            jQueryFirewallHide(showMe, this);   // in case its already loaded
+            ghfwjq(this).on('pagelet_load', function() {
+                jQueryFirewallHide(showMe, this);
+            });
+        });
+    }
+  
+});
+</script>
+
+<script>
+if (typeof(remote_nodes) === 'undefined') { remote_nodes = {}; }
+
+// patch up older browsers - IE < 9 or IE quirks mode
+if (!Object.keys) {
+    Object.keys = function(o){
+        if (o !== Object(o)) {
+            throw new TypeError('Object.keys called on non-object');
+        }
+        
+        var ret = [], p;
+        for (p in o) {
+            if (Object.prototype.hasOwnProperty.call(o,p)) {
+                ret.push(p);
+            }
+        }
+        return ret;
+    };
+}
+
+// source in the remote showMe data
+ghfwjq.each( Object.keys(remote_nodes), function() {
+    var node_name = this, 
+        base_url = remote_nodes[node_name], 
+        portal_name = 'EMPLOYEE', 
+        script = '/s/WEBLIB_GS_ERPFW.ISCRIPT1.FieldFormula.iScript_HideNavLinks', 
+        remote_url = base_url + portal_name + '/' + 
+                     node_name + script + '?' + 'rnode=' + node_name;
+                     
+    if (!!base_url) {
+        ghfwjq.ajax({
+            url: remote_url,
+            dataType: "jsonp", 
+            cache: false, 
+            xhrFields: {
+                withCredentials: true
+            }
+        }).done(function(data) {
+            var showMe = new portalReference(data.block, data.results, data.defaultBlock ), 
+                pagelets = ghfwjq('.PTPAGELET[rnode="' + node_name + '"]'), 
+                have_remote = pagelets.length !== 0, 
+                have_results = Object.keys(showMe.itemList).length !== 0;
+                        
+            if (have_remote && have_results) {
+                pagelets.each( function() {
+                    ghfwjq(this).on('pagelet_load', function() {
+                        jQueryFirewallHide(showMe, this, node_name);
+                    });
+                });
+            }
+        });
+    }
+});
+
+var debug = false,
+    portal_name = 'EMPLOYEE',
+    defBlock = 0,
+    ghPTVersion = '8.56.11',
+    ghBlockExclude = {
+        tab  : 0,
+        pglt : 0
+    },
+    tabAllowList = {
+    },
+    tabBlockList = {
+    },
+    pageletAllowList = {
+    },
+    pageletBlockList = {
+    },
+    menuAllowList = {
+    },
+    menuBlockList = {
+    },
+    componentAllowList = {
+        'GS_DELEGATE_LOGIN' : 1,
+        'GS_DELEGATE_PGOPTS' : 1,
+        'PE_TE052_UI_HOME_R' : 1,
+        'PORTAL_ADD_FAV' : 1,
+        'PORTAL_EDIT_FAV' : 1,
+        'PORTAL_HP_REMOVE' : 1,
+        'PORTAL_SEARCH' : 1
+    },
+    componentBlockList = {
+        'GS_DELEGATE_PGOPTS' : 1,
+        'SS_TSCRPT_OFF' : 1
+    };
+    
+function ghPublish(type) {
+    var e, d = document;
+    if (d.createEvent) {
+        try {
+            e = new Event(type);
+            d.documentElement.dispatchEvent(e);
+        } catch (ex) {
+            var evt = document.createEvent("CustomEvent");
+            evt.initCustomEvent(type, false, false, null);
+        }
+    }
+    else if (d.createEventObject){
+        e = d.createEventObject();
+        
+        if (d.dispatchEvent) {
+            d.dispatchEvent(e);
+        } else if (d.fireEvent) {
+            try {
+                d.fireEvent('on' + type, e);
+            } catch (ex) {
+            }
+        }
+    }
+}
+
+function ghSubscribe(type, callback) {
+    var d = document;
+    if (d.addEventListener) {
+        d.documentElement.addEventListener(type, callback, false);
+    }
+    else {
+        d.attachEvent('on' + type, callback);
+    }
+}
+
+function ghfwFilterTabs(hpTabs) {
+
+    if (!!!hpTabs || hpTabs.length === 0) { return []; }
+    var blockedTabs = [], 
+        flagged = false,
+        tabList = defBlock ? tabAllowList : tabBlockList;
+        
+    if (!!tabList && !ghfwjq.isEmptyObject(tabList)) {
+        for (var i = hpTabs.length - 1; i >= 0; i--) {
+            flagged = !!tabList[hpTabs[i].name];
+            if ((defBlock && !flagged) || (!defBlock && flagged)) {
+                blockedTabs.push(hpTabs.splice(i, 1)[0]);
+            }
+        }
+    }
+    
+    return blockedTabs;
+}
+
+function ghfwGetHPTabs(callBack) {
+
+    var ajaxURL = "/psc/CSPRD/EMPLOYEE/HRMS/s/WEBLIB_GS_ERPFW.ISCRIPT1.FieldFormula.iScript_RequestHandler" + 
+                  "?handler=GS_ERP_FIREWALL%3aRequest%3aTab%3aTabList",
+        tabs = [],
+        notifyCaller = function () {
+            if (typeof callBack === 'function') {
+                callBack.call(tabs);
+            }
+            else {
+                ghfwjq(document).trigger('ghfw-tabs', [tabs]);
+            }
+        }, 
+        processTabs = function (html) {
+            tabs = ghfwjq.parseJSON(html);
+            notifyCaller();
+        };
+
+    ghfwjq.ajax(
+        {     
+        url : ajaxURL, 
+        cache: false, 
+          success: processTabs
+        }
+    );
+}
+
+ghfwjq(document).trigger('ghfw-end');
+ghPublish('ghfw-end');
+</script>
+
+
+
+<div id="ptalPageMask" class="ptalPageMask"></div><div class="hiddendiv common"></div><div class="drag-target" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div><div class="drag-target" style="right: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div></body></html>

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Patry/Documents/NetBeansProjects/Github_Repos/CMPSC221/CustomBoardGameGUI/CustomBoardGameGUI/src/smith/patryk/TutorialScreen.java</file>
+            <file>file:/C:/Users/Patry/Documents/NetBeansProjects/Github_Repos/CMPSC221/CustomBoardGameGUI/CustomBoardGameGUI/src/smith/patryk/Starting.java</file>
+            <file>file:/C:/Users/Patry/Documents/NetBeansProjects/Github_Repos/CMPSC221/CustomBoardGameGUI/CustomBoardGameGUI/src/smith/patryk/EndScreen.java</file>
+            <file>file:/C:/Users/Patry/Documents/NetBeansProjects/Github_Repos/CMPSC221/CustomBoardGameGUI/CustomBoardGameGUI/src/smith/patryk/Settings.java</file>
+            <file>file:/C:/Users/Patry/Documents/NetBeansProjects/Github_Repos/CMPSC221/CustomBoardGameGUI/CustomBoardGameGUI/src/smith/patryk/GameScreen.java</file>
+        </group>
     </open-files>
 </project-private>

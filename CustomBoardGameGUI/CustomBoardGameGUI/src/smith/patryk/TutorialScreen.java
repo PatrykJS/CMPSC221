@@ -171,7 +171,10 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
             drawTreasureChest(g);
         } 
         if(treasure.didWin()){
-            this.setVisible(false); 
+            Starting.mainScreen.setVisible(true);
+            this.setVisible(false);
+            stopSong(); 
+            Starting.endScreen.startSong();
         } 
         
         drawInstructions(g, 0, 100);
@@ -192,12 +195,12 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
        int size = 30;
        g.setFont(new Font("Forte", 3, size));
        g.drawString("To move around just use the "+KeyEvent.getKeyText(Starting.keyMap[0])
-                                                    +KeyEvent.getKeyText(Starting.keyMap[1])
-                                                    +KeyEvent.getKeyText(Starting.keyMap[2])
-                                                    +KeyEvent.getKeyText(Starting.keyMap[3])
+                                                    +" "+KeyEvent.getKeyText(Starting.keyMap[1])
+                                                    +" "+KeyEvent.getKeyText(Starting.keyMap[2])
+                                                    +" "+KeyEvent.getKeyText(Starting.keyMap[3])
                                                     +" keys.", _x, _y+size);
-       g.drawString("To dig for the treasure use the Right Mouse Button.",_x , _y+size*2);
-       g.drawString("To use the compass use the SPACEBAR.", _x, _y+size*3);
+       g.drawString("To dig for the treasure use the "+KeyEvent.getKeyText(Starting.keyMap[5])+".",_x , _y+size*2);
+       g.drawString("To use the compass use the "+KeyEvent.getKeyText(Starting.keyMap[4])+".", _x, _y+size*3);
        g.drawString("You have only 3 uses of the compass.", _x, _y+size*4);
        g.drawString("You will know when you find the treasure when the red line on the compass dissapears.", _x, _y+size*5);
     }
@@ -239,12 +242,9 @@ public final class TutorialScreen extends JPanel implements KeyListener, MouseLi
             }
         }else if(e.getKeyCode() == Starting.keyMap[5]){
             if(treasure.getPlayer().dig(treasure)){
-                Starting.endScreen.setVisible(true);
-                this.setVisible(false);
-                stopSong(); 
-                Starting.endScreen.startSong();
+                treasure.setWin(true);
             } 
-        }
+        } 
     }
 
     @Override

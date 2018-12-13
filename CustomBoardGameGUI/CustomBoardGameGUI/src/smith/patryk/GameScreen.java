@@ -231,12 +231,9 @@ public final class GameScreen extends JPanel implements KeyListener, MouseListen
             }
         }else if(e.getKeyCode() == Starting.keyMap[5]){
             if(treasure.getPlayer().dig(treasure)){
-                Starting.endScreen.setVisible(true);
-                this.setVisible(false);
-                stopSong(); 
-                Starting.endScreen.startSong();
+                treasure.setWin(true);
             } 
-        }
+        } 
     }
 
     @Override

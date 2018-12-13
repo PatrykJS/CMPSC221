@@ -45,8 +45,7 @@ public class Starting extends javax.swing.JPanel{
         KeyEvent.VK_DOWN,      // Move DOWN
         KeyEvent.VK_RIGHT,       // Move RIGHT
         KeyEvent.VK_C,          // Compass
-        KeyEvent.VK_SPACE       // Dig
-        
+        KeyEvent.VK_SPACE       // Dig 
     }; 
     /**
      * Creates new form StartingScreen

@@ -9,12 +9,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter; 
-import java.io.Writer;
-import static java.lang.System.exit; 
+import java.io.Writer;  
 import java.util.Arrays; 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List; 
 import javax.swing.KeyStroke;
 
 /**
@@ -400,7 +397,7 @@ public class Settings extends javax.swing.JPanel{
         gridBagConstraints.gridy = 0;
         add(jButton8, gridBagConstraints);
 
-        jButton9.setText("Quit");
+        jButton9.setText("Main Menu");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -501,7 +498,10 @@ public class Settings extends javax.swing.JPanel{
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        exit(0);
+        this.setVisible(false);
+        Starting.gameWindow.stopSong();
+        Starting.mainScreen.startSong();
+        Starting.mainScreen.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
 
