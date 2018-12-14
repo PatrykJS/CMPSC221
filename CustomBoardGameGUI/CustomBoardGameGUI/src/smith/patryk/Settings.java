@@ -3,15 +3,17 @@
 package smith.patryk;
  
 import java.awt.event.KeyEvent; 
-import java.io.BufferedReader;
-import java.io.BufferedWriter; 
+import java.io.BufferedReader;  
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter; 
-import java.io.Writer;  
+import java.io.FileReader; 
+import java.io.IOException;  
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays; 
 import java.util.List; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.KeyStroke;
 
 /**
@@ -35,20 +37,31 @@ public class Settings extends javax.swing.JPanel{
     private void loadSettings(){
         List<String> data = null;  
         BufferedReader reader = null;
+        String fileName = getClass().getResource("/resources/settings.txt").toString();
+ 
         try {
-            reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/resources/settings.txt")));
-             
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader =  new FileReader(fileName); 
+            
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+ 
             String line = null;
             while ((line = reader.readLine()) != null) {
+                System.out.println("FILE READOUT: "+line);
                 if(!"".equals(line)){
                     data.add(line);
                 }
-            }
-            reader.close();
-            System.out.println("Sucessfully Read Settings.");
-        } catch (IOException ex) {
-            // Report
-        }  
+            }  
+            bufferedReader.close();         
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println( "Unable to open file '" +  fileName + "'");       
+            System.err.println(ex.getMessage());
+        }
+        catch(IOException ex) {
+            System.out.println( "Error reading file '"  + fileName + "'");
+            System.err.println(ex.getMessage());
+        }
         
         if(data != null){
             System.out.println("Settings Loaded Successfully.");
@@ -57,6 +70,8 @@ public class Settings extends javax.swing.JPanel{
             Starting.keyMap[2] = Integer.getInteger(data.get(2));
             Starting.keyMap[3] = Integer.getInteger(data.get(3));
             Starting.keyMap[4] = Integer.getInteger(data.get(4));
+            Starting.keyMap[4] = Integer.getInteger(data.get(5));
+            
         }
     }
     private void saveSettings(){
@@ -64,28 +79,39 @@ public class Settings extends javax.swing.JPanel{
         jTextField2.setText(KeyEvent.getKeyText(Starting.keyMap[1]));
         jTextField3.setText(KeyEvent.getKeyText(Starting.keyMap[2]));
         jTextField4.setText(KeyEvent.getKeyText(Starting.keyMap[3]));
-        jTextField5.setText(KeyEvent.getKeyText(Starting.keyMap[4]));
-        
+        jTextField6.setText(KeyEvent.getKeyText(Starting.keyMap[4]));
+        jTextField7.setText(KeyEvent.getKeyText(Starting.keyMap[5]));
          
-        List<String> data;
-        data = Arrays.asList(  Integer.toString(Starting.keyMap[0]),
-            Integer.toString(Starting.keyMap[1]),
-            Integer.toString(Starting.keyMap[2]),
-            Integer.toString(Starting.keyMap[3]),
-            Integer.toString(Starting.keyMap[4]),
-            Integer.toString(jSlider1.getValue()));
-          
-        Writer writer = null;
+        List<String> data = Arrays.asList(  Integer.toString(Starting.keyMap[0]) +'\n',
+                                            Integer.toString(Starting.keyMap[1]) +'\n',
+                                            Integer.toString(Starting.keyMap[2]) +'\n',
+                                            Integer.toString(Starting.keyMap[3]) +'\n',
+                                            Integer.toString(Starting.keyMap[4]) +'\n',
+                                            Integer.toString(Starting.keyMap[5]) +'\n',
+                                            Integer.toString(jSlider1.getValue()) +'\n');
 
-        try {
-            writer = new BufferedWriter(new OutputStreamWriter( new FileOutputStream(getClass().getResourceAsStream("/resources/settings.txt").toString()), "utf-8")); 
-            for(String s: data){
-                writer.write(s);
+          
+        Path path = Paths.get("src/resources/settings.txt");
+        FileOutputStream outputStream = null;
+        for(String s: data){
+        
+            try {
+                outputStream = new FileOutputStream(path.toFile());
+                byte[] strToBytes = s.getBytes();
+                outputStream.write(strToBytes);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+        if(outputStream != null){
+            try {
+                outputStream.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
             }
-            writer.close();
-        } catch (IOException ex) {
-            // Report
-        }  
+        }
     }
     public void setReference(int i){
         reference = i;
